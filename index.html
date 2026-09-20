@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ما وراء باب الاستقبال</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap');
+
+:root{
+    --navy:#07111f;
+    --navy2:#0c1b2d;
+    --navy3:#10243a;
+    --gold:#d6b46a;
+    --gold-light:#f0d99b;
+    --white:#eee9dc;
+    --muted:#9da9b7;
+    --line:rgba(214,180,106,.25);
+}
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    min-height:100vh;
+    background:
+        radial-gradient(circle at 20% 10%, rgba(214,180,106,.08), transparent 25%),
+        radial-gradient(circle at 80% 80%, rgba(55,100,150,.12), transparent 30%),
+        linear-gradient(135deg,#040a12,#081625 50%,#050c16);
+    color:var(--white);
+    font-family:"Cairo",sans-serif;
+    overflow-x:hidden;
+}
+
+/* --------------------------------
+   BACKGROUND
+-------------------------------- */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.18;
+    background-image:
+        linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);
+    background-size:35px 35px;
+}
+
+.fog{
+    position:fixed;
+    width:450px;
+    height:450px;
+    border-radius:50%;
+    background:rgba(87,118,151,.06);
+    filter:blur(80px);
+    pointer-events:none;
+}
+
+.fog.one{
+    top:-150px;
+    right:-100px;
+}
+
+.fog.two{
+    bottom:-180px;
+    left:-120px;
+}
+
+/* --------------------------------
+   MAIN
+-------------------------------- */
+
+.story-shell{
+    width:min(900px,92%);
+    margin:auto;
+    padding:30px 0 60px;
+}
+
+/* --------------------------------
+   TOP BAR
+-------------------------------- */
+
+.topbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:25px;
+    padding:12px 5px;
+}
+
+.brand{
+    color:var(--gold);
+    font-family:"Amiri",serif;
+    font-size:18px;
+    letter-spacing:.5px;
+}
+
+.page-counter{
+    color:var(--muted);
+    font-size:12px;
+}
+
+/* --------------------------------
+   BOOK
+-------------------------------- */
+
+.book{
+    position:relative;
+    background:
+        linear-gradient(145deg,
+            rgba(16,36,58,.96),
+            rgba(6,17,30,.97));
+    border:1px solid rgba(214,180,106,.28);
+    border-radius:24px;
+    padding:55px clamp(22px,7vw,75px) 65px;
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.45),
+        inset 0 0 70px rgba(214,180,106,.025);
+    overflow:hidden;
+}
+
+.book::before{
+    content:"";
+    position:absolute;
+    inset:14px;
+    border:1px solid rgba(214,180,106,.10);
+    border-radius:17px;
+    pointer-events:none;
+}
+
+.book::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:120px;
+    height:1px;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+
+/* --------------------------------
+   ORNAMENT
+-------------------------------- */
+
+.ornament{
+    text-align:center;
+    color:var(--gold);
+    font-size:20px;
+    letter-spacing:8px;
+    margin-bottom:28px;
+    opacity:.85;
+}
+
+.sword-mark{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
+    margin-bottom:35px;
+}
+
+.sword{
+    width:90px;
+    height:1px;
+    background:linear-gradient(90deg,transparent,var(--gold));
+    transform:rotate(-8deg);
+}
+
+.sword.reverse{
+    transform:rotate(8deg);
+    background:linear-gradient(90deg,var(--gold),transparent);
+}
+
+.sword-center{
+    color:var(--gold);
+    font-size:20px;
+}
+
+/* --------------------------------
+   TITLE
+-------------------------------- */
+
+.story-title{
+    text-align:center;
+    font-family:"Amiri",serif;
+    font-size:clamp(34px,7vw,58px);
+    line-height:1.2;
+    color:var(--gold-light);
+    margin:0;
+    font-weight:700;
+}
+
+.subtitle{
+    text-align:center;
+    color:var(--muted);
+    margin:15px auto 40px;
+    font-size:14px;
+    max-width:500px;
+    line-height:2;
+}
+
+/* --------------------------------
+   CHAPTER
+-------------------------------- */
+
+.chapter-number{
+    text-align:center;
+    color:var(--gold);
+    font-size:12px;
+    letter-spacing:2px;
+    margin-bottom:8px;
+}
+
+.chapter-title{
+    text-align:center;
+    font-family:"Amiri",serif;
+    font-size:30px;
+    color:#f2ead9;
+    margin:0 0 35px;
+}
+
+/* --------------------------------
+   STORY TEXT
+-------------------------------- */
+
+.story-text{
+    font-family:"Amiri",serif;
+    font-size:21px;
+    line-height:2.25;
+    color:#e9e4d8;
+}
+
+.story-text p{
+    margin:0 0 25px;
+}
+
+.story-text .gold{
+    color:var(--gold-light);
+}
+
+.story-text .whisper{
+    color:#aeb9c5;
+    font-size:.9em;
+}
+
+.story-text .important{
+    color:var(--gold-light);
+    display:block;
+    text-align:center;
+    margin:35px 0;
+    font-size:1.08em;
+}
+
+.story-text .center{
+    text-align:center;
+}
+
+/* --------------------------------
+   DIVIDER
+-------------------------------- */
+
+.divider{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin:45px 0;
+}
+
+.divider span{
+    height:1px;
+    flex:1;
+    background:var(--line);
+}
+
+.divider b{
+    color:var(--gold);
+    font-weight:400;
+}
+
+/* --------------------------------
+   CHOICE
+-------------------------------- */
+
+.choice-box{
+    margin-top:50px;
+    padding:28px 0 5px;
+    border-top:1px solid var(--line);
+}
+
+.choice-question{
+    font-family:"Amiri",serif;
+    color:var(--gold-light);
+    text-align:center;
+    font-size:24px;
+    margin-bottom:25px;
+}
+
+.choices{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.choice{
+    position:relative;
+    border:1px solid rgba(214,180,106,.35);
+    background:rgba(255,255,255,.025);
+    color:#eee8db;
+    border-radius:15px;
+    padding:19px 18px;
+    font-family:"Cairo",sans-serif;
+    font-size:14px;
+    cursor:pointer;
+    transition:.3s ease;
+    overflow:hidden;
+}
+
+.choice::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(120deg,transparent,rgba(214,180,106,.09),transparent);
+    transform:translateX(-100%);
+    transition:.5s;
+}
+
+.choice:hover{
+    transform:translateY(-3px);
+    border-color:var(--gold);
+    color:var(--gold-light);
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+.choice:hover::before{
+    transform:translateX(100%);
+}
+
+/* --------------------------------
+   CONTINUE
+-------------------------------- */
+
+.continue-wrap{
+    text-align:center;
+    margin-top:40px;
+}
+
+.continue-btn{
+    border:1px solid var(--gold);
+    color:var(--gold-light);
+    background:transparent;
+    padding:14px 38px;
+    border-radius:50px;
+    font-family:"Cairo",sans-serif;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.continue-btn:hover{
+    background:var(--gold);
+    color:#07111f;
+}
+
+/* --------------------------------
+   INTRO
+-------------------------------- */
+
+.intro{
+    min-height:75vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.intro .story-title{
+    margin-top:10px;
+}
+
+.enter-button{
+    display:block;
+    width:max-content;
+    margin:35px auto 0;
+    padding:15px 45px;
+    border-radius:50px;
+    border:1px solid var(--gold);
+    background:linear-gradient(135deg,rgba(214,180,106,.12),rgba(214,180,106,.03));
+    color:var(--gold-light);
+    font-family:"Cairo",sans-serif;
+    cursor:pointer;
+    font-size:15px;
+    transition:.35s;
+}
+
+.enter-button:hover{
+    background:var(--gold);
+    color:#07111f;
+    box-shadow:0 10px 40px rgba(214,180,106,.15);
+}
+
+/* --------------------------------
+   DOOR
+-------------------------------- */
+
+.door-scene{
+    text-align:center;
+    margin:40px auto;
+}
+
+.door{
+    width:180px;
+    height:260px;
+    margin:auto;
+    border:1px solid rgba(214,180,106,.5);
+    border-radius:8px 8px 3px 3px;
+    background:
+        linear-gradient(90deg,
+            rgba(214,180,106,.04),
+            rgba(214,180,106,.10),
+            rgba(214,180,106,.03));
+    position:relative;
+    box-shadow:inset 0 0 30px rgba(0,0,0,.4);
+}
+
+.door::before{
+    content:"⚔";
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    font-size:45px;
+    color:var(--gold);
+    opacity:.65;
+}
+
+.door::after{
+    content:"";
+    position:absolute;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--gold);
+    right:20px;
+    top:50%;
+}
+
+/* --------------------------------
+   PROGRESS
+-------------------------------- */
+
+.progress{
+    position:fixed;
+    bottom:18px;
+    left:50%;
+    transform:translateX(-50%);
+    width:min(300px,70%);
+    height:3px;
+    background:rgba(255,255,255,.08);
+    border-radius:10px;
+    z-index:20;
+}
+
+.progress-bar{
+    height:100%;
+    width:0%;
+    background:var(--gold);
+    transition:.5s;
+    border-radius:10px;
+}
+
+/* --------------------------------
+   BACK BUTTON
+-------------------------------- */
+
+.back-btn{
+    margin-top:30px;
+    background:none;
+    border:none;
+    color:#8794a3;
+    font-family:"Cairo",sans-serif;
+    cursor:pointer;
+    font-size:12px;
+}
+
+.back-btn:hover{
+    color:var(--gold);
+}
+
+/* --------------------------------
+   MOBILE
+-------------------------------- */
+
+@media(max-width:650px){
+
+    .story-shell{
+        width:94%;
+        padding-top:12px;
+    }
+
+    .book{
+        padding:42px 22px 50px;
+        border-radius:19px;
+    }
+
+    .book::before{
+        inset:9px;
+    }
+
+    .story-text{
+        font-size:19px;
+        line-height:2.15;
+    }
+
+    .choices{
+        grid-template-columns:1fr;
+    }
+
+    .choice{
+        padding:17px 15px;
+    }
+
+    .chapter-title{
+        font-size:26px;
+    }
+
+    .door{
+        width:145px;
+        height:215px;
+    }
+}
+
+/* --------------------------------
+   ANIMATION
+-------------------------------- */
+
+.fade{
+    animation:fade .7s ease;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.spark{
+    position:fixed;
+    width:3px;
+    height:3px;
+    background:var(--gold);
+    border-radius:50%;
+    opacity:.25;
+    pointer-events:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="fog one"></div>
+<div class="fog two"></div>
+
+<div class="story-shell">
+
+    <div class="topbar">
+        <div class="brand">حكاية لم تُكتب بعد</div>
+        <div class="page-counter" id="pageCounter">البداية</div>
+    </div>
+
+    <main class="book" id="storyBook">
+
+        <!--
+        ==========================================
+        INTRO
+        ==========================================
+        -->
+
+        <section id="intro" class="intro fade">
+
+            <div class="ornament">✦　✧　✦</div>
+
+            <div class="sword-mark">
+                <div class="sword"></div>
+                <div class="sword-center">⚔</div>
+                <div class="sword reverse"></div>
+            </div>
+
+            <h1 class="story-title">
+                ما وراء باب الاستقبال
+            </h1>
+
+            <p class="subtitle">
+                حكاية فتاةٍ كانت تظن أنها تعرف المكان جيدًا...
+                حتى اكتشفت أن بعض الأبواب لا تؤدي إلى المكان الذي نتوقعه.
+            </p>
+
+            <div class="door-scene">
+                <div class="door"></div>
+            </div>
+
+            <button class="enter-button" onclick="startStory()">
+                افتحي الحكاية
+            </button>
+
+        </section>
+
+
+        <!--
+        ==========================================
+        STORY CONTAINER
+        ==========================================
+        -->
+
+        <section id="story" style="display:none;">
+
+            <div class="chapter-number" id="chapterNumber"></div>
+
+            <h2 class="chapter-title" id="chapterTitle"></h2>
+
+            <div class="story-text" id="storyText"></div>
+
+            <div id="choiceArea"></div>
+
+            <div class="continue-wrap" id="continueArea"></div>
+
+            <button class="back-btn" id="backButton" onclick="goBack()" style="display:none;">
+                ← العودة
+            </button>
+
+        </section>
+
+    </main>
+
+</div>
+
+<div class="progress">
+    <div class="progress-bar" id="progressBar"></div>
+</div>
+
+
+<script>
+
+/*
+====================================================
+   STORY ENGINE
+====================================================
+
+كل صفحة لها:
+- chapter
+- title
+- text
+- choice أو next
+
+يمكننا لاحقًا إضافة القصة الطويلة هنا بسهولة.
+
+====================================================
+*/
+
+const pages = {
+
+    start:{
+        chapter:"الفصل الأول",
+        title:"يومٌ يشبه كل الأيام",
+        text:`
+            <p>
+                كنت أظن أنني أعرف هذا المكان جيدًا.
+            </p>
+
+            <p>
+                أعرف الباب الذي يفتح عشرات المرات في اليوم،
+                وأعرف الأصوات القادمة من الجهة الأخرى،
+                وأعرف حتى صوت السيوف حين تتلاقى.
+            </p>
+
+            <p>
+                كنت أجلس خلف مكتب الاستقبال،
+                أرى عالم المبارزة أمامي طوال الوقت،
+                لكنه لم يكن عالمي.
+            </p>
+
+            <p>
+                على الأقل...
+                <span class="gold">هكذا كنت أظن.</span>
+            </p>
+
+            <p>
+                كان كل شيء طبيعيًا في ذلك اليوم.
+                الناس يدخلون، وآخرون يغادرون،
+                والأصوات تأتي من صالة المبارزة كعادتها.
+            </p>
+
+            <p>
+                ثم حدث شيء صغير.
+            </p>
+
+            <span class="important">
+                شيء صغير جدًا...
+                لكنه كان كافيًا ليغيّر الحكاية كلها.
+            </span>
+        `,
+        next:"door"
+    },
+
+    door:{
+        chapter:"الفصل الثاني",
+        title:"الباب الذي لم ألاحظه من قبل",
+        text:`
+            <p>
+                سمعت صوتًا خلفي.
+            </p>
+
+            <p>
+                التفتُّ.
+            </p>
+
+            <p>
+                لم يكن هناك أحد.
+            </p>
+
+            <p>
+                لكنني رأيت شيئًا لم أره من قبل.
+            </p>
+
+            <p>
+                كان هناك باب صغير في الجدار.
+                باب كنت متأكدة أنني لم أره في أي يوم سابق.
+            </p>
+
+            <p>
+                اقتربت منه.
+            </p>
+
+            <p>
+                كان على مقبضه نقش لسيفين متقاطعين.
+            </p>
+
+            <p>
+                وضعت يدي على المقبض...
+            </p>
+
+            <span class="important">
+                وتوقفت.
+            </span>
+        `,
+        choice:{
+            question:"ماذا أفعل؟",
+            options:[
+                {
+                    icon:"⚔️",
+                    text:"أفتح الباب",
+                    next:"openDoor"
+                },
+                {
+                    icon:"🌙",
+                    text:"أتجاهله وأعود إلى الاستقبال",
+                    next:"ignoreDoor"
+                }
+            ]
+        }
+    },
+
+    openDoor:{
+        chapter:"الفصل الثالث",
+        title:"ما وراء الباب",
+        text:`
+            <p>
+                فتحت الباب.
+            </p>
+
+            <p>
+                لم أجد خلفه غرفة أخرى.
+            </p>
+
+            <p>
+                وجدت ممرًا طويلًا يمتد إلى مكان لم أعرفه.
+            </p>
+
+            <p>
+                كان ضوءه مختلفًا.
+                والجدران تحمل رايات لا أعرف أصحابها.
+            </p>
+
+            <p>
+                وفي آخر الممر...
+                كان صوت السيوف واضحًا.
+            </p>
+
+            <p>
+                لكن الغريب أنني لم أشعر بالخوف.
+            </p>
+
+            <p>
+                شعرت بشيء آخر.
+            </p>
+
+            <span class="important">
+                شعرت أنني أعرف هذا المكان.
+            </span>
+        `,
+        next:"firstEncounter"
+    },
+
+    ignoreDoor:{
+        chapter:"الفصل الثالث",
+        title:"كأن شيئًا لم يحدث",
+        text:`
+            <p>
+                أغلقت الباب وعدت إلى مكتبي.
+            </p>
+
+            <p>
+                حاولت أن أقنع نفسي أنني تخيلته.
+            </p>
+
+            <p>
+                مرّت دقيقة.
+            </p>
+
+            <p>
+                ثم دقيقتان.
+            </p>
+
+            <p>
+                وعدت الأصوات إلى طبيعتها.
+            </p>
+
+            <p>
+                ظننت أن كل شيء انتهى.
+            </p>
+
+            <p>
+                حتى سمعت صوت السيف...
+                <span class="gold">من خلف الباب الذي أغلقته.</span>
+            </p>
+        `,
+        next:"firstEncounter"
+    },
+
+    firstEncounter:{
+        chapter:"الفصل الرابع",
+        title:"العالم الذي لا يعرفني",
+        text:`
+            <p>
+                وجدت نفسي في مكان لا يشبه النادي الذي أعرفه.
+            </p>
+
+            <p>
+                كان هناك مبارزون في كل مكان.
+                بعضهم يحمل سيوفًا،
+                وبعضهم يرتدي أقنعة،
+                وبعضهم وقف ينظر إليّ وكأنه كان ينتظر وصولي.
+            </p>
+
+            <p>
+                اقترب مني شخص يرتدي قناعًا أسود.
+            </p>
+
+            <p>
+                لم يقل اسمي.
+            </p>
+
+            <p>
+                لكنه قال:
+            </p>
+
+            <span class="important">
+                «أنتِ تأخرتِ.»
+            </span>
+
+            <p>
+                نظرت إليه باستغراب.
+            </p>
+
+            <p>
+                لم أكن أعرفه.
+            </p>
+
+            <p>
+                أو...
+                <span class="gold">ربما كنت أعرفه، لكنني نسيت.</span>
+            </p>
+        `,
+        choice:{
+            question:"ماذا أقول له؟",
+            options:[
+                {
+                    icon:"⚔️",
+                    text:"من أنت؟ وأين أنا؟",
+                    next:"ask"
+                },
+                {
+                    icon:"🌙",
+                    text:"كيف تعرف أنني سأأتي؟",
+                    next:"challenge"
+                }
+            ]
+        }
+    },
+
+    ask:{
+        chapter:"الفصل الخامس",
+        title:"السؤال الخطأ",
+        text:`
+            <p>
+                قلت له:
+            </p>
+
+            <p class="gold center">
+                «من أنت؟ وأين أنا؟»
+            </p>
+
+            <p>
+                ضحك بهدوء.
+            </p>
+
+            <p>
+                ثم أشار إلى السيف المعلق خلفه.
+            </p>
+
+            <p>
+                «السؤال ليس أين أنتِ.»
+            </p>
+
+            <p>
+                توقف لحظة.
+            </p>
+
+            <span class="important">
+                «السؤال هو... لماذا أنتِ هنا؟»
+            </span>
+
+            <p>
+                ولم أعرف ماذا أجيبه.
+            </p>
+        `,
+        next:"endingDemo"
+    },
+
+    challenge:{
+        chapter:"الفصل الخامس",
+        title:"السؤال الذي لم يتوقعه",
+        text:`
+            <p>
+                نظرت إليه وقلت:
+            </p>
+
+            <p class="gold center">
+                «كيف تعرف أنني سأأتي؟»
+            </p>
+
+            <p>
+                سكت.
+            </p>
+
+            <p>
+                وللمرة الأولى، بدا عليه التردد.
+            </p>
+
+            <p>
+                ثم قال:
+            </p>
+
+            <span class="important">
+                «لأن هذه الحكاية بدأت قبل أن تدخليها.»
+            </span>
+
+            <p>
+                لم أفهم ما يقصده.
+                لكنني عرفت شيئًا واحدًا.
+            </p>
+
+            <p>
+                لم أصل إلى هذا العالم بالصدفة.
+            </p>
+        `,
+        next:"endingDemo"
+    },
+
+    endingDemo:{
+        chapter:"نهاية البداية",
+        title:"وهنا بدأت الحكاية الحقيقية",
+        text:`
+            <p>
+                عدت أنظر خلفي.
+            </p>
+
+            <p>
+                لم يعد هناك باب.
+            </p>
+
+            <p>
+                كان هناك عالم كامل ينتظرني.
+            </p>
+
+            <p>
+                عالم من السيوف والأقنعة والأبواب
+                التي لا تظهر إلا لمن يبحث عنها.
+            </p>
+
+            <p>
+                وفي مكان ما بعيدًا عن هذا العالم،
+                كان هناك مكتبي في الاستقبال.
+            </p>
+
+            <p>
+                مكاني الحقيقي.
+            </p>
+
+            <p>
+                أو ربما...
+            </p>
+
+            <span class="important">
+                كان هذا هو العالم الحقيقي.
+            </span>
+
+            <div class="divider">
+                <span></span>
+                <b>✦</b>
+                <span></span>
+            </div>
+
+            <p class="center gold">
+                وما قرأته حتى الآن لم يكن إلا بداية الحكاية.
+            </p>
+        `,
+        next:"finish"
+    },
+
+    finish:{
+        chapter:"",
+        title:"يتبع...",
+        text:`
+            <p class="center">
+                أغلقت الحكاية.
+            </p>
+
+            <p class="center">
+                لكن الباب...
+                لم يُغلق.
+            </p>
+
+            <span class="important">
+                لأن قصتك الحقيقية لم تبدأ بعد.
+            </span>
+        `
+    }
+
+};
+
+
+/*
+====================================================
+   ENGINE
+====================================================
+*/
+
+let currentPage = "start";
+let historyStack = [];
+
+const intro = document.getElementById("intro");
+const story = document.getElementById("story");
+
+const chapterNumber = document.getElementById("chapterNumber");
+const chapterTitle = document.getElementById("chapterTitle");
+const storyText = document.getElementById("storyText");
+const choiceArea = document.getElementById("choiceArea");
+const continueArea = document.getElementById("continueArea");
+const backButton = document.getElementById("backButton");
+
+const pageCounter = document.getElementById("pageCounter");
+const progressBar = document.getElementById("progressBar");
+
+
+function startStory(){
+
+    intro.style.display="none";
+    story.style.display="block";
+
+    historyStack=[];
+
+    showPage("start");
+
+}
+
+
+function showPage(pageId, saveHistory=true){
+
+    const page = pages[pageId];
+
+    if(!page) return;
+
+    if(saveHistory && currentPage && currentPage !== pageId){
+        historyStack.push(currentPage);
+    }
+
+    currentPage=pageId;
+
+    story.classList.remove("fade");
+
+    void story.offsetWidth;
+
+    story.classList.add("fade");
+
+    chapterNumber.textContent=page.chapter || "";
+    chapterTitle.textContent=page.title || "";
+    storyText.innerHTML=page.text || "";
+
+    choiceArea.innerHTML="";
+    continueArea.innerHTML="";
+
+    backButton.style.display=
+        historyStack.length > 0 ? "block" : "none";
+
+
+    if(page.choice){
+
+        const box=document.createElement("div");
+        box.className="choice-box";
+
+        const question=document.createElement("div");
+        question.className="choice-question";
+        question.textContent=page.choice.question;
+
+        const choices=document.createElement("div");
+        choices.className="choices";
+
+        page.choice.options.forEach((option,index)=>{
+
+            const button=document.createElement("button");
+
+            button.className="choice";
+
+            button.innerHTML=
+                `<span style="margin-left:8px">${option.icon}</span>
+                 ${option.text}`;
+
+            button.onclick=()=>{
+
+                saveChoice(pageId,index,option.text);
+
+                showPage(option.next);
+
+            };
+
+            choices.appendChild(button);
+
+        });
+
+        box.appendChild(question);
+        box.appendChild(choices);
+
+        choiceArea.appendChild(box);
+
+    }
+
+
+    if(page.next){
+
+        const wrap=document.createElement("div");
+        wrap.className="continue-wrap";
+
+        const button=document.createElement("button");
+        button.className="continue-btn";
+        button.textContent="أكمل الحكاية";
+
+        button.onclick=()=>{
+            showPage(page.next);
+        };
+
+        wrap.appendChild(button);
+
+        continueArea.appendChild(wrap);
+    }
+
+
+    updateProgress();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+function saveChoice(pageId,index,text){
+
+    let choices=[];
+
+    try{
+        choices=
+            JSON.parse(
+                localStorage.getItem("storyChoices") || "[]"
+            );
+    }catch(e){
+        choices=[];
+    }
+
+    choices.push({
+        page:pageId,
+        option:index,
+        text:text,
+        time:new Date().toISOString()
+    });
+
+    localStorage.setItem(
+        "storyChoices",
+        JSON.stringify(choices)
+    );
+
+}
+
+
+function goBack(){
+
+    if(historyStack.length===0) return;
+
+    const previous=
+        historyStack.pop();
+
+    showPage(previous,false);
+
+}
+
+
+function updateProgress(){
+
+    const total=Object.keys(pages).length;
+
+    const index=
+        Object.keys(pages).indexOf(currentPage);
+
+    const percentage=
+        Math.max(
+            3,
+            ((index+1)/total)*100
+        );
+
+    progressBar.style.width=
+        percentage+"%";
+
+    pageCounter.textContent=
+        "الفصل "+(index+1);
+}
+
+
+/*
+====================================================
+   LITTLE AMBIENT PARTICLES
+====================================================
+*/
+
+for(let i=0;i<18;i++){
+
+    const spark=document.createElement("div");
+
+    spark.className="spark";
+
+    spark.style.right=
+        Math.random()*100+"%";
+
+    spark.style.top=
+        Math.random()*100+"%";
+
+    spark.style.opacity=
+        Math.random()*.25;
+
+    document.body.appendChild(spark);
+
+}
+
+
+/*
+====================================================
+   RESET FUNCTION
+====================================================
+
+إذا احتجت تمسح اختيارات القارئة أثناء الاختبار:
+
+resetStory()
+
+====================================================
+*/
+
+function resetStory(){
+
+    localStorage.removeItem("storyChoices");
+
+    location.reload();
+
+}
+
+</script>
+
+</body>
+</html>
