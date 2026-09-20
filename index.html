@@ -3,1311 +3,732 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>ما وراء باب الاستقبال</title>
-
 <style>
-
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap');
-
-:root{
-    --navy:#07111f;
-    --navy2:#0c1b2d;
-    --navy3:#10243a;
-    --gold:#d6b46a;
-    --gold-light:#f0d99b;
-    --white:#eee9dc;
-    --muted:#9da9b7;
-    --line:rgba(214,180,106,.25);
-}
-
-*{
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
+  *{box-sizing:border-box}
+  body{
     margin:0;
     min-height:100vh;
     background:
-        radial-gradient(circle at 20% 10%, rgba(214,180,106,.08), transparent 25%),
-        radial-gradient(circle at 80% 80%, rgba(55,100,150,.12), transparent 30%),
-        linear-gradient(135deg,#040a12,#081625 50%,#050c16);
-    color:var(--white);
-    font-family:"Cairo",sans-serif;
-    overflow-x:hidden;
-}
-
-/* --------------------------------
-   BACKGROUND
--------------------------------- */
-
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    opacity:.18;
-    background-image:
-        linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);
-    background-size:35px 35px;
-}
-
-.fog{
-    position:fixed;
-    width:450px;
-    height:450px;
-    border-radius:50%;
-    background:rgba(87,118,151,.06);
-    filter:blur(80px);
-    pointer-events:none;
-}
-
-.fog.one{
-    top:-150px;
-    right:-100px;
-}
-
-.fog.two{
-    bottom:-180px;
-    left:-120px;
-}
-
-/* --------------------------------
-   MAIN
--------------------------------- */
-
-.story-shell{
-    width:min(900px,92%);
-    margin:auto;
-    padding:30px 0 60px;
-}
-
-/* --------------------------------
-   TOP BAR
--------------------------------- */
-
-.topbar{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin-bottom:25px;
-    padding:12px 5px;
-}
-
-.brand{
-    color:var(--gold);
-    font-family:"Amiri",serif;
-    font-size:18px;
-    letter-spacing:.5px;
-}
-
-.page-counter{
-    color:var(--muted);
-    font-size:12px;
-}
-
-/* --------------------------------
-   BOOK
--------------------------------- */
-
-.book{
-    position:relative;
-    background:
-        linear-gradient(145deg,
-            rgba(16,36,58,.96),
-            rgba(6,17,30,.97));
-    border:1px solid rgba(214,180,106,.28);
-    border-radius:24px;
-    padding:55px clamp(22px,7vw,75px) 65px;
-    box-shadow:
-        0 30px 100px rgba(0,0,0,.45),
-        inset 0 0 70px rgba(214,180,106,.025);
-    overflow:hidden;
-}
-
-.book::before{
-    content:"";
-    position:absolute;
-    inset:14px;
-    border:1px solid rgba(214,180,106,.10);
-    border-radius:17px;
-    pointer-events:none;
-}
-
-.book::after{
-    content:"";
-    position:absolute;
-    top:0;
-    left:50%;
-    transform:translateX(-50%);
-    width:120px;
-    height:1px;
-    background:linear-gradient(90deg,transparent,var(--gold),transparent);
-}
-
-/* --------------------------------
-   ORNAMENT
--------------------------------- */
-
-.ornament{
-    text-align:center;
-    color:var(--gold);
-    font-size:20px;
-    letter-spacing:8px;
-    margin-bottom:28px;
-    opacity:.85;
-}
-
-.sword-mark{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:15px;
-    margin-bottom:35px;
-}
-
-.sword{
-    width:90px;
-    height:1px;
-    background:linear-gradient(90deg,transparent,var(--gold));
-    transform:rotate(-8deg);
-}
-
-.sword.reverse{
-    transform:rotate(8deg);
-    background:linear-gradient(90deg,var(--gold),transparent);
-}
-
-.sword-center{
-    color:var(--gold);
-    font-size:20px;
-}
-
-/* --------------------------------
-   TITLE
--------------------------------- */
-
-.story-title{
-    text-align:center;
-    font-family:"Amiri",serif;
-    font-size:clamp(34px,7vw,58px);
-    line-height:1.2;
-    color:var(--gold-light);
-    margin:0;
-    font-weight:700;
-}
-
-.subtitle{
-    text-align:center;
-    color:var(--muted);
-    margin:15px auto 40px;
-    font-size:14px;
-    max-width:500px;
+      radial-gradient(circle at 50% 0%, rgba(202,170,82,.10), transparent 35%),
+      linear-gradient(135deg,#07111f,#0b1728 55%,#050b14);
+    color:#f4f0e8;
+    font-family:"Noto Naskh Arabic","Amiri",Tahoma,serif;
     line-height:2;
-}
-
-/* --------------------------------
-   CHAPTER
--------------------------------- */
-
-.chapter-number{
-    text-align:center;
-    color:var(--gold);
-    font-size:12px;
-    letter-spacing:2px;
-    margin-bottom:8px;
-}
-
-.chapter-title{
-    text-align:center;
-    font-family:"Amiri",serif;
-    font-size:30px;
-    color:#f2ead9;
-    margin:0 0 35px;
-}
-
-/* --------------------------------
-   STORY TEXT
--------------------------------- */
-
-.story-text{
-    font-family:"Amiri",serif;
-    font-size:21px;
-    line-height:2.25;
-    color:#e9e4d8;
-}
-
-.story-text p{
-    margin:0 0 25px;
-}
-
-.story-text .gold{
-    color:var(--gold-light);
-}
-
-.story-text .whisper{
-    color:#aeb9c5;
-    font-size:.9em;
-}
-
-.story-text .important{
-    color:var(--gold-light);
-    display:block;
-    text-align:center;
-    margin:35px 0;
-    font-size:1.08em;
-}
-
-.story-text .center{
-    text-align:center;
-}
-
-/* --------------------------------
-   DIVIDER
--------------------------------- */
-
-.divider{
-    display:flex;
-    align-items:center;
-    gap:15px;
-    margin:45px 0;
-}
-
-.divider span{
-    height:1px;
-    flex:1;
-    background:var(--line);
-}
-
-.divider b{
-    color:var(--gold);
-    font-weight:400;
-}
-
-/* --------------------------------
-   CHOICE
--------------------------------- */
-
-.choice-box{
-    margin-top:50px;
-    padding:28px 0 5px;
-    border-top:1px solid var(--line);
-}
-
-.choice-question{
-    font-family:"Amiri",serif;
-    color:var(--gold-light);
-    text-align:center;
-    font-size:24px;
-    margin-bottom:25px;
-}
-
-.choices{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px;
-}
-
-.choice{
+  }
+  .wrap{max-width:820px;margin:auto;padding:28px 16px 50px}
+  .book{
     position:relative;
-    border:1px solid rgba(214,180,106,.35);
-    background:rgba(255,255,255,.025);
-    color:#eee8db;
-    border-radius:15px;
-    padding:19px 18px;
-    font-family:"Cairo",sans-serif;
-    font-size:14px;
-    cursor:pointer;
-    transition:.3s ease;
+    background:rgba(8,17,30,.94);
+    border:1px solid rgba(205,174,91,.38);
+    box-shadow:0 25px 70px rgba(0,0,0,.45);
+    border-radius:22px;
     overflow:hidden;
-}
-
-.choice::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(120deg,transparent,rgba(214,180,106,.09),transparent);
-    transform:translateX(-100%);
-    transition:.5s;
-}
-
-.choice:hover{
-    transform:translateY(-3px);
-    border-color:var(--gold);
-    color:var(--gold-light);
-    box-shadow:0 10px 30px rgba(0,0,0,.25);
-}
-
-.choice:hover::before{
-    transform:translateX(100%);
-}
-
-/* --------------------------------
-   CONTINUE
--------------------------------- */
-
-.continue-wrap{
+  }
+  .top{
+    padding:28px 24px 18px;
     text-align:center;
-    margin-top:40px;
-}
-
-.continue-btn{
-    border:1px solid var(--gold);
-    color:var(--gold-light);
-    background:transparent;
-    padding:14px 38px;
-    border-radius:50px;
-    font-family:"Cairo",sans-serif;
+    border-bottom:1px solid rgba(205,174,91,.18);
+  }
+  .mark{font-size:28px;color:#d4b45f;letter-spacing:5px}
+  h1{margin:5px 0;color:#d8b968;font-size:30px}
+  #chapterLabel{color:#9f9b91;font-size:14px}
+  .progress{height:3px;background:#172436}
+  #progressBar{height:100%;width:0;background:#d4b45f;transition:.4s}
+  main{padding:30px 24px}
+  h2{color:#d9b967;text-align:center;font-size:25px;margin:0 0 22px}
+  .story p{margin:0 0 18px;font-size:18px}
+  .gold{color:#d9b967}
+  .dialogue{margin:18px 0;padding:12px 16px;border-right:3px solid currentColor;border-radius:8px;background:rgba(255,255,255,.025)}
+  .hero{color:#f4f0e8}
+  .masked{color:#b8b8be}
+  .old{color:#72c58a}
+  .girl{color:#78d9ee}
+  .watch{color:#e7c56e}
+  .guard{color:#c8a2e8}
+  .other{color:#e7e7e7}
+  .choiceTitle{color:#d4b45f;text-align:center;margin:30px 0 14px;font-size:16px}
+  .choices{display:grid;gap:12px}
+  button{
+    width:100%;
+    border:1px solid rgba(212,180,95,.5);
+    background:linear-gradient(180deg,rgba(212,180,95,.10),rgba(212,180,95,.035));
+    color:#f4f0e8;
+    padding:14px 18px;
+    border-radius:12px;
     cursor:pointer;
-    transition:.3s;
-}
-
-.continue-btn:hover{
-    background:var(--gold);
-    color:#07111f;
-}
-
-/* --------------------------------
-   INTRO
--------------------------------- */
-
-.intro{
-    min-height:75vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-}
-
-.intro .story-title{
-    margin-top:10px;
-}
-
-.enter-button{
-    display:block;
-    width:max-content;
-    margin:35px auto 0;
-    padding:15px 45px;
-    border-radius:50px;
-    border:1px solid var(--gold);
-    background:linear-gradient(135deg,rgba(214,180,106,.12),rgba(214,180,106,.03));
-    color:var(--gold-light);
-    font-family:"Cairo",sans-serif;
-    cursor:pointer;
-    font-size:15px;
-    transition:.35s;
-}
-
-.enter-button:hover{
-    background:var(--gold);
-    color:#07111f;
-    box-shadow:0 10px 40px rgba(214,180,106,.15);
-}
-
-/* --------------------------------
-   DOOR
--------------------------------- */
-
-.door-scene{
-    text-align:center;
-    margin:40px auto;
-}
-
-.door{
-    width:180px;
-    height:260px;
-    margin:auto;
-    border:1px solid rgba(214,180,106,.5);
-    border-radius:8px 8px 3px 3px;
-    background:
-        linear-gradient(90deg,
-            rgba(214,180,106,.04),
-            rgba(214,180,106,.10),
-            rgba(214,180,106,.03));
-    position:relative;
-    box-shadow:inset 0 0 30px rgba(0,0,0,.4);
-}
-
-.door::before{
-    content:"⚔";
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-    font-size:45px;
-    color:var(--gold);
-    opacity:.65;
-}
-
-.door::after{
-    content:"";
-    position:absolute;
-    width:8px;
-    height:8px;
-    border-radius:50%;
-    background:var(--gold);
-    right:20px;
-    top:50%;
-}
-
-/* --------------------------------
-   PROGRESS
--------------------------------- */
-
-.progress{
-    position:fixed;
-    bottom:18px;
-    left:50%;
-    transform:translateX(-50%);
-    width:min(300px,70%);
-    height:3px;
-    background:rgba(255,255,255,.08);
-    border-radius:10px;
-    z-index:20;
-}
-
-.progress-bar{
-    height:100%;
-    width:0%;
-    background:var(--gold);
-    transition:.5s;
-    border-radius:10px;
-}
-
-/* --------------------------------
-   BACK BUTTON
--------------------------------- */
-
-.back-btn{
-    margin-top:30px;
-    background:none;
-    border:none;
-    color:#8794a3;
-    font-family:"Cairo",sans-serif;
-    cursor:pointer;
-    font-size:12px;
-}
-
-.back-btn:hover{
-    color:var(--gold);
-}
-
-/* --------------------------------
-   MOBILE
--------------------------------- */
-
-@media(max-width:650px){
-
-    .story-shell{
-        width:94%;
-        padding-top:12px;
-    }
-
-    .book{
-        padding:42px 22px 50px;
-        border-radius:19px;
-    }
-
-    .book::before{
-        inset:9px;
-    }
-
-    .story-text{
-        font-size:19px;
-        line-height:2.15;
-    }
-
-    .choices{
-        grid-template-columns:1fr;
-    }
-
-    .choice{
-        padding:17px 15px;
-    }
-
-    .chapter-title{
-        font-size:26px;
-    }
-
-    .door{
-        width:145px;
-        height:215px;
-    }
-}
-
-/* --------------------------------
-   ANIMATION
--------------------------------- */
-
-.fade{
-    animation:fade .7s ease;
-}
-
-@keyframes fade{
-    from{
-        opacity:0;
-        transform:translateY(10px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-.spark{
-    position:fixed;
-    width:3px;
-    height:3px;
-    background:var(--gold);
-    border-radius:50%;
-    opacity:.25;
-    pointer-events:none;
-}
-
+    font-family:inherit;
+    font-size:17px;
+    transition:.2s;
+  }
+  button:hover{transform:translateY(-1px);background:rgba(212,180,95,.16)}
+  .nav{display:flex;gap:10px;margin-top:26px}
+  .nav button{font-size:14px;border-color:rgba(255,255,255,.15)}
+  .nav .back{flex:1}
+  .nav .next{flex:2}
+  .note{text-align:center;color:#8f8c84;font-size:13px;margin-top:22px}
+  .ending{text-align:center;padding:25px 5px}
+  .ending h3{color:#d9b967;font-size:25px}
+  .ending p{color:#ddd;line-height:2}
+  @media(max-width:600px){
+    main{padding:24px 18px}
+    .story p{font-size:17px}
+    h1{font-size:26px}
+  }
 </style>
 </head>
-
 <body>
-
-<div class="fog one"></div>
-<div class="fog two"></div>
-
-<div class="story-shell">
-
-    <div class="topbar">
-        <div class="brand">حكاية لم تُكتب بعد</div>
-        <div class="page-counter" id="pageCounter">البداية</div>
-    </div>
-
-    <main class="book" id="storyBook">
-
-        <!--
-        ==========================================
-        INTRO
-        ==========================================
-        -->
-
-        <section id="intro" class="intro fade">
-
-            <div class="ornament">✦　✧　✦</div>
-
-            <div class="sword-mark">
-                <div class="sword"></div>
-                <div class="sword-center">⚔</div>
-                <div class="sword reverse"></div>
-            </div>
-
-            <h1 class="story-title">
-                ما وراء باب الاستقبال
-            </h1>
-
-            <p class="subtitle">
-                حكاية فتاةٍ كانت تظن أنها تعرف المكان جيدًا...
-                حتى اكتشفت أن بعض الأبواب لا تؤدي إلى المكان الذي نتوقعه.
-            </p>
-
-            <div class="door-scene">
-                <div class="door"></div>
-            </div>
-
-            <button class="enter-button" onclick="startStory()">
-                افتحي الحكاية
-            </button>
-
-        </section>
-
-
-        <!--
-        ==========================================
-        STORY CONTAINER
-        ==========================================
-        -->
-
-        <section id="story" style="display:none;">
-
-            <div class="chapter-number" id="chapterNumber"></div>
-
-            <h2 class="chapter-title" id="chapterTitle"></h2>
-
-            <div class="story-text" id="storyText"></div>
-
-            <div id="choiceArea"></div>
-
-            <div class="continue-wrap" id="continueArea"></div>
-
-            <button class="back-btn" id="backButton" onclick="goBack()" style="display:none;">
-                ← العودة
-            </button>
-
-        </section>
-
-    </main>
-
+<div class="wrap">
+  <section class="book">
+    <header class="top">
+      <div class="mark">⚔︎</div>
+      <h1>ما وراء باب الاستقبال</h1>
+      <div id="chapterLabel">الفصل الأول</div>
+    </header>
+    <div class="progress"><div id="progressBar"></div></div>
+    <main id="app"></main>
+  </section>
 </div>
-
-<div class="progress">
-    <div class="progress-bar" id="progressBar"></div>
-</div>
-
 
 <script>
-
-/*
-====================================================
-   STORY ENGINE
-====================================================
-
-كل صفحة لها:
-- chapter
-- title
-- text
-- choice أو next
-
-يمكننا لاحقًا إضافة القصة الطويلة هنا بسهولة.
-
-====================================================
-*/
-
-const pages = {
-
-    start:{
-        chapter:"الفصل الأول",
-        title:"يومٌ يشبه كل الأيام",
-        text:`
-            <p>
-                كنت أظن أنني أعرف هذا المكان جيدًا.
-            </p>
-
-            <p>
-                أعرف الباب الذي يفتح عشرات المرات في اليوم،
-                وأعرف الأصوات القادمة من الجهة الأخرى،
-                وأعرف حتى صوت السيوف حين تتلاقى.
-            </p>
-
-            <p>
-                كنت أجلس خلف مكتب الاستقبال،
-                أرى عالم المبارزة أمامي طوال الوقت،
-                لكنه لم يكن عالمي.
-            </p>
-
-            <p>
-                على الأقل...
-                <span class="gold">هكذا كنت أظن.</span>
-            </p>
-
-            <p>
-                كان كل شيء طبيعيًا في ذلك اليوم.
-                الناس يدخلون، وآخرون يغادرون،
-                والأصوات تأتي من صالة المبارزة كعادتها.
-            </p>
-
-            <p>
-                ثم حدث شيء صغير.
-            </p>
-
-            <span class="important">
-                شيء صغير جدًا...
-                لكنه كان كافيًا ليغيّر الحكاية كلها.
-            </span>
-        `,
-        next:"door"
-    },
-
-    door:{
-        chapter:"الفصل الثاني",
-        title:"الباب الذي لم ألاحظه من قبل",
-        text:`
-            <p>
-                سمعت صوتًا خلفي.
-            </p>
-
-            <p>
-                التفتُّ.
-            </p>
-
-            <p>
-                لم يكن هناك أحد.
-            </p>
-
-            <p>
-                لكنني رأيت شيئًا لم أره من قبل.
-            </p>
-
-            <p>
-                كان هناك باب صغير في الجدار.
-                باب كنت متأكدة أنني لم أره في أي يوم سابق.
-            </p>
-
-            <p>
-                اقتربت منه.
-            </p>
-
-            <p>
-                كان على مقبضه نقش لسيفين متقاطعين.
-            </p>
-
-            <p>
-                وضعت يدي على المقبض...
-            </p>
-
-            <span class="important">
-                وتوقفت.
-            </span>
-        `,
-        choice:{
-            question:"ماذا أفعل؟",
-            options:[
-                {
-                    icon:"⚔️",
-                    text:"أفتح الباب",
-                    next:"openDoor"
-                },
-                {
-                    icon:"🌙",
-                    text:"أتجاهله وأعود إلى الاستقبال",
-                    next:"ignoreDoor"
-                }
-            ]
-        }
-    },
-
-    openDoor:{
-        chapter:"الفصل الثالث",
-        title:"ما وراء الباب",
-        text:`
-            <p>
-                فتحت الباب.
-            </p>
-
-            <p>
-                لم أجد خلفه غرفة أخرى.
-            </p>
-
-            <p>
-                وجدت ممرًا طويلًا يمتد إلى مكان لم أعرفه.
-            </p>
-
-            <p>
-                كان ضوءه مختلفًا.
-                والجدران تحمل رايات لا أعرف أصحابها.
-            </p>
-
-            <p>
-                وفي آخر الممر...
-                كان صوت السيوف واضحًا.
-            </p>
-
-            <p>
-                لكن الغريب أنني لم أشعر بالخوف.
-            </p>
-
-            <p>
-                شعرت بشيء آخر.
-            </p>
-
-            <span class="important">
-                شعرت أنني أعرف هذا المكان.
-            </span>
-        `,
-        next:"firstEncounter"
-    },
-
-    ignoreDoor:{
-        chapter:"الفصل الثالث",
-        title:"كأن شيئًا لم يحدث",
-        text:`
-            <p>
-                أغلقت الباب وعدت إلى مكتبي.
-            </p>
-
-            <p>
-                حاولت أن أقنع نفسي أنني تخيلته.
-            </p>
-
-            <p>
-                مرّت دقيقة.
-            </p>
-
-            <p>
-                ثم دقيقتان.
-            </p>
-
-            <p>
-                وعدت الأصوات إلى طبيعتها.
-            </p>
-
-            <p>
-                ظننت أن كل شيء انتهى.
-            </p>
-
-            <p>
-                حتى سمعت صوت السيف...
-                <span class="gold">من خلف الباب الذي أغلقته.</span>
-            </p>
-        `,
-        next:"firstEncounter"
-    },
-
-    firstEncounter:{
-        chapter:"الفصل الرابع",
-        title:"العالم الذي لا يعرفني",
-        text:`
-            <p>
-                وجدت نفسي في مكان لا يشبه النادي الذي أعرفه.
-            </p>
-
-            <p>
-                كان هناك مبارزون في كل مكان.
-                بعضهم يحمل سيوفًا،
-                وبعضهم يرتدي أقنعة،
-                وبعضهم وقف ينظر إليّ وكأنه كان ينتظر وصولي.
-            </p>
-
-            <p>
-                اقترب مني شخص يرتدي قناعًا أسود.
-            </p>
-
-            <p>
-                لم يقل اسمي.
-            </p>
-
-            <p>
-                لكنه قال:
-            </p>
-
-            <span class="important">
-                «أنتِ تأخرتِ.»
-            </span>
-
-            <p>
-                نظرت إليه باستغراب.
-            </p>
-
-            <p>
-                لم أكن أعرفه.
-            </p>
-
-            <p>
-                أو...
-                <span class="gold">ربما كنت أعرفه، لكنني نسيت.</span>
-            </p>
-        `,
-        choice:{
-            question:"ماذا أقول له؟",
-            options:[
-                {
-                    icon:"⚔️",
-                    text:"من أنت؟ وأين أنا؟",
-                    next:"ask"
-                },
-                {
-                    icon:"🌙",
-                    text:"كيف تعرف أنني سأأتي؟",
-                    next:"challenge"
-                }
-            ]
-        }
-    },
-
-    ask:{
-        chapter:"الفصل الخامس",
-        title:"السؤال الخطأ",
-        text:`
-            <p>
-                قلت له:
-            </p>
-
-            <p class="gold center">
-                «من أنت؟ وأين أنا؟»
-            </p>
-
-            <p>
-                ضحك بهدوء.
-            </p>
-
-            <p>
-                ثم أشار إلى السيف المعلق خلفه.
-            </p>
-
-            <p>
-                «السؤال ليس أين أنتِ.»
-            </p>
-
-            <p>
-                توقف لحظة.
-            </p>
-
-            <span class="important">
-                «السؤال هو... لماذا أنتِ هنا؟»
-            </span>
-
-            <p>
-                ولم أعرف ماذا أجيبه.
-            </p>
-        `,
-        next:"endingDemo"
-    },
-
-    challenge:{
-        chapter:"الفصل الخامس",
-        title:"السؤال الذي لم يتوقعه",
-        text:`
-            <p>
-                نظرت إليه وقلت:
-            </p>
-
-            <p class="gold center">
-                «كيف تعرف أنني سأأتي؟»
-            </p>
-
-            <p>
-                سكت.
-            </p>
-
-            <p>
-                وللمرة الأولى، بدا عليه التردد.
-            </p>
-
-            <p>
-                ثم قال:
-            </p>
-
-            <span class="important">
-                «لأن هذه الحكاية بدأت قبل أن تدخليها.»
-            </span>
-
-            <p>
-                لم أفهم ما يقصده.
-                لكنني عرفت شيئًا واحدًا.
-            </p>
-
-            <p>
-                لم أصل إلى هذا العالم بالصدفة.
-            </p>
-        `,
-        next:"endingDemo"
-    },
-
-    endingDemo:{
-        chapter:"نهاية البداية",
-        title:"وهنا بدأت الحكاية الحقيقية",
-        text:`
-            <p>
-                عدت أنظر خلفي.
-            </p>
-
-            <p>
-                لم يعد هناك باب.
-            </p>
-
-            <p>
-                كان هناك عالم كامل ينتظرني.
-            </p>
-
-            <p>
-                عالم من السيوف والأقنعة والأبواب
-                التي لا تظهر إلا لمن يبحث عنها.
-            </p>
-
-            <p>
-                وفي مكان ما بعيدًا عن هذا العالم،
-                كان هناك مكتبي في الاستقبال.
-            </p>
-
-            <p>
-                مكاني الحقيقي.
-            </p>
-
-            <p>
-                أو ربما...
-            </p>
-
-            <span class="important">
-                كان هذا هو العالم الحقيقي.
-            </span>
-
-            <div class="divider">
-                <span></span>
-                <b>✦</b>
-                <span></span>
-            </div>
-
-            <p class="center gold">
-                وما قرأته حتى الآن لم يكن إلا بداية الحكاية.
-            </p>
-        `,
-        next:"finish"
-    },
-
-    finish:{
-        chapter:"",
-        title:"يتبع...",
-        text:`
-            <p class="center">
-                أغلقت الحكاية.
-            </p>
-
-            <p class="center">
-                لكن الباب...
-                لم يُغلق.
-            </p>
-
-            <span class="important">
-                لأن قصتك الحقيقية لم تبدأ بعد.
-            </span>
-        `
-    }
-
+const pages = [
+/* 1 */
+{
+title:"يوم يشبه كل الأيام",
+content:`
+<p>كنت أظن أنني أعرف هذا المكان أكثر مما ينبغي.</p>
+<p>أعرف الباب الذي يدخل منه الجميع، والباب الآخر الذي يخرج منه من انتهى من تدريبه، وأعرف الأصوات التي تأتي من الداخل حتى لو لم أكن أراها.</p>
+<p>أعرف صوت السيوف حين تتلاقى.</p>
+<p>أعرف صوت خطوات شخص يركض قبل أن أراه.</p>
+<p>وأعرف ذلك الصمت القصير الذي يأتي بعد انتهاء الجولة.</p>
+<p>كنت أظن أن عملي هنا بسيط. استقبال، أسئلة، مواعيد، وجوه تتكرر، وأيام تشبه بعضها حتى يصعب تذكر الفرق بينها.</p>
+<p>لكن في ذلك اليوم، حدث شيء صغير جدًا.</p>
+<p>شيء كان من السهل أن أتجاهله.</p>
+<p>رفعت عيني نحو الزجاج أمامي، فرأيت انعكاسي كما اعتدت.</p>
+<p>ثم رأيت خلف انعكاسي بابًا.</p>
+<p>بابًا لم يكن موجودًا في المكان.</p>
+<p>أغمضت عيني للحظة.</p>
+<p>وعندما فتحتهما، اختفى.</p>
+<p>ضحكت على نفسي، وعدت إلى عملي.</p>
+<p>لم أكن أعرف أنني بعد ساعات قليلة سأبدأ بالتشكيك في شيء واحد فقط:</p>
+<p class="gold">هل أنا التي أعيش الحكاية... أم أن الحكاية كانت تعيش معي منذ البداية؟</p>`
+},
+/* 2 */
+{
+title:"الشيء الذي لم يكن موجودًا",
+content:`
+<p>مرّ باقي اليوم بصورة طبيعية.</p>
+<p>أو هكذا بدا لي.</p>
+<p>في إحدى اللحظات، وبينما كنت أرتب شيئًا على المكتب، سمعت صوتًا خافتًا.</p>
+<p>طق... طق... طق.</p>
+<p>رفعت رأسي.</p>
+<p>كان الصوت يأتي من الجدار.</p>
+<p>اقتربت ببطء.</p>
+<p>ثم ظهر على سطح الجدار خط رفيع، كأنه إطار باب يُرسم من الداخل.</p>
+<p>اتسع الخط.</p>
+<p>ثم ظهر باب كامل، بإطار ذهبي قديم، وعلى وسطه نقش سيفين متقاطعين.</p>
+<p>تراجعت خطوة.</p>
+<p class="masked dialogue">«أخيرًا انتبهتِ.»</p>
+<p>جاء الصوت من خلف الباب.</p>
+<p>اقتربت منه، لكنني لم ألمسه.</p>
+<p>ومن الجهة الأخرى سمعت أصوات السيوف القادمة من صالة المبارزة.</p>
+<p>ثم ساد الصمت.</p>`,
+choices:[
+["⚔️ أفتح الباب.","p3a"],
+["🌙 أترك الباب وأذهب إلى صالة المبارزة.","p3b"]
+]
+},
+/* 3a */
+{
+title:"الباب",
+route:"a",
+content:`
+<p>وضعت يدي على المقبض.</p>
+<p>كان باردًا.</p>
+<p>فتحت الباب.</p>
+<p>لم أجد خلفه غرفة ولا ممرًا.</p>
+<p>كان هناك ضباب.</p>
+<p>دخلت.</p>
+<p>وعندما خرجت من الضباب، وجدت مدينة كاملة أمامي.</p>
+<p>جدران حجرية، رايات تتحرك فوق الأبراج، مبارزون يعبرون الشوارع، وأشخاص يضعون أقنعة لا تشبه أي شيء رأيته من قبل.</p>
+<p>ثم رأيت مبنى صغيرًا.</p>
+<p>فوق بابه كلمة واحدة:</p>
+<p class="gold">الاستقبال.</p>
+<p>اقترب مني رجل يرتدي قناعًا فضيًا.</p>
+<p class="masked dialogue">«أنتِ أول واحدة تعبر من ذلك الباب منذ سنوات.»</p>
+<p class="hero dialogue">«كيف عرفت أنني سأأتي؟»</p>
+<p class="masked dialogue">«لم أعرف.»</p>
+<p>صمت لحظة.</p>
+<p class="masked dialogue">«كنت أخشى فقط أن تأتي.»</p>`
+},
+/* 3b */
+{
+title:"الصالة الفارغة",
+route:"b",
+content:`
+<p>تركت الباب خلفي وذهبت إلى صالة المبارزة.</p>
+<p>كانت الصالة فارغة.</p>
+<p>في منتصفها كان هناك سيف واحد مغروس في الأرض.</p>
+<p>اقتربت منه.</p>
+<p>كان على نصله نقش سيفين متقاطعين.</p>
+<p>ثم رأيت شيئًا تحته.</p>
+<p>اسمي.</p>
+<p>توقفت أنفاسي للحظة.</p>
+<p>سمعت أصواتًا خافتة تتحدث عني من مكان لا أراه.</p>
+<p>مددت يدي نحو السيف.</p>
+<p>ما إن لمسته حتى تغير كل شيء.</p>
+<p>وجدت نفسي في شارع غريب داخل مدينة لم أرها من قبل.</p>
+<p>وفي نهايته مبنى يشبه النادي الذي أعرفه، لكنه أقدم وأكبر.</p>
+<p>وعلى بابه:</p>
+<p class="gold">الاستقبال.</p>
+<p>ظهر الرجل ذو القناع الفضي.</p>
+<p class="masked dialogue">«أنتِ لم تعودي إلى هنا.»</p>
+<p class="hero dialogue">«إلى أين عدت؟»</p>
+<p class="masked dialogue">«إلى المكان الذي كنتِ فيه طوال الوقت.»</p>`
+},
+/* 4 */
+{
+title:"المدينة التي تعرفني",
+content:`
+<p>لم أعد أعرف أي الطريقين أوصلني إلى هذه المدينة.</p>
+<p>لكن النتيجة كانت واحدة.</p>
+<p>مدينة حجرية تتنفس كأنها حيّة، ومحلات تعرض الدروع والسيوف، وساعات غريبة لا تتفق عقاربها على وقت واحد.</p>
+<p>في وسط الساحة كان هناك تمثال لفارسة بلا ملامح.</p>
+<p>على قاعدته كُتبت عبارة:</p>
+<p class="gold">«كل من يصل إلى المدينة يبحث عن شيء. لكن ليس كل من يبحث يعرف ما الذي فقده.»</p>
+<p>سمعت خطوات خلفي.</p>
+<p class="masked dialogue">«لا تلتفتي.»</p>
+<p>التفتُّ.</p>
+<p>كان الرجل ذو القناع الفضي واقفًا أمامي.</p>
+<p>لم يكن يحمل سيفًا في يده، لكن عند خصره كان يتدلى غمدٌ أسود طويل. لم أستطع رؤية السيف بداخله، لكنني لم أحتج إلى ذلك لأعرف أنه موجود.</p>
+<p class="masked dialogue">«أعرف عنك أكثر مما ينبغي.»</p>
+<p class="hero dialogue">«لأنك رأيتني من قبل؟»</p>
+<p class="masked dialogue">«في عالمك، نعم.»</p>
+<p class="masked dialogue">«لكن هذه ليست المرة الأولى التي تأتين فيها إلى هنا.»</p>
+<p class="hero dialogue">«أريد العودة إلى الاستقبال.»</p>
+<p class="masked dialogue">«إلى أين؟»</p>
+<p class="hero dialogue">«إلى مكاني.»</p>
+<p>أنزل عينيه للحظة نحو الغمد المعلق عند خصره.</p>
+<p class="masked dialogue">«إذًا أنتِ ما زلتِ تظنين أن الاستقبال هو مكانك.»</p>
+<p>أشار إلى مبنى يشبه النادي الذي أعرفه.</p>
+<p class="gold">«دار المبارزين الذين يعبرون بين العالمين.»</p>
+<p>أعطاني مفتاحًا ذهبيًا عليه سيفان متقاطعان، وعلى ظهره اسمي.</p>
+<p class="masked dialogue">«هذا العالم لا يفتح أبوابه لأي أحد. هو يفتحها لمن نسي أنه كان يعرف الطريق.»</p>
+<p>ثم رأيت إعلانًا قديمًا عن مبارزة. أسماء المشاركين، وآخر اسم بينها كان اسمي.</p>
+<p class="gold">المبارزة لم تبدأ بعد.</p>`,
+choices:[
+["أبحث عن موعد المبارزة وأعرف لماذا كُتب اسمي.","p5a"],
+["أبحث عن صاحب الإعلان وأسأله عن اسمي.","p5b"]
+]
+},
+/* 5a */
+{
+title:"موعد المبارزة",
+route:"a",
+content:`
+<p>اخترت أن أعرف موعد المبارزة أولًا.</p>
+<p>ربما لأنني كنت أبحث عن شيء واضح وسط كل هذا الغموض.</p>
+<p>عدت إلى الإعلان القديم، ومررت أصابعي على حافته.</p>
+<p>في أسفل الورقة، تحت الأسماء، كان هناك سطر بالكاد يُرى بسبب بهتان الحبر:</p>
+<p class="gold">«عند دقّة الساعة السابعة... في الساحة التي لا يصلها ظل.»</p>
+<p>سمعت صوتًا خلفي.</p>
+<p class="old dialogue">«لم تعد موجودة.»</p>
+<p>التفتُّ.</p>
+<p>كان رجلًا مسنًا يقف أمام أحد المحلات القريبة.</p>
+<p class="hero dialogue">«ماذا تقصد؟»</p>
+<p class="old dialogue">«الساحة. كانت موجودة قبل أن تُغلق الأبواب.»</p>
+<p class="hero dialogue">«أي أبواب؟»</p>
+<p class="old dialogue">«أبواب العالم.»</p>
+<p>سألته كيف أصل إليها، فقال:</p>
+<p class="old dialogue">«إذا كان اسمك مكتوبًا هناك، فالموعد يعرف طريقه إليك.»</p>
+<p>وجدت بابًا وحيدًا بين مبنيين، وفوقه ساعة تشير إلى السادسة وسبع وأربعين دقيقة.</p>
+<p>عند السابعة تمامًا، دقّت الساعة مرة واحدة، وانفتح الباب.</p>
+<p>خلفه كانت ساحة واسعة مضاءة بالكامل، لكن بلا ظل واحد.</p>
+<p>في منتصفها سيف مغروس في الأرض، وعلى مقبضه ورقة.</p>
+<p class="gold">«المبارزة الأولى ليست بين شخصين. إنها بين ما تتذكرينه... وما يصرّ العالم على أن تنسيه.»</p>
+<p>ثم:</p>
+<p class="gold">«ستبدأ عندما تصل الأخرى.»</p>
+<p>رفعت رأسي.</p>
+<p>في الطرف الآخر من الساحة، ظهر شخص يحمل سيفًا.</p>
+<p class="other dialogue">«هل أنتِ مستعدة لمعرفة لماذا كُتب اسمك؟»</p>
+<p>لم أجب.</p>`
+},
+/* 6a */
+{
+title:"الساحة التي لا يصلها ظل",
+route:"a",
+content:`
+<p>لم يتحرك الشخص نحوي.</p>
+<p>وقف في الجهة الأخرى، وكأنه ينتظر شيئًا لا يعرفه سواي.</p>
+<p>رفعت عيني إلى السيف المغروس أمامي.</p>
+<p class="other dialogue">«لا تحتاجين إلى حمله.»</p>
+<p class="hero dialogue">«إذًا لماذا هو هنا؟»</p>
+<p class="other dialogue">«لأنه يعرف الطريق.»</p>
+<p>اقتربت من السيف.</p>
+<p>وحين وضعت يدي على مقبضه، تبدل الضوء.</p>
+<p>رأيت مكتب الاستقبال.</p>
+<p>رأيت نفسي جالسة خلفه.</p>
+<p>ثم رأيت شخصًا يقف أمامي.</p>
+<p>لم أستطع رؤية وجهه.</p>
+<p>لكني سمعت صوتي أقول:</p>
+<p class="hero dialogue">«سأعود.»</p>
+<p>ثم انطفأت الرؤية.</p>
+<p>عدت إلى الساحة.</p>
+<p>كان الشخص قد اختفى.</p>
+<p>على الأرض بقيت ورقة واحدة:</p>
+<p class="gold">«حين تبحثين عن بداية الحكاية، ستجدين أنك تبحثين عن نهاية شيء آخر.»</p>
+<p>فهمت أن المبارزة لم تكن قد بدأت بعد.</p>
+<p>كانت الساحة مجرد باب آخر.</p>`
+},
+/* 7a */
+{
+title:"الشخص الذي يحمل اسمي",
+route:"a",
+content:`
+<p>خرجت من الساحة وعدت إلى المدينة.</p>
+<p>كنت أحاول فهم الرؤية، لكن جملة واحدة بقيت عالقة في ذهني:</p>
+<p class="gold">«سأعود.»</p>
+<p>في أحد الأزقة وجدت بابًا يحمل اسمي.</p>
+<p>فتحته.</p>
+<p>في الداخل كان مكتب، وعلى المكتب ورقة تحمل اسمي واسمًا آخر.</p>
+<p>دخلت فتاة تحمل سيفًا عند خصرها.</p>
+<p class="girl dialogue">«لا تحاولي تذكّره.»</p>
+<p class="hero dialogue">«ما هذا الاسم؟»</p>
+<p class="girl dialogue">«الاسم الذي كانت المدينة تناديك به.»</p>
+<p class="hero dialogue">«أنا لم آتِ إلى هنا من قبل.»</p>
+<p class="girl dialogue">«هذا ما تعتقدينه.»</p>
+<p>أشارت إلى النافذة.</p>
+<p>في آخر الشارع وقف رجل يحرق الإعلان القديم.</p>
+<p class="hero dialogue">«هل هو الشخص الذي كتب اسمي؟»</p>
+<p class="girl dialogue">«نعم.»</p>
+<p>وقبل أن أستطيع اللحاق به، ظهر الرجل ذو القناع الفضي.</p>
+<p class="masked dialogue">«لا تذهبي إليه.»</p>
+<p class="hero dialogue">«لماذا؟»</p>
+<p class="masked dialogue">«لأنك إذا قابلته الآن، ستتذكرين الشيء الوحيد الذي حاول هذا العالم كله أن يجعلك تنسينه.»</p>
+<p class="hero dialogue">«وما هو؟»</p>
+<p>لم يجب.</p>
+<p>قال فقط:</p>
+<p class="masked dialogue">«سنصل إلى الساحة أولًا.»</p>`
+},
+/* 5b */
+{
+title:"صاحب الإعلان",
+route:"b",
+content:`
+<p>اخترت أن أبحث عن صاحب الإعلان.</p>
+<p>كان السؤال أبسط من كل ما يحدث حولي:</p>
+<p class="gold">من كتب اسمي هنا؟</p>
+<p>قلبت الورقة، فوجدت في زاويتها الخلفية رمزًا محفورًا: سيفان متقاطعان وتحتهما دائرة صغيرة.</p>
+<p>سألت رجلًا مر بجانبي عن صاحب الإعلان.</p>
+<p>نظر إلى الورقة ثم قال:</p>
+<p class="old dialogue">«إذا كنت تريدين صاحب الإعلان، ابحثي عن الرجل الذي يبيع الساعات.»</p>
+<p>قادني أثر السؤال إلى شارع ضيق مليء بالساعات، ثم إلى محل صغير فوق بابه لافتة: صانع الساعات.</p>
+<p>رفع رجل عجوز رأسه عندما دخلت.</p>
+<p class="old dialogue">«تأخرتِ.»</p>
+<p class="hero dialogue">«أنت تعرفني؟»</p>
+<p class="old dialogue">«لا. لكنني أعرف الإعلان.»</p>
+<p>قلب الورقة ورأى الرمز.</p>
+<p class="old dialogue">«إذًا هو فعلها مرة أخرى.»</p>
+<p class="hero dialogue">«من؟»</p>
+<p class="old dialogue">«الشخص الذي كتب اسمك.»</p>
+<p>سألته أين أجده.</p>
+<p class="old dialogue">«لا تبحثي عنه. لأنه يبحث عنك.»</p>
+<p>ثم دقت ساعة ثلاث مرات.</p>
+<p>عندما التفتُّ إليه مجددًا، كان قد اختفى.</p>
+<p>وخلفه ظهر ممر لم يكن موجودًا.</p>
+<p>على جداره:</p>
+<p class="gold">«إذا أردت معرفة من كتب اسمك، اتبعي الشخص الذي يحمل اسمك الآخر.»</p>`
+},
+/* 6b */
+{
+title:"الاسم الآخر",
+route:"b",
+content:`
+<p>دخلت الممر.</p>
+<p>كانت الجدران مغطاة بصور قديمة، وتحت كل صورة اسم.</p>
+<p>حتى وصلت إلى صورة فتاة تقف أمام باب، ووجهها غير ظاهر.</p>
+<p>تحتها كُتبت عبارة:</p>
+<p class="gold">«التي لم تتذكر بعد.»</p>
+<p>ظهرت فتاة تحمل سيفًا عند خصرها.</p>
+<p class="girl dialogue">«لا تلمسيها.»</p>
+<p class="hero dialogue">«ما هذا؟»</p>
+<p class="girl dialogue">«شيء قديم.»</p>
+<p>قالت إن الاسم الذي أحمله الآن ليس الاسم الذي كُتب في الإعلان.</p>
+<p class="hero dialogue">«هذا اسمي.»</p>
+<p class="girl dialogue">«الآن، نعم. لكن الإعلان أقدم منك.»</p>
+<p>أخرجت لي ورقة تحمل اسمي واسمًا آخر.</p>
+<p>كان الاسم الآخر مألوفًا بطريقة لم أفهمها.</p>
+<p class="girl dialogue">«إذا أردت معرفة صاحب الإعلان، عليك أولًا أن تعرفي من كتب اسمك الآخر.»</p>
+<p>سألتها أين أجده.</p>
+<p>أشارت إلى باب في نهاية الممر.</p>
+<p class="girl dialogue">«الشخص الذي يحمل الاسم ينتظرك هناك.»</p>
+<p>فتح الباب على غرفة فيها مكتب، وورقة، ونافذة تطل على الساحة.</p>`
+},
+/* 7b */
+{
+title:"الرسالة التي لم تُرسل",
+route:"b",
+content:`
+<p>على المكتب وجدت ورقة أخرى.</p>
+<p>كانت أقصر من الإعلان، لكن كلماتها أثقل.</p>
+<p class="gold">«عندما تعود، لا تخبرها من تكون. دعها تختار أن تتذكر.»</p>
+<p>دخلت الفتاة ذات السيف.</p>
+<p class="hero dialogue">«من كتبها؟»</p>
+<p class="girl dialogue">«الشخص الذي تبحثين عنه.»</p>
+<p class="hero dialogue">«أين هو؟»</p>
+<p class="girl dialogue">«في المكان الذي بدأت فيه الحكاية.»</p>
+<p>نظرت من النافذة.</p>
+<p>كان الرجل الذي يحمل الإعلان واقفًا في الساحة.</p>
+<p>لم أر وجهه.</p>
+<p>ثم ظهر الرجل ذو القناع الفضي.</p>
+<p class="masked dialogue">«لا تذهبي إليه.»</p>
+<p class="hero dialogue">«لماذا؟»</p>
+<p class="masked dialogue">«لأنك إذا قابلته الآن، ستتذكرين الشيء الوحيد الذي حاول هذا العالم كله أن يجعلك تنسينه.»</p>
+<p class="hero dialogue">«وما هو؟»</p>
+<p class="masked dialogue">«ستعرفين عندما تصلين إلى الساحة.»</p>
+<p>في اللحظة نفسها، بدأت أجراس المدينة تدق.</p>
+<p>سبع دقات.</p>
+<p>وفي الدقة الأخيرة، انفتح باب في نهاية الغرفة.</p>`
+},
+/* 8 */
+{
+title:"الساحة التي بدأت فيها الحكاية",
+content:`
+<p>التقيت بالرجل ذي القناع عند مدخل الساحة.</p>
+<p>ولم أكن وحدي.</p>
+<p>كانت الفتاة ذات السيف هناك، وعلى الطرف الآخر وقف الرجل الذي كتب الإعلان.</p>
+<p>للحظة، بدا كل شيء وكأنه اكتمل.</p>
+<p>نظرت إلى الرجل.</p>
+<p class="hero dialogue">«أنت من كتب اسمي.»</p>
+<p class="watch dialogue">«نعم.»</p>
+<p class="hero dialogue">«لماذا؟»</p>
+<p class="watch dialogue">«لأنك طلبتِ مني أن أفعل ذلك.»</p>
+<p>صمتُّ.</p>
+<p>نظر الرجل المقنع إليّ، لكنه لم يتدخل.</p>
+<p class="hero dialogue">«متى طلبت ذلك؟»</p>
+<p class="watch dialogue">«قبل أن تنسي.»</p>
+<p>أخرج ورقة قديمة.</p>
+<p>كانت تحمل تاريخًا لا أعرفه.</p>
+<p>وفي أسفلها توقيع يشبه خط يدي.</p>
+<p>ثم فهمت لماذا كانت المسارات المختلفة تقود إلى المكان نفسه.</p>
+<p>لم أكن أبحث عن إجابة واحدة.</p>
+<p>كنت أقترب من ذاكرة واحدة من جهتين.</p>
+<p class="gold">وهنا بدأت الحكاية الحقيقية.</p>`
+},
+/* 9 */
+{
+title:"الفتاة التي تعمل خلف الباب",
+content:`
+<p>اقتربت من الفتاة ذات السيف.</p>
+<p class="hero dialogue">«من أنتِ؟»</p>
+<p class="girl dialogue">«أنا الشخص الذي كنتِ عليه عندما لم يكن هذا العالم غريبًا بالنسبة لك.»</p>
+<p>حدقت فيها.</p>
+<p>بدأت ملامحها تتداخل مع صورة رأيتها سابقًا خلف مكتب الاستقبال.</p>
+<p>فهمت.</p>
+<p>لم تكن نسخة مني.</p>
+<p>كانت ذكرى مني.</p>
+<p>كانت تمثل الجزء الذي تركته هنا.</p>
+<p class="girl dialogue">«كل مرة كنتِ تنظرين إلى الباب في عالمك، كنتِ تتذكرينني دون أن تعرفي لماذا.»</p>
+<p class="hero dialogue">«ولماذا لم أتذكر؟»</p>
+<p class="girl dialogue">«لأنك اخترتِ أن تعيشي حياتك كما هي.»</p>
+<p>قال الرجل المقنع:</p>
+<p class="masked dialogue">«والاختيار لم يكن خطأ.»</p>
+<p>نظرت إليه.</p>
+<p class="hero dialogue">«إذًا لماذا عدت؟»</p>
+<p class="masked dialogue">«لأن شيئًا فيك لم ينتهِ.»</p>`
+},
+/* 10 */
+{
+title:"السيف الذي لا يُحمل باليد",
+content:`
+<p>أخرج الرجل المقنع سيفه من غمده لأول مرة.</p>
+<p>لم يكن سيفًا عاديًا.</p>
+<p>لمع نصله، لكن الضوء لم ينعكس عليه.</p>
+<p class="masked dialogue">«هذا ليس سيفًا للقتال.»</p>
+<p class="hero dialogue">«إذًا ما فائدته؟»</p>
+<p class="masked dialogue">«يفصل الحقيقة عن الخوف.»</p>
+<p>وضعه أمامي دون أن يلمسني.</p>
+<p>رأيت ذكريات صغيرة.</p>
+<p>أيامًا عادية.</p>
+<p>مواقف لم أفكر فيها طويلًا.</p>
+<p>ثم رأيت الباب.</p>
+<p>وفي كل مرة كنت أمر بجانبه، كان هناك شيء خلفه.</p>
+<p>شيء ينتظر.</p>
+<p>فهمت أن السيف لم يكن يفتح أبوابًا.</p>
+<p>كان يفتح الذاكرة.</p>
+<p class="gold">وأحيانًا تكون الذاكرة بابًا أخطر من أي باب.</p>`
+},
+/* 11 */
+{
+title:"المكان الذي يشبه حياتي",
+content:`
+<p>مشينا حتى وصلنا إلى مبنى يشبه مكان عملي.</p>
+<p>لكن كل شيء فيه كان أقدم.</p>
+<p>نفس المدخل.</p>
+<p>نفس المكتب.</p>
+<p>نفس الأصوات القادمة من صالة المبارزة.</p>
+<p>جلست خلف مكتب الاستقبال.</p>
+<p>ولأول مرة لم أشعر أنني في عالم غريب.</p>
+<p>شعرت أنني عدت إلى مكاني.</p>
+<p>قالت الفتاة ذات السيف:</p>
+<p class="girl dialogue">«لهذا السبب كان الاستقبال هو البوابة.»</p>
+<p class="hero dialogue">«لأنه المكان الذي أستطيع فيه رؤية العالمين؟»</p>
+<p class="girl dialogue">«لأنه المكان الذي كنتِ فيه عندما اخترتِ أن تتركي هذا العالم.»</p>
+<p>وضعت يدي على المكتب.</p>
+<p>كان الخشب يحمل خدوشًا صغيرة.</p>
+<p>تحتها وجدت جملة محفورة بخط يدي:</p>
+<p class="gold">«إذا عدت يومًا، لا تعودي لتبقي. عودي فقط لتعرفي لماذا غادرتِ.»</p>`
+},
+/* 12 */
+{
+title:"لماذا أنا؟",
+content:`
+<p>كان هذا السؤال الوحيد الذي بقي.</p>
+<p class="hero dialogue">«لماذا أنا؟»</p>
+<p>أجاب الرجل الذي كتب الإعلان:</p>
+<p class="watch dialogue">«لأنك الوحيدة التي تستطيع أن تعيش في العالمين دون أن تحتاج إلى أن تختار أحدهما.»</p>
+<p class="hero dialogue">«لكنني لست مبارزة.»</p>
+<p class="watch dialogue">«لم نطلب منك أن تكوني.»</p>
+<p class="hero dialogue">«إذًا ماذا أكون؟»</p>
+<p>نظرت إليّ الفتاة ذات السيف.</p>
+<p class="girl dialogue">«الباب.»</p>
+<p>لم أفهم.</p>
+<p>قال الرجل المقنع:</p>
+<p class="masked dialogue">«هناك أشخاص يقاتلون بالسيوف، وأشخاص يحرسون الأبواب، وأشخاص يعبرونها. أنتِ كنتِ دائمًا بين هذه الأشياء.»</p>
+<p>عندها أدركت أن كل ما ظننته عاديًا في عملي كان جزءًا من الحكاية.</p>
+<p>لم يكن الاستقبال مجرد مكان أقف فيه.</p>
+<p>كان المكان الذي تعلّمت فيه كيف أرى من يأتي، ومن يغادر، ومن يحتاج إلى طريق.</p>`
+},
+/* 13 */
+{
+title:"الحكاية التي كانت تنتظرني",
+content:`
+<p>أعطاني الرجل ورقة الإعلان للمرة الأخيرة.</p>
+<p>هذه المرة لم يكن عليها اسمي.</p>
+<p>كان المكان فارغًا.</p>
+<p class="hero dialogue">«أين اسمي؟»</p>
+<p class="watch dialogue">«لم يعد يحتاج إلى أن يكون مكتوبًا.»</p>
+<p class="hero dialogue">«لماذا؟»</p>
+<p class="watch dialogue">«لأنك تذكرتِ الطريق.»</p>
+<p>نظرت إلى الفتاة.</p>
+<p>بدأت ملامحها تتلاشى ببطء.</p>
+<p class="hero dialogue">«هل ستختفين؟»</p>
+<p class="girl dialogue">«أنا لا أختفي. أنا أعود إلى المكان الذي تركتِني فيه.»</p>
+<p>ثم نظرت إلى مكتب الاستقبال.</p>
+<p class="girl dialogue">«حين تعودين إلى عالمك، ستظنين أن كل شيء انتهى.»</p>
+<p>ابتسمت.</p>
+<p class="girl dialogue">«لكنه لن ينتهي. فقط سيتوقف عن الظهور بالطريقة نفسها.»</p>`
+},
+/* 14 */
+{
+title:"حين بدأ العالمان بالاختلاط",
+content:`
+<p>بدأت الأشياء تتغير.</p>
+<p>لم تعد المدينة منفصلة عن عالمي.</p>
+<p>صوت السيوف صار يشبه أصواتًا أعرفها.</p>
+<p>الساعات أصبحت تدق في الوقت نفسه.</p>
+<p>حتى باب الاستقبال ظهر للحظة في نهاية أحد شوارع المدينة.</p>
+<p>قال الرجل المقنع:</p>
+<p class="masked dialogue">«الحدود بين العالمين بدأت تختفي.»</p>
+<p class="hero dialogue">«وهل هذا سيئ؟»</p>
+<p class="masked dialogue">«ليس بالضرورة.»</p>
+<p class="hero dialogue">«إذًا لماذا يبدو الجميع خائفًا؟»</p>
+<p class="masked dialogue">«لأن الناس يخافون من الأشياء التي تجعلهم يرون أنفسهم بوضوح.»</p>
+<p>فهمت أنه لم يعد مطلوبًا مني القتال.</p>
+<p>كان علي فقط أن أقرر أي باب سأغلقه، وأي باب سأتركه مفتوحًا.</p>`
+},
+/* 15 */
+{
+title:"آخر مواجهة",
+content:`
+<p>وقف الرجل الذي كتب الإعلان أمام الباب.</p>
+<p>هذه المرة لم يحمل ورقة.</p>
+<p>حمل سيفًا.</p>
+<p class="watch dialogue">«لن تستطيعين العودة حتى تختاري.»</p>
+<p class="hero dialogue">«بين ماذا؟»</p>
+<p class="watch dialogue">«بين أن تعرفي كل شيء، أو أن تتركي بعض الأشياء مجهولة.»</p>
+<p>نظرت إلى الرجل المقنع.</p>
+<p>ثم إلى الفتاة.</p>
+<p>ثم إلى الباب.</p>
+<p>لم أكن بحاجة إلى السيف.</p>
+<p>قلت:</p>
+<p class="hero dialogue">«أختار أن أعرف ما أحتاج إليه فقط.»</p>
+<p>أنزل الرجل سيفه.</p>
+<p class="watch dialogue">«إذًا انتهت المبارزة.»</p>
+<p>لم تكن هناك ضربة واحدة.</p>
+<p>لم يكن هناك فائز.</p>
+<p>لأن المواجهة الحقيقية لم تكن بيني وبينه.</p>
+<p>كانت بين الشخص الذي ظننته أنني يجب أن أكونه، والشخص الذي أصبحت عليه.</p>`
+},
+/* 16 */
+{
+title:"الباب الذي لا يُفتح إلا مرة",
+content:`
+<p>وصلت إلى الباب الأخير.</p>
+<p>كان أصغر من الباب الأول.</p>
+<p>لكنني عرفته فورًا.</p>
+<p>مددت يدي.</p>
+<p>قال الرجل المقنع:</p>
+<p class="masked dialogue">«إذا فتحته، ستعودين.»</p>
+<p class="hero dialogue">«وهل أستطيع العودة مرة أخرى؟»</p>
+<p class="masked dialogue">«ليس بالطريقة نفسها.»</p>
+<p>نظرت إلى المدينة.</p>
+<p>إلى الفتاة التي بدأت تختفي.</p>
+<p>إلى الرجل الذي كتب الإعلان.</p>
+<p>ثم إلى المفتاح الذهبي.</p>
+<p>فتحت الباب.</p>
+<p>لم يكن خلفه ضباب.</p>
+<p>كان خلفه الاستقبال.</p>
+<p>مكاني الحقيقي.</p>
+<p>نفس المكتب.</p>
+<p>نفس الضوء.</p>
+<p>نفس الأصوات.</p>
+<p>لكن قبل أن أعبر، سمعت صوت الفتاة:</p>
+<p class="girl dialogue">«لا تنسي.»</p>
+<p>قلت:</p>
+<p class="hero dialogue">«لن أنسى.»</p>
+<p>ثم عبرت.</p>`
+},
+/* 17 */
+{
+title:"خلف مكتب الاستقبال",
+content:`
+<p>فتحت عيني.</p>
+<p>كنت خلف مكتب الاستقبال.</p>
+<p>كل شيء كان طبيعيًا.</p>
+<p>صوت السيوف.</p>
+<p>خطوات الناس.</p>
+<p>الأبواب.</p>
+<p>الضوء.</p>
+<p>نظرت إلى الساعة.</p>
+<p>لم يمر سوى بضع دقائق.</p>
+<p>وضعت يدي على المكتب.</p>
+<p>لا شيء.</p>
+<p>لا مفتاح.</p>
+<p>لا ورقة.</p>
+<p>لا أثر للمدينة.</p>
+<p>ثم سمعت:</p>
+<p>طق... طق... طق.</p>
+<p>رفعت رأسي.</p>
+<p>ابتسمت.</p>
+<p>لم أفتح الباب.</p>
+<p>لم أكن بحاجة إلى ذلك.</p>
+<p>لأول مرة، عرفت أن بعض الأبواب لا تحتاج إلى أن تُفتح حتى تعرف أنها موجودة.</p>`
+},
+/* 18 */
+{
+title:"الصفحة التي لم تُكتب بعد",
+content:`
+<p>منذ ذلك اليوم، لم أعد أرى المكان بالطريقة نفسها.</p>
+<p>ما زلت أقف خلف مكتب الاستقبال.</p>
+<p>ما زالت الأيام تمر.</p>
+<p>وما زالت السيوف تتلاقى في الصالة، وتعود الأصوات إلى الصمت بعد انتهاء كل جولة.</p>
+<p>لكنني أصبحت أعرف أن بين كل يوم عادي وحكاية كاملة، هناك لحظة صغيرة لا ينتبه لها أحد.</p>
+<p>نظرة.</p>
+<p>صوت.</p>
+<p>باب.</p>
+<p>أو حتى سؤال لا نعرف لماذا خطر في أذهاننا.</p>
+<p>ربما لم يكن العالم الآخر مكانًا بعيدًا.</p>
+<p>ربما كان دائمًا قريبًا، ينتظر أن ألاحظ فقط.</p>
+<p>وضعت المفتاح الذهبي في درج مكتبي.</p>
+<p>لم يعد يفتح شيئًا.</p>
+<p>لكنه بقي هناك.</p>
+<p>كتذكير بأن بعض الحكايات لا تنتهي عندما نصل إلى آخر صفحة.</p>
+<p>بل عندما نقرر أن نغلق الكتاب.</p>
+<p class="gold">أما هذه الحكاية...</p>
+<p class="gold">فقد وصلت إلى الصفحة التي لم تُكتب بعد.</p>
+<p>وربما كانت الصفحة التالية تنتظر منكِ أنتِ أن تكتبيها.</p>`,
+end:true
+}
+];
+
+const routePages = {
+  p3a:2, p3b:3,
+  p5a:4, p5b:7
 };
 
+let current = Number(localStorage.getItem("mysteryCurrent") || 0);
+let history = JSON.parse(localStorage.getItem("mysteryHistory") || "[]");
+let choices = JSON.parse(localStorage.getItem("mysteryChoices") || "{}");
 
-/*
-====================================================
-   ENGINE
-====================================================
-*/
-
-let currentPage = "start";
-let historyStack = [];
-
-const intro = document.getElementById("intro");
-const story = document.getElementById("story");
-
-const chapterNumber = document.getElementById("chapterNumber");
-const chapterTitle = document.getElementById("chapterTitle");
-const storyText = document.getElementById("storyText");
-const choiceArea = document.getElementById("choiceArea");
-const continueArea = document.getElementById("continueArea");
-const backButton = document.getElementById("backButton");
-
-const pageCounter = document.getElementById("pageCounter");
-const progressBar = document.getElementById("progressBar");
-
-
-function startStory(){
-
-    intro.style.display="none";
-    story.style.display="block";
-
-    historyStack=[];
-
-    showPage("start");
-
+function save(){
+  localStorage.setItem("mysteryCurrent", current);
+  localStorage.setItem("mysteryHistory", JSON.stringify(history));
+  localStorage.setItem("mysteryChoices", JSON.stringify(choices));
 }
 
+function choose(target, label){
+  choices[current]=label;
+  history.push(current);
+  current=routePages[target];
+  save();
+  render();
+}
 
-function showPage(pageId, saveHistory=true){
+function next(){
+  if(current===3 || current===2) current=4;
+  else if(current===4) current=5;
+  else if(current===5) current=6;
+  else if(current===6) current=7;
+  else if(current===7) current=8;
+  else if(current===8) current=9;
+  else if(current===9) current=10;
+  else if(current===10) current=11;
+  else if(current===11) current=12;
+  else if(current===12) current=13;
+  else if(current===13) current=14;
+  else if(current===14) current=15;
+  else if(current===15) current=16;
+  else if(current===16) current=17;
+  else if(current===17) current=18;
+  else if(current===0) current=1;
+  else if(current===1) return;
+  save(); render();
+}
 
-    const page = pages[pageId];
+function back(){
+  if(history.length){
+    current=history.pop();
+    save(); render();
+  }else if(current>0){
+    current--;
+    save(); render();
+  }
+}
 
-    if(!page) return;
+function render(){
+  const p=pages[current];
+  document.getElementById("chapterLabel").textContent =
+    p.title==="الباب" ? "الفصل الثالث — المسار الأول" :
+    p.title==="الصالة الفارغة" ? "الفصل الثالث — المسار الثاني" :
+    p.title==="موعد المبارزة" ? "الفصل الخامس — الخيار الأول" :
+    p.title==="صاحب الإعلان" ? "الفصل الخامس — الخيار الثاني" :
+    p.title==="الساحة التي لا يصلها ظل" ? "الفصل السادس — الخيار الأول" :
+    p.title==="الاسم الآخر" ? "الفصل السادس — الخيار الثاني" :
+    p.title==="الشخص الذي يحمل اسمي" ? "الفصل السابع — الخيار الأول" :
+    p.title==="الرسالة التي لم تُرسل" ? "الفصل السابع — الخيار الثاني" :
+    "الفصل " + (current<4? ["الأول","الثاني","الثالث","الثالث"][current] : current-0);
 
-    if(saveHistory && currentPage && currentPage !== pageId){
-        historyStack.push(currentPage);
-    }
+  let html=`<h2>${p.title}</h2><div class="story">${p.content}</div>`;
 
-    currentPage=pageId;
-
-    story.classList.remove("fade");
-
-    void story.offsetWidth;
-
-    story.classList.add("fade");
-
-    chapterNumber.textContent=page.chapter || "";
-    chapterTitle.textContent=page.title || "";
-    storyText.innerHTML=page.text || "";
-
-    choiceArea.innerHTML="";
-    continueArea.innerHTML="";
-
-    backButton.style.display=
-        historyStack.length > 0 ? "block" : "none";
-
-
-    if(page.choice){
-
-        const box=document.createElement("div");
-        box.className="choice-box";
-
-        const question=document.createElement("div");
-        question.className="choice-question";
-        question.textContent=page.choice.question;
-
-        const choices=document.createElement("div");
-        choices.className="choices";
-
-        page.choice.options.forEach((option,index)=>{
-
-            const button=document.createElement("button");
-
-            button.className="choice";
-
-            button.innerHTML=
-                `<span style="margin-left:8px">${option.icon}</span>
-                 ${option.text}`;
-
-            button.onclick=()=>{
-
-                saveChoice(pageId,index,option.text);
-
-                showPage(option.next);
-
-            };
-
-            choices.appendChild(button);
-
-        });
-
-        box.appendChild(question);
-        box.appendChild(choices);
-
-        choiceArea.appendChild(box);
-
-    }
-
-
-    if(page.next){
-
-        const wrap=document.createElement("div");
-        wrap.className="continue-wrap";
-
-        const button=document.createElement("button");
-        button.className="continue-btn";
-        button.textContent="أكمل الحكاية";
-
-        button.onclick=()=>{
-            showPage(page.next);
-        };
-
-        wrap.appendChild(button);
-
-        continueArea.appendChild(wrap);
-    }
-
-
-    updateProgress();
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
+  if(p.choices){
+    html+=`<div class="choiceTitle">اختاري كيف تواصلين الحكاية</div><div class="choices">`;
+    p.choices.forEach(c=>{
+      html+=`<button onclick="choose('${c[1]}','${c[0].replace(/'/g,"’")}')">${c[0]}</button>`;
     });
+    html+=`</div>`;
+  }else if(!p.end){
+    html+=`<div class="nav"><button class="back" onclick="back()">↩ العودة</button><button class="next" onclick="next()">متابعة الحكاية ←</button></div>`;
+  }else{
+    html+=`<div class="ending"><h3>النهاية... أم بداية أخرى؟</h3><p>انتهت الحكاية هنا، لكن الباب لم يُغلق تمامًا.</p><button onclick="current=0;history=[];save();render()">إعادة الحكاية</button></div>`;
+  }
 
+  html+=`<div class="note">الاختيارات تُحفظ على هذا الجهاز.</div>`;
+  document.getElementById("app").innerHTML=html;
+  document.getElementById("progressBar").style.width=((current+1)/pages.length*100)+"%";
+  window.scrollTo({top:0,behavior:"smooth"});
 }
-
-
-function saveChoice(pageId,index,text){
-
-    let choices=[];
-
-    try{
-        choices=
-            JSON.parse(
-                localStorage.getItem("storyChoices") || "[]"
-            );
-    }catch(e){
-        choices=[];
-    }
-
-    choices.push({
-        page:pageId,
-        option:index,
-        text:text,
-        time:new Date().toISOString()
-    });
-
-    localStorage.setItem(
-        "storyChoices",
-        JSON.stringify(choices)
-    );
-
-}
-
-
-function goBack(){
-
-    if(historyStack.length===0) return;
-
-    const previous=
-        historyStack.pop();
-
-    showPage(previous,false);
-
-}
-
-
-function updateProgress(){
-
-    const total=Object.keys(pages).length;
-
-    const index=
-        Object.keys(pages).indexOf(currentPage);
-
-    const percentage=
-        Math.max(
-            3,
-            ((index+1)/total)*100
-        );
-
-    progressBar.style.width=
-        percentage+"%";
-
-    pageCounter.textContent=
-        "الفصل "+(index+1);
-}
-
-
-/*
-====================================================
-   LITTLE AMBIENT PARTICLES
-====================================================
-*/
-
-for(let i=0;i<18;i++){
-
-    const spark=document.createElement("div");
-
-    spark.className="spark";
-
-    spark.style.right=
-        Math.random()*100+"%";
-
-    spark.style.top=
-        Math.random()*100+"%";
-
-    spark.style.opacity=
-        Math.random()*.25;
-
-    document.body.appendChild(spark);
-
-}
-
-
-/*
-====================================================
-   RESET FUNCTION
-====================================================
-
-إذا احتجت تمسح اختيارات القارئة أثناء الاختبار:
-
-resetStory()
-
-====================================================
-*/
-
-function resetStory(){
-
-    localStorage.removeItem("storyChoices");
-
-    location.reload();
-
-}
-
+render();
 </script>
-
 </body>
 </html>
