@@ -9,352 +9,356 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@500;600;700&display=swap');
 
-* {
-    box-sizing: border-box;
+*{
+    box-sizing:border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+html{
+    scroll-behavior:smooth;
 }
 
-body {
-    margin: 0;
-    min-height: 100vh;
+body{
+    margin:0;
+    min-height:100vh;
     background:
-        radial-gradient(circle at 50% 10%, rgba(190,150,70,0.08), transparent 30%),
-        linear-gradient(145deg, #050b16, #0a1424 45%, #07101d);
-    color: #eee9df;
-    font-family: "Amiri", serif;
-    overflow-x: hidden;
+        radial-gradient(circle at 50% 10%,rgba(190,150,70,0.08),transparent 30%),
+        linear-gradient(145deg,#050b16,#0a1424 45%,#07101d);
+    color:#eee9df;
+    font-family:"Amiri",serif;
+    overflow-x:hidden;
 }
 
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
     background:
-        linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.01) 1px, transparent 1px);
-    background-size: 45px 45px;
-    opacity: 0.25;
+        linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,0.01) 1px,transparent 1px);
+    background-size:45px 45px;
+    opacity:.25;
 }
 
-#app {
-    width: 100%;
-    min-height: 100vh;
+#app{
+    width:100%;
+    min-height:100vh;
 }
 
 /* =========================
    الغلاف
 ========================= */
 
-.cover {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 30px 20px;
-    text-align: center;
+.cover{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:30px 20px;
+    text-align:center;
 }
 
-.cover-box {
-    width: min(850px, 100%);
-    padding: 50px 25px;
-    position: relative;
+.cover-box{
+    width:min(850px,100%);
+    padding:50px 25px;
+    position:relative;
 }
 
-.cover-line {
-    width: 90px;
-    height: 1px;
-    background: #c9a85a;
-    margin: 0 auto 30px;
-    opacity: 0.8;
+.cover-line{
+    width:90px;
+    height:1px;
+    background:#c9a85a;
+    margin:0 auto 30px;
+    opacity:.8;
 }
 
-.cover h1 {
-    margin: 0;
-    color: #d6b767;
-    font-size: clamp(42px, 9vw, 76px);
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-shadow: 0 0 30px rgba(201,168,90,0.18);
+.cover h1{
+    margin:0;
+    color:#d6b767;
+    font-size:clamp(42px,9vw,76px);
+    font-weight:700;
+    letter-spacing:1px;
+    text-shadow:0 0 30px rgba(201,168,90,.18);
 }
 
-.cover-subtitle {
-    margin-top: 18px;
-    color: #cfc9bd;
-    font-size: 20px;
+.cover-subtitle{
+    margin-top:18px;
+    color:#cfc9bd;
+    font-size:20px;
 }
 
-.cover-note {
-    margin-top: 45px;
-    color: #817d75;
-    font-size: 15px;
+.cover-note{
+    margin-top:45px;
+    color:#817d75;
+    font-size:15px;
 }
 
 /* =========================
    المقدمة
 ========================= */
 
-.intro {
-    display: none;
-    min-height: 100vh;
-    align-items: center;
-    justify-content: center;
-    padding: 30px 20px;
+.intro{
+    display:none;
+    min-height:100vh;
+    align-items:center;
+    justify-content:center;
+    padding:30px 20px;
 }
 
-.intro.active {
-    display: flex;
+.intro.active{
+    display:flex;
 }
 
-.intro-box {
-    width: min(720px, 100%);
-    text-align: center;
+.intro-box{
+    width:min(720px,100%);
+    text-align:center;
 }
 
-.intro-text {
-    color: #e8e2d7;
-    font-size: 21px;
-    line-height: 2.25;
-    margin-bottom: 40px;
+.intro-text{
+    color:#e8e2d7;
+    font-size:21px;
+    line-height:2.25;
+    margin-bottom:40px;
 }
 
-.gold {
-    color: #d6b767;
+.gold{
+    color:#d6b767;
 }
 
-.door-area {
-    height: 245px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    perspective: 900px;
-    margin-bottom: 15px;
+.door-area{
+    height:245px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    perspective:900px;
+    margin-bottom:15px;
 }
 
-.door-frame {
-    width: 125px;
-    height: 205px;
-    border: 2px solid #c9a85a;
-    border-bottom: none;
-    position: relative;
+.door-frame{
+    width:125px;
+    height:205px;
+    border:2px solid #c9a85a;
+    border-bottom:none;
+    position:relative;
     box-shadow:
-        0 0 20px rgba(201,168,90,0.08),
-        inset 0 0 20px rgba(201,168,90,0.04);
+        0 0 20px rgba(201,168,90,.08),
+        inset 0 0 20px rgba(201,168,90,.04);
 }
 
-.door {
-    position: absolute;
-    inset: 8px 8px 0;
-    background: linear-gradient(145deg, #0e1a2b, #07101b);
-    border: 1px solid rgba(201,168,90,0.55);
-    transform-origin: right center;
-    transition: transform 1.8s cubic-bezier(.77,0,.18,1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
+.door{
+    position:absolute;
+    inset:8px 8px 0;
+    background:linear-gradient(145deg,#0e1a2b,#07101b);
+    border:1px solid rgba(201,168,90,.55);
+    transform-origin:right center;
+    transition:transform 1.8s cubic-bezier(.77,0,.18,1);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:2;
 }
 
-.door.open {
-    transform: rotateY(-105deg);
+.door.open{
+    transform:rotateY(-105deg);
 }
 
-.door-symbol {
-    color: #d6b767;
-    font-size: 40px;
-    text-shadow: 0 0 20px rgba(214,183,103,0.3);
+.door-symbol{
+    color:#d6b767;
+    font-size:40px;
+    text-shadow:0 0 20px rgba(214,183,103,.3);
 }
 
-.door-light {
-    position: absolute;
-    inset: 15px;
-    background: radial-gradient(circle, rgba(214,183,103,0.18), transparent 65%);
-    opacity: 0;
-    transition: opacity 1.5s ease;
+.door-light{
+    position:absolute;
+    inset:15px;
+    background:radial-gradient(circle,rgba(214,183,103,.18),transparent 65%);
+    opacity:0;
+    transition:opacity 1.5s ease;
 }
 
-.door.open + .door-light {
-    opacity: 1;
+.door.open + .door-light{
+    opacity:1;
 }
 
-.door-sound {
-    height: 30px;
-    color: #8f8a81;
-    font-size: 14px;
+.door-sound{
+    height:30px;
+    color:#8f8a81;
+    font-size:14px;
 }
 
-.start-btn {
-    display: none;
-    margin: 15px auto 0;
+.start-btn{
+    display:none;
+    margin:15px auto 0;
 }
 
-.start-btn.show {
-    display: inline-block;
+.start-btn.show{
+    display:inline-block;
 }
 
 /* =========================
    صفحات القصة
 ========================= */
 
-.story-page {
-    display: none;
-    min-height: 100vh;
-    padding: 25px 18px 50px;
+.story-page{
+    display:none;
+    min-height:100vh;
+    padding:25px 18px 50px;
 }
 
-.story-page.active {
-    display: block;
-    animation: pageIn 0.7s ease;
+.story-page.active{
+    display:block;
+    animation:pageIn .7s ease;
 }
 
-@keyframes pageIn {
-    from {
-        opacity: 0;
-        transform: translateY(12px);
+@keyframes pageIn{
+    from{
+        opacity:0;
+        transform:translateY(12px);
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    to{
+        opacity:1;
+        transform:translateY(0);
     }
 }
 
-.story-container {
-    width: min(780px, 100%);
-    margin: 0 auto;
+.story-container{
+    width:min(780px,100%);
+    margin:0 auto;
 }
 
-.chapter-header {
-    text-align: right;
-    margin-bottom: 45px;
-    padding-right: 5px;
+.chapter-header{
+    text-align:right;
+    margin-bottom:45px;
+    padding-right:5px;
 }
 
-.chapter-number {
-    color: #807b72;
-    font-size: 13px;
-    margin-bottom: 5px;
+.chapter-number{
+    color:#807b72;
+    font-size:13px;
+    margin-bottom:5px;
 }
 
-.chapter-title {
-    color: #d6b767;
-    font-size: 24px;
-    font-weight: 700;
-    margin: 0;
+.chapter-title{
+    color:#d6b767;
+    font-size:24px;
+    font-weight:700;
+    margin:0;
 }
 
-.story {
-    color: #e7e2d9;
-    font-size: 19px;
-    line-height: 2.25;
+.story{
+    color:#e7e2d9;
+    font-size:19px;
+    line-height:2.25;
 }
 
-.story p {
-    margin: 0 0 27px;
+.story p{
+    margin:0 0 27px;
 }
 
-.story .important {
-    color: #d6b767;
+.story .important{
+    color:#d6b767;
 }
 
-.story .quiet {
-    color: #aaa69f;
+.story .quiet{
+    color:#aaa69f;
 }
 
-.story .white {
-    color: #f3eee5;
+.story .white{
+    color:#f3eee5;
 }
 
-.story .center {
-    text-align: center;
-    margin: 45px 0;
+.story .center{
+    text-align:center;
+    margin:45px 0;
 }
 
-.dialogue {
-    margin: 25px 0;
-    padding: 18px 20px;
-    border-right: 2px solid #5e5b55;
-    background: rgba(255,255,255,0.018);
-    border-radius: 5px 0 0 5px;
+/* =========================
+   الحوارات
+========================= */
+
+.dialogue{
+    margin:25px 0;
+    padding:18px 20px;
+    border-right:2px solid #5e5b55;
+    background:rgba(255,255,255,.018);
+    border-radius:5px 0 0 5px;
 }
 
-.dialogue.hero {
-    border-right-color: #eee9df;
-    color: #eee9df;
+.dialogue.hero{
+    border-right-color:#eee9df;
+    color:#eee9df;
 }
 
-.dialogue.masked {
-    border-right-color: #9a9a9a;
-    color: #bfc0c1;
+.dialogue.masked{
+    border-right-color:#9a9a9a;
+    color:#bfc0c1;
 }
 
-.dialogue.old {
-    border-right-color: #75a675;
-    color: #9cc89c;
+.dialogue.old{
+    border-right-color:#75a675;
+    color:#9cc89c;
 }
 
-.dialogue.girl {
-    border-right-color: #7fd7e8;
-    color: #9ee4ef;
+.dialogue.girl{
+    border-right-color:#7fd7e8;
+    color:#9ee4ef;
 }
 
-.dialogue.watch {
-    border-right-color: #d6b767;
-    color: #e2c87c;
+.dialogue.watch{
+    border-right-color:#d6b767;
+    color:#e2c87c;
 }
 
-.dialogue.guard {
-    border-right-color: #9b78c7;
-    color: #b99bdc;
+.dialogue.guard{
+    border-right-color:#9b78c7;
+    color:#b99bdc;
 }
 
-.dialogue-name {
-    display: block;
-    font-size: 13px;
-    margin-bottom: 5px;
-    opacity: 0.65;
+.dialogue-name{
+    display:block;
+    font-size:13px;
+    margin-bottom:5px;
+    opacity:.65;
 }
 
 /* =========================
    الاختيارات
 ========================= */
 
-.choice-area {
-    margin-top: 55px;
-    padding-top: 25px;
-    border-top: 1px solid rgba(201,168,90,0.18);
+.choice-area{
+    margin-top:55px;
+    padding-top:25px;
+    border-top:1px solid rgba(201,168,90,.18);
 }
 
-.choice-intro {
-    color: #8f8a81;
-    text-align: center;
-    margin-bottom: 22px;
-    font-size: 15px;
+.choice-intro{
+    color:#8f8a81;
+    text-align:center;
+    margin-bottom:22px;
+    font-size:15px;
 }
 
-.choice-btn {
-    display: block;
-    width: 100%;
-    background: rgba(255,255,255,0.025);
-    border: 1px solid rgba(201,168,90,0.38);
-    color: #ddd7cd;
-    padding: 18px 20px;
-    margin: 12px 0;
-    border-radius: 4px;
-    font-family: "Amiri", serif;
-    font-size: 17px;
-    text-align: right;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.choice-btn{
+    display:block;
+    width:100%;
+    background:rgba(255,255,255,.025);
+    border:1px solid rgba(201,168,90,.38);
+    color:#ddd7cd;
+    padding:18px 20px;
+    margin:12px 0;
+    border-radius:4px;
+    font-family:"Amiri",serif;
+    font-size:17px;
+    text-align:right;
+    cursor:pointer;
+    transition:all .3s ease;
 }
 
-.choice-btn:hover {
-    background: rgba(201,168,90,0.08);
-    border-color: #c9a85a;
-    transform: translateX(-3px);
-    color: #e5c97c;
+.choice-btn:hover{
+    background:rgba(201,168,90,.08);
+    border-color:#c9a85a;
+    transform:translateX(-3px);
+    color:#e5c97c;
 }
 
 /* =========================
@@ -363,174 +367,189 @@ body::before {
 
 .next-btn,
 .restart-btn,
-.submit-btn {
-    border: 1px solid #b89443;
-    background: linear-gradient(135deg, #1b2533, #111a27);
-    color: #d6b767;
-    padding: 12px 30px;
-    border-radius: 4px;
-    font-family: "Amiri", serif;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.submit-btn{
+    border:1px solid #b89443;
+    background:linear-gradient(135deg,#1b2533,#111a27);
+    color:#d6b767;
+    padding:12px 30px;
+    border-radius:4px;
+    font-family:"Amiri",serif;
+    font-size:16px;
+    cursor:pointer;
+    transition:all .3s ease;
 }
 
 .next-btn:hover,
 .restart-btn:hover,
-.submit-btn:hover {
-    background: #b89443;
-    color: #07101d;
+.submit-btn:hover{
+    background:#b89443;
+    color:#07101d;
 }
 
-.next-wrap {
-    text-align: center;
-    margin-top: 55px;
+.next-wrap{
+    text-align:center;
+    margin-top:55px;
+}
+
+.back-btn{
+    margin-left:10px;
 }
 
 /* =========================
    النهاية
 ========================= */
 
-.ending {
-    display: none;
-    min-height: 100vh;
-    padding: 45px 18px 70px;
+.ending{
+    display:none;
+    min-height:100vh;
+    padding:45px 18px 70px;
 }
 
-.ending.active {
-    display: block;
-    animation: pageIn 1s ease;
+.ending.active{
+    display:block;
+    animation:pageIn 1s ease;
 }
 
-.ending-container {
-    width: min(720px, 100%);
-    margin: auto;
+.ending-container{
+    width:min(720px,100%);
+    margin:auto;
 }
 
-.ending-title {
-    text-align: center;
-    color: #d6b767;
-    font-size: 36px;
-    margin-bottom: 45px;
+.ending-title{
+    text-align:center;
+    color:#d6b767;
+    font-size:36px;
+    margin-bottom:45px;
 }
 
-.real-ending {
-    color: #e8e2d9;
-    font-size: 20px;
-    line-height: 2.3;
+.real-ending{
+    color:#e8e2d9;
+    font-size:20px;
+    line-height:2.3;
 }
 
-.real-ending p {
-    margin-bottom: 28px;
+.real-ending p{
+    margin-bottom:28px;
 }
 
-.real-ending .gold-line {
-    color: #d6b767;
-    text-align: center;
-    font-size: 23px;
-    margin: 50px 0;
+.real-ending .gold-line{
+    color:#d6b767;
+    text-align:center;
+    font-size:23px;
+    margin:50px 0;
 }
 
-.response-box {
-    margin-top: 60px;
-    padding: 25px;
-    border: 1px solid rgba(201,168,90,0.32);
-    background: rgba(255,255,255,0.018);
-    border-radius: 6px;
+.response-box{
+    margin-top:60px;
+    padding:25px;
+    border:1px solid rgba(201,168,90,.32);
+    background:rgba(255,255,255,.018);
+    border-radius:6px;
 }
 
-.response-title {
-    color: #d6b767;
-    font-size: 20px;
-    text-align: center;
-    margin-bottom: 8px;
+.response-title{
+    color:#d6b767;
+    font-size:20px;
+    text-align:center;
+    margin-bottom:8px;
 }
 
-.response-description {
-    color: #8f8a81;
-    text-align: center;
-    font-size: 14px;
-    margin-bottom: 20px;
+.response-description{
+    color:#8f8a81;
+    text-align:center;
+    font-size:14px;
+    margin-bottom:20px;
 }
 
-.response-box textarea {
-    width: 100%;
-    min-height: 100px;
-    resize: vertical;
-    background: rgba(4,10,18,0.75);
-    border: 1px solid rgba(201,168,90,0.28);
-    color: #eee9df;
-    border-radius: 4px;
-    padding: 13px;
-    font-family: "Amiri", serif;
-    font-size: 16px;
-    outline: none;
+.response-box textarea{
+    width:100%;
+    min-height:100px;
+    resize:vertical;
+    background:rgba(4,10,18,.75);
+    border:1px solid rgba(201,168,90,.28);
+    color:#eee9df;
+    border-radius:4px;
+    padding:13px;
+    font-family:"Amiri",serif;
+    font-size:16px;
+    outline:none;
 }
 
-.response-box textarea:focus {
-    border-color: #c9a85a;
+.response-box textarea:focus{
+    border-color:#c9a85a;
 }
 
-.submit-wrap {
-    text-align: center;
-    margin-top: 18px;
+.submit-wrap{
+    text-align:center;
+    margin-top:18px;
 }
 
-.final-message {
-    display: none;
-    text-align: center;
-    color: #d6b767;
-    margin-top: 20px;
-    line-height: 2;
+.submit-btn{
+    width:auto;
+    min-width:170px;
 }
 
-.final-message.show {
-    display: block;
+.final-message{
+    display:none;
+    text-align:center;
+    color:#d6b767;
+    margin-top:20px;
+    line-height:2;
 }
 
-.restart-wrap {
-    text-align: center;
-    margin-top: 45px;
+.final-message.show{
+    display:block;
+}
+
+.restart-wrap{
+    text-align:center;
+    margin-top:45px;
 }
 
 /* =========================
-   استجابة الجوال
+   الجوال
 ========================= */
 
-@media (max-width: 600px) {
+@media(max-width:600px){
 
-    .cover h1 {
-        font-size: 44px;
+    .cover h1{
+        font-size:44px;
     }
 
-    .cover-subtitle {
-        font-size: 17px;
+    .cover-subtitle{
+        font-size:17px;
     }
 
-    .intro-text {
-        font-size: 18px;
-        line-height: 2.1;
+    .intro-text{
+        font-size:18px;
+        line-height:2.1;
     }
 
-    .story {
-        font-size: 17px;
-        line-height: 2.15;
+    .story{
+        font-size:17px;
+        line-height:2.15;
     }
 
-    .chapter-title {
-        font-size: 21px;
+    .chapter-title{
+        font-size:21px;
     }
 
-    .story-page {
-        padding-top: 22px;
+    .story-page{
+        padding-top:22px;
     }
 
-    .ending-title {
-        font-size: 30px;
+    .ending-title{
+        font-size:30px;
     }
 
-    .real-ending {
-        font-size: 18px;
+    .real-ending{
+        font-size:18px;
+    }
+
+    .next-btn,
+    .restart-btn{
+        font-size:15px;
+        padding:11px 22px;
     }
 }
 </style>
@@ -545,25 +564,28 @@ body::before {
 ========================= -->
 
 <section id="cover" class="cover">
-    <div class="cover-box">
 
-        <div class="cover-line"></div>
+<div class="cover-box">
 
-        <h1>ما وراء باب الاستقبال</h1>
+<div class="cover-line"></div>
 
-        <div class="cover-subtitle">
-            حكاية لم تبدأ حين ظننتُ أنها بدأت
-        </div>
+<h1>ما وراء باب الاستقبال</h1>
 
-        <div class="cover-note">
-            حكاية تفاعلية
-        </div>
+<div class="cover-subtitle">
+حكاية لم تبدأ حين ظننتُ أنها بدأت
+</div>
 
-        <button class="next-btn" onclick="showIntro()" style="margin-top:35px;">
-            اقرئي المقدمة
-        </button>
+<div class="cover-note">
+حكاية تفاعلية
+</div>
 
-    </div>
+<button class="next-btn"
+        onclick="showIntro()"
+        style="margin-top:35px;">
+    اقرئي المقدمة
+</button>
+
+</div>
 </section>
 
 
@@ -573,65 +595,67 @@ body::before {
 
 <section id="intro" class="intro">
 
-    <div class="intro-box">
+<div class="intro-box">
 
-        <div class="intro-text">
+<div class="intro-text">
 
-            ليست كل الحكايات تبدأ حين يحدث شيء غريب.<br>
+ليست كل الحكايات تبدأ حين يحدث شيء غريب.<br>
 
-            بعضها يبدأ قبل ذلك بكثير...<br>
+بعضها يبدأ قبل ذلك بكثير...<br>
 
-            في مكان اعتدتِ عليه،
-            وفي يوم يشبه كل الأيام،
-            دون أن تعرفي أن شيئًا ما كان ينتظركِ منذ زمن.
+في مكان اعتدتِ عليه،
+وفي يوم يشبه كل الأيام،
+دون أن تعرفي أن شيئًا ما كان ينتظركِ منذ زمن.
 
-            <br><br>
+<br><br>
 
-            هذه ليست حكاية عن السيوف فقط،
-            ولا عن عالم بعيد لا يشبه عالمكِ.
+هذه ليست حكاية عن السيوف فقط،
+ولا عن عالم بعيد لا يشبه عالمكِ.
 
-            <br>
+<br>
 
-            إنها حكاية عن <span class="gold">باب واحد...</span><br>
-            وعن شيء قد تجدينه خلفه،
-            إذا قررتِ يومًا أن تنظري إليه.
+إنها حكاية عن <span class="gold">باب واحد...</span><br>
 
-            <br><br>
+وعن شيء قد تجدينه خلفه،
+إذا قررتِ يومًا أن تنظري إليه.
 
-            فقط لا تتعجلي في فتحه.
+<br><br>
 
-            <br>
+فقط لا تتعجلي في فتحه.
 
-            لأن ذلك الباب...
-            حين يُفتح،
-            قد لا يعيدكِ إلى المكان الذي جئتِ منه.
+<br>
 
-        </div>
+لأن ذلك الباب...
+حين يُفتح،
+قد لا يعيدكِ إلى المكان الذي جئتِ منه.
 
-        <div class="door-area">
+</div>
 
-            <div class="door-frame">
+<div class="door-area">
 
-                <div id="door" class="door">
-                    <div class="door-symbol">⚔</div>
-                </div>
+<div class="door-frame">
 
-                <div class="door-light"></div>
+<div id="door" class="door">
+<div class="door-symbol">⚔</div>
+</div>
 
-            </div>
+<div class="door-light"></div>
 
-        </div>
+</div>
 
-        <div id="doorSound" class="door-sound">
-            ...
-        </div>
+</div>
 
-        <button id="startBtn" class="next-btn start-btn" onclick="startStory()">
-            ابدئي الحكاية
-        </button>
+<div id="doorSound" class="door-sound">
+...
+</div>
 
-    </div>
+<button id="startBtn"
+        class="next-btn start-btn"
+        onclick="startStory()">
+    ابدئي الحكاية
+</button>
 
+</div>
 </section>
 
 
@@ -644,8 +668,8 @@ body::before {
 <div class="story-container">
 
 <div class="chapter-header">
-    <div class="chapter-number">الفصل الأول</div>
-    <h2 class="chapter-title">يوم يشبه كل الأيام</h2>
+<div class="chapter-number">الفصل الأول</div>
+<h2 class="chapter-title">يوم يشبه كل الأيام</h2>
 </div>
 
 <div class="story">
@@ -803,9 +827,9 @@ body::before {
 </div>
 
 <div class="next-wrap">
-    <button class="next-btn" onclick="goTo('chapter2')">
-        الصفحة التالية
-    </button>
+<button class="next-btn" onclick="goTo('chapter2')">
+الصفحة التالية
+</button>
 </div>
 
 </div>
@@ -821,8 +845,8 @@ body::before {
 <div class="story-container">
 
 <div class="chapter-header">
-    <div class="chapter-number">الفصل الثاني</div>
-    <h2 class="chapter-title">الشيء الذي لم يكن موجودًا</h2>
+<div class="chapter-number">الفصل الثاني</div>
+<h2 class="chapter-title">الشيء الذي لم يكن موجودًا</h2>
 </div>
 
 <div class="story">
@@ -928,8 +952,8 @@ body::before {
 </p>
 
 <div class="dialogue masked">
-    <span class="dialogue-name">الرجل المقنّع</span>
-    أخيرًا انتبهتِ.
+<span class="dialogue-name">الفارس المقنّع</span>
+أخيرًا انتبهتِ.
 </div>
 
 <p>
@@ -950,15 +974,17 @@ body::before {
 <div class="choice-area">
 
 <div class="choice-intro">
-    وفي تلك اللحظة، كان عليّ أن أقرر...
+وفي تلك اللحظة، كان عليّ أن أقرر...
 </div>
 
-<button class="choice-btn" onclick="choose(1,'chapter3A')">
-    ⚔️ أفتح الباب.
+<button class="choice-btn"
+        onclick="choose(1,'chapter3A','أفتح الباب.')">
+⚔️ أفتح الباب.
 </button>
 
-<button class="choice-btn" onclick="choose(1,'chapter3B')">
-    🌙 أترك الباب وأذهب إلى صالة المبارزة.
+<button class="choice-btn"
+        onclick="choose(1,'chapter3B','أترك الباب وأذهب إلى صالة المبارزة.')">
+🌙 أترك الباب وأذهب إلى صالة المبارزة.
 </button>
 
 </div>
@@ -976,8 +1002,8 @@ body::before {
 <div class="story-container">
 
 <div class="chapter-header">
-    <div class="chapter-number">الفصل الثالث</div>
-    <h2 class="chapter-title">الطريق الذي لم أكن أعرفه</h2>
+<div class="chapter-number">الفصل الثالث</div>
+<h2 class="chapter-title">الطريق الذي لم أكن أعرفه</h2>
 </div>
 
 <div class="story">
@@ -1056,12 +1082,15 @@ body::before {
 
 <p>
 وقبل أن أقترب،
-رأيت الرجل.
+رأيت رجلًا يخرج من أحد الأزقة المقابلة.
 </p>
 
 <p>
-كان يقف بعيدًا،
-يرتدي قناعًا فضيًا يغطي جزءًا من وجهه.
+كان يرتدي قناعًا فضيًا يغطي جزءًا من وجهه.
+</p>
+
+<p>
+توقف عندما رآني.
 </p>
 
 <p>
@@ -1069,27 +1098,27 @@ body::before {
 </p>
 
 <div class="dialogue masked">
-    <span class="dialogue-name">الرجل المقنّع</span>
-    أنتِ أول واحدة تعبر من ذلك الباب منذ سنوات.
+<span class="dialogue-name">الفارس المقنّع</span>
+أنتِ أول واحدة تعبر من ذلك الباب منذ سنوات.
 </div>
 
 <div class="dialogue hero">
-    <span class="dialogue-name">أنا</span>
-    أين أنا؟
+<span class="dialogue-name">أنا</span>
+أين أنا؟
 </div>
 
 <div class="dialogue masked">
-    <span class="dialogue-name">الرجل المقنّع</span>
-    في المكان الذي لم يكن من المفترض أن تجدي طريقكِ إليه.
+<span class="dialogue-name">الفارس المقنّع</span>
+في المكان الذي لم يكن من المفترض أن تجدي طريقكِ إليه.
 </div>
 
 <p>
-نظرت إليه.
+تأملني للحظة.
 </p>
 
 <div class="dialogue masked">
-    <span class="dialogue-name">الرجل المقنّع</span>
-    وكنت أخشى أن تأتي هذه اللحظة.
+<span class="dialogue-name">الفارس المقنّع</span>
+وكنت أخشى أن تأتي هذه اللحظة.
 </div>
 
 <p>
@@ -1107,9 +1136,9 @@ body::before {
 </div>
 
 <div class="next-wrap">
-    <button class="next-btn" onclick="goTo('chapter4')">
-        أتابع
-    </button>
+<button class="next-btn" onclick="goTo('chapter4')">
+أتابع
+</button>
 </div>
 
 </div>
@@ -1125,8 +1154,8 @@ body::before {
 <div class="story-container">
 
 <div class="chapter-header">
-    <div class="chapter-number">الفصل الثالث</div>
-    <h2 class="chapter-title">الصالة الفارغة</h2>
+<div class="chapter-number">الفصل الثالث</div>
+<h2 class="chapter-title">الصالة الفارغة</h2>
 </div>
 
 <div class="story">
@@ -1214,28 +1243,31 @@ body::before {
 </p>
 
 <p>
-وقفت أمامه،
-ثم رأيت الرجل المقنّع.
+توقفت أمامه.
 </p>
 
 <p>
-كان يقف قرب المدخل،
+ثم خرج رجل من المدخل المقابل.
+</p>
+
+<p>
+كان يرتدي قناعًا فضيًا،
 وعند خصره غمد أسود طويل.
 </p>
 
 <div class="dialogue masked">
-    <span class="dialogue-name">الرجل المقنّع</span>
-    أنتِ لم تعودي إلى هنا.
+<span class="dialogue-name">الفارس المقنّع</span>
+أنتِ لم تعودي إلى هنا.
 </div>
 
 <div class="dialogue hero">
-    <span class="dialogue-name">أنا</span>
-    إلى أين إذًا؟
+<span class="dialogue-name">أنا</span>
+إلى أين إذًا؟
 </div>
 
 <div class="dialogue masked">
-    <span class="dialogue-name">الرجل المقنّع</span>
-    إلى المكان الذي كنتِ فيه طوال الوقت.
+<span class="dialogue-name">الفارس المقنّع</span>
+إلى المكان الذي كنتِ فيه طوال الوقت.
 </div>
 
 <p>
@@ -1257,9 +1289,9 @@ body::before {
 </div>
 
 <div class="next-wrap">
-    <button class="next-btn" onclick="goTo('chapter4')">
-        أتابع
-    </button>
+<button class="next-btn" onclick="goTo('chapter4')">
+أتابع
+</button>
 </div>
 
 </div>
@@ -1275,14 +1307,15 @@ body::before {
 <div class="story-container">
 
 <div class="chapter-header">
-    <div class="chapter-number">الفصل الرابع</div>
-    <h2 class="chapter-title">المدينة التي تعرفني</h2>
+<div class="chapter-number">الفصل الرابع</div>
+<h2 class="chapter-title">المدينة التي تعرفني</h2>
 </div>
 
 <div class="story">
 
 <p>
-مشيت مع الرجل المقنّع دون أن أعرف لماذا أثق بأن أتبع خطواته.
+مشيت مع الفارس المقنّع،
+دون أن أعرف لماذا أثق بأن أتبع خطواته.
 </p>
 
 <p>
@@ -1320,22 +1353,27 @@ body::before {
 </p>
 
 <p>
-ثم التفتُّ إلى الرجل المقنّع.
+ثم التفتُّ نحو الطريق الذي جاء منه.
+</p>
+
+<p>
+كان الفارس المقنّع قد توقف على مسافة قريبة،
+ينتظرني بدل أن يظهر فجأة خلفي.
 </p>
 
 <div class="dialogue masked">
-    <span class="dialogue-name">الرجل المقنّع</span>
-    لا تلتفتي.
+<span class="dialogue-name">الفارس المقنّع</span>
+لا تلتفتي.
 </div>
 
 <div class="dialogue hero">
-    <span class="dialogue-name">أنا</span>
-    لماذا؟
+<span class="dialogue-name">أنا</span>
+لماذا؟
 </div>
 
 <div class="dialogue masked">
-    <span class="dialogue-name">الرجل المقنّع</span>
-    لأن بعض الأشياء، إذا عرفتها قبل وقتها، ستبحثين عن إجابة لها بدل أن تعيشيها.
+<span class="dialogue-name">الفارس المقنّع</span>
+لأن بعض الأشياء، إذا عرفتها قبل وقتها، ستبحثين عن إجابة لها بدل أن تعيشيها.
 </div>
 
 <p>
@@ -1347,18 +1385,18 @@ body::before {
 </p>
 
 <div class="dialogue masked">
-    <span class="dialogue-name">الرجل المقنّع</span>
-    أعرف عنك أكثر مما ينبغي.
+<span class="dialogue-name">الفارس المقنّع</span>
+أعرف عنك أكثر مما ينبغي.
 </div>
 
 <div class="dialogue hero">
-    <span class="dialogue-name">أنا</span>
-    كيف؟
+<span class="dialogue-name">أنا</span>
+كيف؟
 </div>
 
 <div class="dialogue masked">
-    <span class="dialogue-name">الرجل المقنّع</span>
-    في عالمك، نعم.
+<span class="dialogue-name">الفارس المقنّع</span>
+في عالمك، نعم.
 </div>
 
 <p>
@@ -1366,8 +1404,8 @@ body::before {
 </p>
 
 <div class="dialogue masked">
-    <span class="dialogue-name">الرجل المقنّع</span>
-    لكن هذه ليست المرة الأولى التي تأتين فيها إلى هنا.
+<span class="dialogue-name">الفارس المقنّع</span>
+لكن هذه ليست المرة الأولى التي تأتين فيها إلى هنا.
 </div>
 
 <p>
@@ -1383,8 +1421,8 @@ body::before {
 </p>
 
 <div class="dialogue hero">
-    <span class="dialogue-name">أنا</span>
-    أريد أن أرجع إلى الاستقبال.
+<span class="dialogue-name">أنا</span>
+أريد أن أرجع إلى الاستقبال.
 </div>
 
 <p>
@@ -1392,8 +1430,8 @@ body::before {
 </p>
 
 <div class="dialogue masked">
-    <span class="dialogue-name">الرجل المقنّع</span>
-    إذًا أنتِ ما زلتِ تظنين أن الاستقبال هو مكانك.
+<span class="dialogue-name">الفارس المقنّع</span>
+إذًا أنتِ ما زلتِ تظنين أن الاستقبال هو مكانك.
 </div>
 
 <p>
@@ -1401,13 +1439,9 @@ body::before {
 </p>
 
 <div class="dialogue masked">
-    <span class="dialogue-name">الرجل المقنّع</span>
-    دار المبارزين الذين يعبرون بين العالمين.
+<span class="dialogue-name">الفارس المقنّع</span>
+دار المبارزين الذين يعبرون بين العالمين.
 </div>
-
-<p>
-لم أستطع منع نفسي من النظر إليه.
-</p>
 
 <p>
 كان يشبه المكان الذي أعرفه...
@@ -1415,7 +1449,7 @@ body::before {
 </p>
 
 <p>
-أخرج الرجل المقنّع شيئًا صغيرًا من جيبه.
+أخرج الفارس المقنّع شيئًا صغيرًا من جيبه.
 </p>
 
 <p>
@@ -1432,13 +1466,13 @@ body::before {
 </p>
 
 <div class="dialogue masked">
-    <span class="dialogue-name">الرجل المقنّع</span>
-    هذا العالم لا يفتح أبوابه لأي أحد.
+<span class="dialogue-name">الفارس المقنّع</span>
+هذا العالم لا يفتح أبوابه لأي أحد.
 </div>
 
 <div class="dialogue masked">
-    <span class="dialogue-name">الرجل المقنّع</span>
-    هو يفتحها لمن نسي أنه كان يعرف الطريق.
+<span class="dialogue-name">الفارس المقنّع</span>
+هو يفتحها لمن نسي أنه كان يعرف الطريق.
 </div>
 
 <p>
@@ -1475,7 +1509,7 @@ body::before {
 </p>
 
 <p>
-هذه المرة لم أطلب من الرجل المقنّع تفسيرًا.
+هذه المرة لم أطلب من الفارس المقنّع تفسيرًا.
 </p>
 
 <p>
@@ -1487,15 +1521,17 @@ body::before {
 <div class="choice-area">
 
 <div class="choice-intro">
-    كان أمامي طريقان لمعرفة الحقيقة.
+كان أمامي طريقان لمعرفة الحقيقة.
 </div>
 
-<button class="choice-btn" onclick="choose(2,'chapter5A')">
-    ⚔️ أبحث عن موعد المبارزة وأعرف لماذا كُتب اسمي.
+<button class="choice-btn"
+        onclick="choose(2,'chapter5A','أبحث عن موعد المبارزة وأعرف لماذا كُتب اسمي.')">
+⚔️ أبحث عن موعد المبارزة وأعرف لماذا كُتب اسمي.
 </button>
 
-<button class="choice-btn" onclick="choose(2,'chapter5B')">
-    🕯️ أبحث عن صاحب الإعلان وأسأله عن اسمي.
+<button class="choice-btn"
+        onclick="choose(2,'chapter5B','أبحث عن صاحب الإعلان وأسأله عن اسمي.')">
+🕯️ أبحث عن صاحب الإعلان وأسأله عن اسمي.
 </button>
 
 </div>
@@ -1513,8 +1549,8 @@ body::before {
 <div class="story-container">
 
 <div class="chapter-header">
-    <div class="chapter-number">الفصل الخامس</div>
-    <h2 class="chapter-title">موعد المبارزة</h2>
+<div class="chapter-number">الفصل الخامس</div>
+<h2 class="chapter-title">موعد المبارزة</h2>
 </div>
 
 <div class="story">
@@ -1543,18 +1579,18 @@ body::before {
 </p>
 
 <div class="dialogue old">
-    <span class="dialogue-name">الرجل العجوز</span>
-    الساحة لم تعد موجودة.
+<span class="dialogue-name">الرجل العجوز</span>
+الساحة لم تعد موجودة.
 </div>
 
 <div class="dialogue hero">
-    <span class="dialogue-name">أنا</span>
-    لكنها موجودة في الإعلان.
+<span class="dialogue-name">أنا</span>
+لكنها موجودة في الإعلان.
 </div>
 
 <div class="dialogue old">
-    <span class="dialogue-name">الرجل العجوز</span>
-    بعض الأماكن تختفي من المدينة... لكنها لا تختفي من الحكاية.
+<span class="dialogue-name">الرجل العجوز</span>
+بعض الأماكن تختفي من المدينة... لكنها لا تختفي من الحكاية.
 </div>
 
 <p>
@@ -1562,8 +1598,8 @@ body::before {
 </p>
 
 <div class="dialogue old">
-    <span class="dialogue-name">الرجل العجوز</span>
-    إذا كان اسمك مكتوبًا هناك، فالموعد يعرف طريقه إليك.
+<span class="dialogue-name">الرجل العجوز</span>
+إذا كان اسمك مكتوبًا هناك، فالموعد يعرف طريقه إليك.
 </div>
 
 <p>
@@ -1642,26 +1678,26 @@ body::before {
 </p>
 
 <div class="dialogue hero">
-    <span class="dialogue-name">أنا</span>
-    من أنت؟
+<span class="dialogue-name">أنا</span>
+من أنت؟
 </div>
 
 <div class="dialogue guard">
-    <span class="dialogue-name">الحارس</span>
-    السؤال الحقيقي ليس من أنا.
+<span class="dialogue-name">الحارس</span>
+السؤال الحقيقي ليس من أنا.
 </div>
 
 <div class="dialogue guard">
-    <span class="dialogue-name">الحارس</span>
-    السؤال هو: هل أنتِ مستعدة لمعرفة لماذا كُتب اسمك؟
+<span class="dialogue-name">الحارس</span>
+السؤال هو: هل أنتِ مستعدة لمعرفة لماذا كُتب اسمك؟
 </div>
 
 </div>
 
 <div class="next-wrap">
-    <button class="next-btn" onclick="goTo('chapter6A')">
-        أتابع
-    </button>
+<button class="next-btn" onclick="goTo('chapter6A')">
+أتابع
+</button>
 </div>
 
 </div>
@@ -1677,8 +1713,8 @@ body::before {
 <div class="story-container">
 
 <div class="chapter-header">
-    <div class="chapter-number">الفصل الخامس</div>
-    <h2 class="chapter-title">صاحب الإعلان</h2>
+<div class="chapter-number">الفصل الخامس</div>
+<h2 class="chapter-title">صاحب الإعلان</h2>
 </div>
 
 <div class="story">
@@ -1728,18 +1764,18 @@ body::before {
 </p>
 
 <div class="dialogue watch">
-    <span class="dialogue-name">صاحب الساعات</span>
-    تأخرتِ.
+<span class="dialogue-name">صاحب الساعات</span>
+تأخرتِ.
 </div>
 
 <div class="dialogue hero">
-    <span class="dialogue-name">أنا</span>
-    أنت تعرفني؟
+<span class="dialogue-name">أنا</span>
+أنت تعرفني؟
 </div>
 
 <div class="dialogue watch">
-    <span class="dialogue-name">صاحب الساعات</span>
-    لا.
+<span class="dialogue-name">صاحب الساعات</span>
+لا.
 </div>
 
 <p>
@@ -1747,8 +1783,8 @@ body::before {
 </p>
 
 <div class="dialogue watch">
-    <span class="dialogue-name">صاحب الساعات</span>
-    لكنني أعرف الإعلان.
+<span class="dialogue-name">صاحب الساعات</span>
+لكنني أعرف الإعلان.
 </div>
 
 <p>
@@ -1760,18 +1796,18 @@ body::before {
 </p>
 
 <div class="dialogue watch">
-    <span class="dialogue-name">صاحب الساعات</span>
-    إذًا... هو فعلها مرة أخرى.
+<span class="dialogue-name">صاحب الساعات</span>
+إذًا... هو فعلها مرة أخرى.
 </div>
 
 <div class="dialogue hero">
-    <span class="dialogue-name">أنا</span>
-    من؟
+<span class="dialogue-name">أنا</span>
+من؟
 </div>
 
 <div class="dialogue watch">
-    <span class="dialogue-name">صاحب الساعات</span>
-    الشخص الذي كتب اسمك.
+<span class="dialogue-name">صاحب الساعات</span>
+الشخص الذي كتب اسمك.
 </div>
 
 <p>
@@ -1779,18 +1815,18 @@ body::before {
 </p>
 
 <div class="dialogue hero">
-    <span class="dialogue-name">أنا</span>
-    أين أجده؟
+<span class="dialogue-name">أنا</span>
+أين أجده؟
 </div>
 
 <div class="dialogue watch">
-    <span class="dialogue-name">صاحب الساعات</span>
-    لا تبحثي عنه.
+<span class="dialogue-name">صاحب الساعات</span>
+لا تبحثي عنه.
 </div>
 
 <div class="dialogue watch">
-    <span class="dialogue-name">صاحب الساعات</span>
-    لأنه يبحث عنك.
+<span class="dialogue-name">صاحب الساعات</span>
+لأنه يبحث عنك.
 </div>
 
 <p>
@@ -1835,9 +1871,9 @@ body::before {
 </div>
 
 <div class="next-wrap">
-    <button class="next-btn" onclick="goTo('chapter6B')">
-        أتابع
-    </button>
+<button class="next-btn" onclick="goTo('chapter6B')">
+أتابع
+</button>
 </div>
 
 </div>
@@ -1853,8 +1889,8 @@ body::before {
 <div class="story-container">
 
 <div class="chapter-header">
-    <div class="chapter-number">الفصل السادس</div>
-    <h2 class="chapter-title">الساحة التي لا يصلها ظل</h2>
+<div class="chapter-number">الفصل السادس</div>
+<h2 class="chapter-title">الساحة التي لا يصلها ظل</h2>
 </div>
 
 <div class="story">
@@ -1868,8 +1904,8 @@ body::before {
 </p>
 
 <div class="dialogue guard">
-    <span class="dialogue-name">الحارس</span>
-    السيف يعرف الطريق.
+<span class="dialogue-name">الحارس</span>
+السيف يعرف الطريق.
 </div>
 
 <p>
@@ -1914,8 +1950,8 @@ body::before {
 </p>
 
 <div class="dialogue hero">
-    <span class="dialogue-name">صوتي</span>
-    سأعود.
+<span class="dialogue-name">صوتي</span>
+سأعود.
 </div>
 
 <p>
@@ -1961,9 +1997,9 @@ body::before {
 </div>
 
 <div class="next-wrap">
-    <button class="next-btn" onclick="goTo('chapter7A')">
-        أتابع
-    </button>
+<button class="next-btn" onclick="goTo('chapter7A')">
+أتابع
+</button>
 </div>
 
 </div>
@@ -1979,8 +2015,8 @@ body::before {
 <div class="story-container">
 
 <div class="chapter-header">
-    <div class="chapter-number">الفصل السادس</div>
-    <h2 class="chapter-title">الاسم الآخر</h2>
+<div class="chapter-number">الفصل السادس</div>
+<h2 class="chapter-title">الاسم الآخر</h2>
 </div>
 
 <div class="story">
@@ -2049,67 +2085,106 @@ body::before {
 </p>
 
 <p>
-كانت تقف قرب إحدى النوافذ،
-وفي خصرها سيف.
+كانت تقف داخل غرفة صغيرة،
+تحمل سيفًا عند خصرها.
+</p>
+
+<p>
+رفعت رأسها عندما رأتني.
 </p>
 
 <div class="dialogue girl">
-    <span class="dialogue-name">الفتاة ذات السيف</span>
-    لا تلمسيها.
+<span class="dialogue-name">الفتاة ذات السيف</span>
+لا تحاولي تذكّره.
+</div>
+
+<div class="dialogue hero">
+<span class="dialogue-name">أنا</span>
+من أنتِ؟
+</div>
+
+<div class="dialogue girl">
+<span class="dialogue-name">الفتاة ذات السيف</span>
+الشخص الذي يحمل اسمك الآخر.
 </div>
 
 <p>
-نظرت إليها.
+نظرت إلى الورقة.
 </p>
 
 <div class="dialogue hero">
-    <span class="dialogue-name">أنا</span>
-    هذا اسمي.
+<span class="dialogue-name">أنا</span>
+ما معنى هذا الاسم؟
 </div>
 
 <div class="dialogue girl">
-    <span class="dialogue-name">الفتاة ذات السيف</span>
-    هذا اسمك الآن.
-</div>
-
-<div class="dialogue girl">
-    <span class="dialogue-name">الفتاة ذات السيف</span>
-    لكنه ليس الاسم الذي كُتب في الإعلان.
+<span class="dialogue-name">الفتاة ذات السيف</span>
+هذا هو الاسم الذي عرفتكِ به هذه المدينة.
 </div>
 
 <p>
-أخرجت ورقة.
-</p>
-
-<p>
-كان عليها اسمي...
-والاسم الآخر.
+ثم وضعت يدها على الورقة.
 </p>
 
 <div class="dialogue girl">
-    <span class="dialogue-name">الفتاة ذات السيف</span>
-    إذا أردتِ معرفة صاحب الإعلان،
-    عليك أولًا أن تعرفي من كتب اسمك الآخر.
+<span class="dialogue-name">الفتاة ذات السيف</span>
+والرجل الذي كتب الإعلان يبحث عنك.
 </div>
 
 <p>
-نظرت إلى نهاية الممر.
+نظرت عبر النافذة.
 </p>
 
 <p>
-لم يكن هناك ما يدلني إلى أين أذهب.
+كان رجل يقف في الساحة،
+ويمسك بالإعلان القديم.
 </p>
 
 <p>
-لكنني كنت متأكدة أنني اقتربت.
+وقبل أن أتحرك،
+خرج الفارس المقنّع من ممر جانبي ووصل إلى المكان الذي أقف فيه.
+</p>
+
+<div class="dialogue masked">
+<span class="dialogue-name">الفارس المقنّع</span>
+لا تذهبي إليه.
+</div>
+
+<div class="dialogue hero">
+<span class="dialogue-name">أنا</span>
+لماذا؟
+</div>
+
+<div class="dialogue masked">
+<span class="dialogue-name">الفارس المقنّع</span>
+لأنك إذا قابلته الآن، ستتذكرين الشيء الوحيد الذي حاول هذا العالم كله أن يجعلك تنسينه.
+</div>
+
+<div class="dialogue hero">
+<span class="dialogue-name">أنا</span>
+وما هو؟
+</div>
+
+<div class="dialogue masked">
+<span class="dialogue-name">الفارس المقنّع</span>
+سنصل إلى الساحة أولًا.
+</div>
+
+<p>
+ثم تحرك نحو المخرج،
+وتبعته الفتاة ذات السيف.
+</p>
+
+<p>
+لم أكن أعرف ماذا ينتظرني هناك.
 </p>
 
 </div>
 
 <div class="next-wrap">
-    <button class="next-btn" onclick="goTo('chapter7B')">
-        أتابع
-    </button>
+<button class="next-btn" onclick="goTo('chapter7B')">
+أتابع
+</button>
 </div>
 
 </div>
@@ -2125,27 +2200,22 @@ body::before {
 <div class="story-container">
 
 <div class="chapter-header">
-    <div class="chapter-number">الفصل السابع</div>
-    <h2 class="chapter-title">الشخص الذي يحمل اسمي</h2>
+<div class="chapter-number">الفصل السابع</div>
+<h2 class="chapter-title">الشخص الذي يحمل اسمي</h2>
 </div>
 
 <div class="story">
 
 <p>
-بعد أن غادرت الساحة،
-وجدت نفسي أمام مبنى صغير.
+اتبعت الطريق الذي ظهر لي بعد الساحة.
 </p>
 
 <p>
-لم يكن غريبًا مثل بقية المدينة.
+وصلت إلى مبنى قديم يشبه مكتبًا مهجورًا.
 </p>
 
 <p>
-كان هادئًا.
-</p>
-
-<p>
-وعلى واجهته لوحة تحمل اسمي.
+وعلى لوحته القديمة كان اسمي.
 </p>
 
 <p>
@@ -2153,127 +2223,104 @@ body::before {
 </p>
 
 <p>
-في الداخل كان هناك مكتب،
-وفوقه ورقة تحمل اسمي واسمًا آخر.
+على المكتب كانت هناك أوراق مرتبة بعناية.
 </p>
 
 <p>
-لمست الورقة.
+وفي وسطها ورقة تحمل اسمي،
+وتحته الاسم الآخر.
 </p>
 
 <p>
-وسمعت خطوات تقترب.
+مددت يدي إليها.
 </p>
 
 <p>
-ظهرت فتاة تحمل سيفًا عند خصرها.
+وقبل أن ألمسها،
+دخلت الفتاة ذات السيف من الممر الجانبي.
 </p>
 
 <div class="dialogue girl">
-    <span class="dialogue-name">الفتاة ذات السيف</span>
-    لا تحاولي تذكّره.
+<span class="dialogue-name">الفتاة ذات السيف</span>
+لا تحاولي تذكّره.
 </div>
 
 <div class="dialogue hero">
-    <span class="dialogue-name">أنا</span>
-    ماذا؟
+<span class="dialogue-name">أنا</span>
+لماذا؟
 </div>
 
 <div class="dialogue girl">
-    <span class="dialogue-name">الفتاة ذات السيف</span>
-    الاسم الآخر.
+<span class="dialogue-name">الفتاة ذات السيف</span>
+لأن بعض الذكريات لا تعود كاملة. تعود أولًا على شكل سؤال.
 </div>
 
 <p>
-اقتربت من الورقة.
+أشارت إلى الاسم الآخر.
 </p>
 
 <div class="dialogue girl">
-    <span class="dialogue-name">الفتاة ذات السيف</span>
-    كان هذا هو الاسم الذي كانت المدينة تناديكِ به.
+<span class="dialogue-name">الفتاة ذات السيف</span>
+هذا هو الاسم الذي كانت المدينة تعرفكِ به.
 </div>
 
 <div class="dialogue hero">
-    <span class="dialogue-name">أنا</span>
-    وماذا حدث؟
+<span class="dialogue-name">أنا</span>
+ومن كتب الإعلان؟
 </div>
 
 <div class="dialogue girl">
-    <span class="dialogue-name">الفتاة ذات السيف</span>
-    نسيتِ.
+<span class="dialogue-name">الفتاة ذات السيف</span>
+الرجل الذي يبحث عنك.
 </div>
 
 <p>
-نظرت إليها.
-</p>
-
-<div class="dialogue girl">
-    <span class="dialogue-name">الفتاة ذات السيف</span>
-    والرجل الذي كتب الإعلان هو الذي يبحث عنكِ.
-</div>
-
-<p>
-في الخارج،
-مر شخص يحمل أوراقًا قديمة.
+نظرت من النافذة.
 </p>
 
 <p>
-تبعت حركته بنظري.
+كان الرجل يقف في الساحة ويحمل الإعلان.
 </p>
 
 <p>
-ثم رأيته يحرق نسخة من الإعلان.
+وفي يده ورقة أخرى.
 </p>
 
 <p>
-التفتُّ نحو الفتاة.
+أشعل طرف الإعلان.
+</p>
+
+<p>
+وقبل أن أتحرك نحوه،
+وصل الفارس المقنّع إلى مدخل الغرفة.
 </p>
 
 <div class="dialogue masked">
-    <span class="dialogue-name">الرجل المقنّع</span>
-    لا تذهبي إليه.
-</div>
-
-<p>
-كان يقف عند طرف المكان،
-دون أن أشعر بقدومه.
-</p>
-
-<div class="dialogue hero">
-    <span class="dialogue-name">أنا</span>
-    لماذا؟
-</div>
-
-<div class="dialogue masked">
-    <span class="dialogue-name">الرجل المقنّع</span>
-    لأنك إذا قابلته الآن،
-    ستتذكرين الشيء الوحيد الذي حاول هذا العالم كله أن يجعلك تنسينه.
+<span class="dialogue-name">الفارس المقنّع</span>
+لا تذهبي إليه.
 </div>
 
 <div class="dialogue hero">
-    <span class="dialogue-name">أنا</span>
-    وما هو؟
+<span class="dialogue-name">أنا</span>
+لماذا؟
 </div>
-
-<p>
-لم يجب.
-</p>
-
-<p>
-فقط نظر إلى الساحة البعيدة.
-</p>
 
 <div class="dialogue masked">
-    <span class="dialogue-name">الرجل المقنّع</span>
-    سنصل إلى الساحة أولًا.
+<span class="dialogue-name">الفارس المقنّع</span>
+سنصل إلى الساحة أولًا.
 </div>
+
+<p>
+لم أفهم سبب خوفه.
+لكنني تبعت خطواته.
+</p>
 
 </div>
 
 <div class="next-wrap">
-    <button class="next-btn" onclick="goTo('chapter8')">
-        أتابع
-    </button>
+<button class="next-btn" onclick="goTo('chapter8')">
+أتابع
+</button>
 </div>
 
 </div>
@@ -2289,32 +2336,26 @@ body::before {
 <div class="story-container">
 
 <div class="chapter-header">
-    <div class="chapter-number">الفصل السابع</div>
-    <h2 class="chapter-title">الرسالة التي لم تُرسل</h2>
+<div class="chapter-number">الفصل السابع</div>
+<h2 class="chapter-title">الرسالة التي لم تُرسل</h2>
 </div>
 
 <div class="story">
 
 <p>
-واصلت السير حتى وصلت إلى غرفة صغيرة.
+وصلنا إلى غرفة صغيرة خلف مبنى الاستقبال القديم.
 </p>
 
 <p>
-لم تكن الغرفة غريبة.
+لم تكن هناك أسلحة.
 </p>
 
 <p>
-كان فيها مكتب،
-وكرسي،
-وصندوق خشبي قديم.
+ولا كتب.
 </p>
 
 <p>
-فتحت الصندوق.
-</p>
-
-<p>
-وجدت رسالة.
+فقط مكتب وورقة واحدة.
 </p>
 
 <p class="important center">
@@ -2326,92 +2367,90 @@ body::before {
 </p>
 
 <p>
-قرأت الرسالة مرة أخرى.
+قرأت الجملة أكثر من مرة.
 </p>
 
-<p>
-كانت موقعة باسم لم أعرفه.
-</p>
+<div class="dialogue hero">
+<span class="dialogue-name">أنا</span>
+من كتبها؟
+</div>
 
 <p>
-لكن الفتاة ذات السيف كانت تعرفه.
+دخلت الفتاة ذات السيف من الجهة الأخرى للغرفة.
 </p>
 
 <div class="dialogue girl">
-    <span class="dialogue-name">الفتاة ذات السيف</span>
-    كاتبها هو الشخص الذي تبحثين عنه.
+<span class="dialogue-name">الفتاة ذات السيف</span>
+الشخص الذي تبحثين عنه.
 </div>
 
 <div class="dialogue hero">
-    <span class="dialogue-name">أنا</span>
-    أين هو؟
+<span class="dialogue-name">أنا</span>
+وأين هو؟
 </div>
 
 <div class="dialogue girl">
-    <span class="dialogue-name">الفتاة ذات السيف</span>
-    قريب أكثر مما تظنين.
+<span class="dialogue-name">الفتاة ذات السيف</span>
+في المكان الذي بدأت فيه الحكاية.
 </div>
 
 <p>
-أغلقت الرسالة.
+نظرت من النافذة.
 </p>
 
 <p>
-ثم خرجنا من الغرفة.
+كان الرجل الذي يحمل الإعلان واقفًا في الساحة.
 </p>
 
 <p>
-في الطريق،
-مررنا بالساحة الرئيسية.
+وفي اللحظة نفسها،
+وصل الفارس المقنّع إلى الغرفة.
 </p>
 
-<p>
-كانت المدينة أكثر هدوءًا من قبل.
-</p>
+<div class="dialogue masked">
+<span class="dialogue-name">الفارس المقنّع</span>
+لا تذهبي إليه.
+</div>
 
-<p>
-وعلى برج بعيد بدأت الأجراس تدق.
-</p>
+<div class="dialogue hero">
+<span class="dialogue-name">أنا</span>
+لماذا؟
+</div>
 
-<p class="important center">
-دقّة...
-<br>
-دقّتان...
-<br>
-ثلاث...
-</p>
+<div class="dialogue masked">
+<span class="dialogue-name">الفارس المقنّع</span>
+لأنك إذا قابلته الآن، ستتذكرين الشيء الوحيد الذي حاول هذا العالم كله أن يجعلك تنسينه.
+</div>
 
-<p>
-حتى وصلت إلى سبع دقات.
-</p>
+<div class="dialogue hero">
+<span class="dialogue-name">أنا</span>
+وما هو؟
+</div>
 
-<p>
-نظرت الفتاة إليّ.
-</p>
-
-<div class="dialogue girl">
-    <span class="dialogue-name">الفتاة ذات السيف</span>
-    حان الوقت.
+<div class="dialogue masked">
+<span class="dialogue-name">الفارس المقنّع</span>
+ستعرفين عندما تصلين إلى الساحة.
 </div>
 
 <p>
-لم أسألها عن ماذا.
+بدأت أجراس المدينة تدق.
 </p>
 
 <p>
-كنت أعرف.
+سبع دقات.
 </p>
 
 <p>
-الساحة.
+وفي الدقة الأخيرة،
+تحرك الجميع نحو الساحة.
 </p>
 
 </div>
 
 <div class="next-wrap">
-    <button class="next-btn" onclick="goTo('chapter8')">
-        أتابع
-    </button>
+<button class="next-btn" onclick="goTo('chapter8')">
+أتابع
+</button>
 </div>
 
 </div>
@@ -2427,69 +2466,71 @@ body::before {
 <div class="story-container">
 
 <div class="chapter-header">
-    <div class="chapter-number">الفصل الثامن</div>
-    <h2 class="chapter-title">الساحة التي بدأت فيها الحكاية</h2>
+<div class="chapter-number">الفصل الثامن</div>
+<h2 class="chapter-title">الساحة التي بدأت فيها الحكاية</h2>
 </div>
 
 <div class="story">
 
 <p>
-وصلت إلى الساحة.
+التقيت بالرجل ذي القناع عند مدخل الساحة.
 </p>
 
 <p>
-هذه المرة لم تكن فارغة.
+ولم أكن وحدي.
 </p>
 
 <p>
-كان الرجل المقنّع هناك.
+كانت الفتاة ذات السيف هناك،
+وعلى الطرف الآخر وقف الرجل الذي كتب الإعلان.
 </p>
 
 <p>
-والفتاة ذات السيف.
+للحظة،
+بدا كل شيء وكأنه اكتمل.
 </p>
 
 <p>
-والرجل الذي رأيته قرب الإعلان.
+نظرت إلى الرجل.
 </p>
 
-<p>
-تقدم الرجل خطوة.
-</p>
+<div class="dialogue hero">
+<span class="dialogue-name">أنا</span>
+أنت من كتب اسمي.
+</div>
 
 <div class="dialogue watch">
-    <span class="dialogue-name">صاحب الإعلان</span>
-    نعم.
+<span class="dialogue-name">صاحب الإعلان</span>
+نعم.
 </div>
 
 <div class="dialogue hero">
-    <span class="dialogue-name">أنا</span>
-    أنت كتبت اسمي.
+<span class="dialogue-name">أنا</span>
+لماذا؟
 </div>
 
 <div class="dialogue watch">
-    <span class="dialogue-name">صاحب الإعلان</span>
-    نعم، أنا كتبت اسمك.
+<span class="dialogue-name">صاحب الإعلان</span>
+لأنك طلبتِ مني أن أفعل ذلك.
 </div>
+
+<p>
+صمتُّ.
+</p>
+
+<p>
+نظر إليّ الفارس المقنّع،
+لكنه لم يتدخل.
+</p>
 
 <div class="dialogue hero">
-    <span class="dialogue-name">أنا</span>
-    لماذا؟
+<span class="dialogue-name">أنا</span>
+متى طلبت ذلك؟
 </div>
 
 <div class="dialogue watch">
-    <span class="dialogue-name">صاحب الإعلان</span>
-    لأنك طلبتِ مني أن أفعل ذلك.
-</div>
-
-<div class="dialogue hero">
-    <span class="dialogue-name">أنا</span>
-    متى؟
-</div>
-
-<div class="dialogue watch">
-    <span class="dialogue-name">صاحب الإعلان</span>
-    قبل أن تنسي.
+<span class="dialogue-name">صاحب الإعلان</span>
+قبل أن تنسي.
 </div>
 
 <p>
@@ -2497,92 +2538,31 @@ body::before {
 </p>
 
 <p>
-كان عليها تاريخ لم أعرفه.
+كانت تحمل تاريخًا لا أعرفه.
 </p>
 
 <p>
-وتحت التاريخ توقيع.
+وفي أسفلها توقيع يشبه خط يدي.
 </p>
 
 <p>
-توقيعي.
+حدقت في التوقيع طويلًا.
 </p>
-
-<p>
-شعرت أن شيئًا في داخلي تحرك.
-</p>
-
-<p>
-ليس ذكرى كاملة.
-</p>
-
-<p>
-مجرد إحساس.
-</p>
-
-<p>
-كأنني كنت هنا من قبل.
-</p>
-
-<div class="dialogue masked">
-    <span class="dialogue-name">الرجل المقنّع</span>
-    الآن فهمتِ لماذا كنت أخشى مجيئكِ.
-</div>
-
-<div class="dialogue hero">
-    <span class="dialogue-name">أنا</span>
-    لأنني نسيت؟
-</div>
-
-<div class="dialogue masked">
-    <span class="dialogue-name">الرجل المقنّع</span>
-    لأنكِ تذكرتِ.
-</div>
-
-<p>
-نظرت إلى الفتاة.
-</p>
-
-<p>
-كانت تنظر إليّ بطريقة مختلفة.
-</p>
-
-<p>
-وكأنها لا تنتظر مني سؤالًا.
-</p>
-
-<p>
-بل تنتظر مني أن أعرفه بنفسي.
-</p>
-
-<p class="important center">
-لم أكن أبحث عن إجابة واحدة.
-<br>
-كنت أقترب من ذاكرة واحدة من جهتين.
-</p>
-
-<p>
-وهنا...
-</p>
-
-<p class="important center">
-بدأت الحكاية الحقيقية.
-</p>
-
-</div>
 
 <div class="choice-area">
 
 <div class="choice-intro">
-    الآن، وبعد أن عرفتِ أن الحكاية مرتبطة بكِ، ماذا تفعلين؟
+هذه المرة لم يكن الاختيار عن الطريق... بل عن الطريقة التي أريد بها معرفة الحقيقة.
 </div>
 
-<button class="choice-btn" onclick="choose(3,'chapter9')">
-    🤍 أريد أن أعرف كل شيء، حتى لو كانت الحقيقة مختلفة عما أتوقع.
+<button class="choice-btn"
+onclick="choose(3,'chapter9Read','أقرأ الاسم كاملًا.')">
+أقرأ الاسم كاملًا.
 </button>
 
-<button class="choice-btn" onclick="choose(3,'chapter9')">
-    🌙 أريد أن أعرف فقط ما أحتاج إلى معرفته، دون أن أبحث في كل شيء.
+<button class="choice-btn"
+onclick="choose(3,'chapter9Ask','أطوي الورقة وأسأل صاحب الإعلان عن الحقيقة.')">
+أطوي الورقة وأسأل صاحب الإعلان عن الحقيقة.
 </button>
 
 </div>
@@ -2592,129 +2572,152 @@ body::before {
 
 
 <!-- =====================================================
-     الفصل التاسع
+     الفصل التاسع - اختيار قراءة الاسم
 ===================================================== -->
 
-<section id="chapter9" class="story-page">
+<section id="chapter9Read" class="story-page">
 
 <div class="story-container">
 
 <div class="chapter-header">
-    <div class="chapter-number">الفصل التاسع</div>
-    <h2 class="chapter-title">الفتاة التي تعمل خلف الباب</h2>
+<div class="chapter-number">الفصل التاسع</div>
+<h2 class="chapter-title">الاسم الذي كتبته بيدي</h2>
 </div>
 
 <div class="story">
 
 <p>
-لم نتحرك مباشرة.
+قرأت الاسم كاملًا.
 </p>
 
 <p>
-بقيت للحظات أنظر إلى الورقة.
+وفي اللحظة التي انتهيت فيها منه،
+شعرت بشيء مألوف يمر في ذاكرتي.
 </p>
 
 <p>
-ثم أعادها صاحب الإعلان إلى جيبه.
+لم أتذكر حدثًا كاملًا.
 </p>
 
 <p>
-كان واضحًا أنه لن يعطيني بقية الإجابات بهذه السهولة.
+فقط مكتبًا.
 </p>
 
 <p>
-مشيت مع الفتاة ذات السيف بعيدًا عن الساحة.
+وفتاة تجلس خلفه.
 </p>
 
 <p>
-لم نتحدث في البداية.
+وسيفًا موضوعًا بعيدًا عنها.
 </p>
 
 <p>
-حتى وصلنا إلى مكان هادئ يشبه مكتب استقبال قديم.
+ثم عاد كل شيء إلى مكانه.
 </p>
 
 <p>
-كان كل شيء فيه مألوفًا بشكل مزعج.
+رفعت عيني إلى صاحب الإعلان.
 </p>
 
 <p>
-المكتب.
+لم يعد هناك شيء آخر يمكن إخفاؤه.
 </p>
 
 <p>
-الكرسي.
+كان الطريق الذي سلكته قد أوصلني إلى الإجابة نفسها.
 </p>
 
-<p>
-حتى ترتيب الأشياء.
-</p>
-
-<p>
-وقفت الفتاة خلفه.
-</p>
-
-<div class="dialogue girl">
-    <span class="dialogue-name">الفتاة ذات السيف</span>
-    هنا كنتِ.
-</div>
-
-<div class="dialogue hero">
-    <span class="dialogue-name">أنا</span>
-    أنا؟
-</div>
-
-<div class="dialogue girl">
-    <span class="dialogue-name">الفتاة ذات السيف</span>
-    ليس أنتِ كما أنتِ الآن.
-</div>
-
-<p>
-وضعت يدها على المكتب.
-</p>
-
-<div class="dialogue girl">
-    <span class="dialogue-name">الفتاة ذات السيف</span>
-    أنا الجزء الذي تركتِه هنا.
-</div>
-
-<p>
-لم أفهم.
-</p>
-
-<div class="dialogue girl">
-    <span class="dialogue-name">الفتاة ذات السيف</span>
-    لستُ نسخة منكِ.
-    ولستُ شخصًا آخر تمامًا.
-</div>
-
-<div class="dialogue girl">
-    <span class="dialogue-name">الفتاة ذات السيف</span>
-    أنا ذكرى منكِ.
-</div>
-
-<p>
-شعرت أن الكلمات أثقل من أن أجيب عليها.
-</p>
-
-<p>
-ثم فهمت شيئًا.
-</p>
-
-<p>
-هذا المكان لم يكن مجرد عالم آخر.
-</p>
-
-<p>
-كان يحمل جزءًا من حياتي.
+<p class="important center">
+لم أكن أبحث عن اسمي...
+<br>
+كنت أبحث عن الشخص الذي كنت عليه عندما كتبته.
 </p>
 
 </div>
 
 <div class="next-wrap">
-    <button class="next-btn" onclick="goTo('chapter10')">
-        أتابع
-    </button>
+<button class="next-btn" onclick="goTo('chapter10')">
+أتابع
+</button>
+</div>
+
+</div>
+</section>
+
+
+<!-- =====================================================
+     الفصل التاسع - اختيار السؤال
+===================================================== -->
+
+<section id="chapter9Ask" class="story-page">
+
+<div class="story-container">
+
+<div class="chapter-header">
+<div class="chapter-number">الفصل التاسع</div>
+<h2 class="chapter-title">السؤال الذي بقي</h2>
+</div>
+
+<div class="story">
+
+<p>
+طويت الورقة.
+</p>
+
+<p>
+لم أكن مستعدة لأن أسمح لاسم آخر أن يقرر من أكون.
+</p>
+
+<p>
+نظرت إلى صاحب الإعلان.
+</p>
+
+<div class="dialogue hero">
+<span class="dialogue-name">أنا</span>
+أريد أن أعرف منك أنت.
+</div>
+
+<div class="dialogue watch">
+<span class="dialogue-name">صاحب الإعلان</span>
+إذًا اسألي.
+</div>
+
+<div class="dialogue hero">
+<span class="dialogue-name">أنا</span>
+لماذا كتبت اسمي؟
+</div>
+
+<div class="dialogue watch">
+<span class="dialogue-name">صاحب الإعلان</span>
+لأنك كنتِ تعرفين أنك ستنسين.
+</div>
+
+<p>
+لم تكن الإجابة كاملة.
+</p>
+
+<p>
+لكنها كانت كافية لأفهم شيئًا.
+</p>
+
+<p>
+الذاكرة التي أبحث عنها لم تكن تنتظر أن أعثر عليها.
+</p>
+
+<p>
+كانت تنتظر أن أختار أن أراها.
+</p>
+
+<p class="important center">
+وهذا وحده كان بداية تذكّرها.
+</p>
+
+</div>
+
+<div class="next-wrap">
+<button class="next-btn" onclick="goTo('chapter10')">
+أتابع
+</button>
 </div>
 
 </div>
@@ -2730,112 +2733,66 @@ body::before {
 <div class="story-container">
 
 <div class="chapter-header">
-    <div class="chapter-number">الفصل العاشر</div>
-    <h2 class="chapter-title">السيف الذي لا يُحمل باليد</h2>
+<div class="chapter-number">الفصل العاشر</div>
+<h2 class="chapter-title">السيف الذي لا يُحمل باليد</h2>
 </div>
 
 <div class="story">
 
 <p>
-كان السيف معلقًا على الجدار.
+أخرج الفارس المقنّع سيفه من غمده لأول مرة.
 </p>
 
 <p>
-لم تلمسه الفتاة.
+لم يكن سيفًا عاديًا.
 </p>
 
 <p>
-ولم تطلب مني أن أحمله.
+لمع نصله،
+لكن الضوء لم ينعكس عليه.
 </p>
 
-<div class="dialogue girl">
-    <span class="dialogue-name">الفتاة ذات السيف</span>
-    هذا ليس سيفًا للقتال.
+<div class="dialogue masked">
+<span class="dialogue-name">الفارس المقنّع</span>
+هذا ليس سيفًا للقتال.
 </div>
 
 <div class="dialogue hero">
-    <span class="dialogue-name">أنا</span>
-    إذًا لماذا هو هنا؟
+<span class="dialogue-name">أنا</span>
+إذًا ما فائدته؟
 </div>
 
-<div class="dialogue girl">
-    <span class="dialogue-name">الفتاة ذات السيف</span>
-    لأنه يفصل الحقيقة عن الخوف.
-</div>
-
-<p>
-اقتربت منه.
-</p>
-
-<p>
-كان الضوء ينعكس على نصله.
-</p>
-
-<p>
-لم أشعر بالرغبة في حمله.
-</p>
-
-<p>
-شعرت فقط أنني أريد أن أعرف.
-</p>
-
-<p>
-وضعت يدي قربه.
-</p>
-
-<p>
-وعادت الذكريات.
-</p>
-
-<p>
-مكتب الاستقبال.
-</p>
-
-<p>
-هذا المكان.
-</p>
-
-<p>
-نفسي وأنا أقول:
-</p>
-
-<div class="dialogue hero">
-    <span class="dialogue-name">صوتي القديم</span>
-    سأعود عندما أكون مستعدة.
+<div class="dialogue masked">
+<span class="dialogue-name">الفارس المقنّع</span>
+يفصل الحقيقة عن الخوف.
 </div>
 
 <p>
-ثم اختفت الرؤية.
+نظرت إلى السيف.
 </p>
 
 <p>
-بقيت واقفة.
+كان بإمكاني أن ألمسه.
 </p>
 
 <p>
-لكن هذه المرة،
-لم أشعر بالخوف.
+لكنني لم أكن متأكدة أنني أريد رؤية كل ما يخفيه.
 </p>
-
-<p>
-كنت فقط...
-أريد أن أفهم.
-</p>
-
-</div>
 
 <div class="choice-area">
 
 <div class="choice-intro">
-    الذاكرة فتحت أمامي طريقين.
+كان بإمكاني أن أواجه الذاكرة مباشرة... أو أترك المفتاح يقودني.
 </div>
 
-<button class="choice-btn" onclick="choose(4,'chapter11')">
-    ⚔️ أواجه الذاكرة كاملة ولا أهرب منها.
+<button class="choice-btn"
+onclick="choose(4,'chapter11Sword','أستخدم السيف وأفتح الذاكرة.')">
+⚔️ أستخدم السيف وأفتح الذاكرة.
 </button>
 
-<button class="choice-btn" onclick="choose(4,'chapter11')">
-    🌙 آخذ منها ما أحتاجه فقط، وأترك ما لم يحن وقته.
+<button class="choice-btn"
+onclick="choose(4,'chapter11Key','أترك السيف وأعتمد على المفتاح الذهبي.')">
+🔑 أترك السيف وأعتمد على المفتاح الذهبي.
 </button>
 
 </div>
@@ -2845,94 +2802,136 @@ body::before {
 
 
 <!-- =====================================================
-     الفصل الحادي عشر
+     الفصل الحادي عشر - السيف
 ===================================================== -->
 
-<section id="chapter11" class="story-page">
+<section id="chapter11Sword" class="story-page">
 
 <div class="story-container">
 
 <div class="chapter-header">
-    <div class="chapter-number">الفصل الحادي عشر</div>
-    <h2 class="chapter-title">المكان الذي يشبه حياتي</h2>
+<div class="chapter-number">الفصل الحادي عشر</div>
+<h2 class="chapter-title">الذاكرة التي فُتحت</h2>
 </div>
 
 <div class="story">
 
 <p>
-خرجت من الغرفة.
+وضعت يدي على مقبض السيف.
 </p>
 
 <p>
-وجدت نفسي أمام مبنى يشبه المكان الذي أعمل فيه.
+لم أشعر ببرود المعدن.
 </p>
 
 <p>
-لكنه أقدم.
+شعرت بذكريات.
 </p>
 
 <p>
-كأنني أنظر إلى المكان نفسه من خلال ذاكرة شخص آخر.
+أيامًا عادية.
 </p>
 
 <p>
-دخلت.
+مواقف صغيرة.
 </p>
 
 <p>
-وجدت مكتب الاستقبال.
+ثم رأيت الباب.
 </p>
 
 <p>
-وقفت خلفه.
+وفي كل مرة كنت أمر بجانبه،
+كان هناك شيء خلفه.
 </p>
 
 <p>
-كان كل شيء مألوفًا.
+شيء ينتظر.
 </p>
 
 <p>
-لكن هذه المرة رأيت شيئًا محفورًا على الخشب.
+فتحت عيني.
 </p>
 
 <p class="important center">
-إذا عدتِ يومًا،
+فهمت أن السيف لم يكن يفتح أبوابًا.
 <br>
-لا تعودي لتبقي.
-<br>
-عودي فقط لتعرفي لماذا غادرتِ.
-</p>
-
-<p>
-مررت أصابعي فوق الكلمات.
-</p>
-
-<p>
-كنت أعرف خطي.
-</p>
-
-<p>
-لم أعرف متى كتبته.
-</p>
-
-<p>
-لكنني عرفته.
-</p>
-
-<p>
-في تلك اللحظة فهمت أن الحكاية لم تكن تريد مني أن أعيش في هذا العالم.
-</p>
-
-<p>
-كانت تريد مني فقط أن أتذكر.
+كان يفتح الذاكرة.
 </p>
 
 </div>
 
 <div class="next-wrap">
-    <button class="next-btn" onclick="goTo('chapter12')">
-        أتابع
-    </button>
+<button class="next-btn" onclick="goTo('chapter12')">
+أتابع
+</button>
+</div>
+
+</div>
+</section>
+
+
+<!-- =====================================================
+     الفصل الحادي عشر - المفتاح
+===================================================== -->
+
+<section id="chapter11Key" class="story-page">
+
+<div class="story-container">
+
+<div class="chapter-header">
+<div class="chapter-number">الفصل الحادي عشر</div>
+<h2 class="chapter-title">المفتاح الذي يعرف الطريق</h2>
+</div>
+
+<div class="story">
+
+<p>
+لم ألمس السيف.
+</p>
+
+<p>
+أخرجت المفتاح الذهبي.
+</p>
+
+<p>
+كان هادئًا في يدي،
+كأنه لم يكن مفتاحًا لشيء مادي.
+</p>
+
+<p>
+تذكرت الكلمات التي قالها الفارس المقنّع.
+</p>
+
+<p class="important center">
+هذا العالم لا يفتح أبوابه لأي أحد.
+<br>
+هو يفتحها لمن نسي أنه كان يعرف الطريق.
+</p>
+
+<p>
+فهمت أنني لا أحتاج إلى رؤية كل شيء الآن.
+</p>
+
+<p>
+يكفيني أن أعرف أين أذهب.
+</p>
+
+<p>
+وفي اللحظة التي أعدت فيها المفتاح إلى يدي،
+ظهر أمامي الطريق نفسه.
+</p>
+
+<p class="important center">
+طريق العودة إلى المكان الذي يشبه حياتي.
+</p>
+
+</div>
+
+<div class="next-wrap">
+<button class="next-btn" onclick="goTo('chapter12')">
+أتابع
+</button>
 </div>
 
 </div>
@@ -2948,97 +2947,87 @@ body::before {
 <div class="story-container">
 
 <div class="chapter-header">
-    <div class="chapter-number">الفصل الثاني عشر</div>
-    <h2 class="chapter-title">لماذا أنا؟</h2>
+<div class="chapter-number">الفصل الثاني عشر</div>
+<h2 class="chapter-title">المكان الذي يشبه حياتي</h2>
 </div>
 
 <div class="story">
 
 <p>
-كنت أعتقد أنني وصلت إلى السؤال الأهم.
+مشينا حتى وصلنا إلى مبنى يشبه مكان عملي.
 </p>
 
 <p>
-لماذا أنا؟
+لكن كل شيء فيه كان أقدم.
 </p>
 
 <p>
-لماذا اسمي؟
+نفس المدخل.
 </p>
 
 <p>
-لماذا هذا المكان؟
+نفس المكتب.
 </p>
 
 <p>
-ولماذا الاستقبال؟
+نفس الأصوات القادمة من صالة المبارزة.
 </p>
 
 <p>
-وجدت الرجل المقنّع في نهاية الممر.
+جلست خلف مكتب الاستقبال.
 </p>
 
 <p>
-هذه المرة لم أخف من وجوده.
+ولأول مرة لم أشعر أنني في عالم غريب.
 </p>
+
+<p>
+شعرت أنني عدت إلى مكاني.
+</p>
+
+<p>
+قالت الفتاة ذات السيف:
+</p>
+
+<div class="dialogue girl">
+<span class="dialogue-name">الفتاة ذات السيف</span>
+لهذا السبب كان الاستقبال هو البوابة.
+</div>
 
 <div class="dialogue hero">
-    <span class="dialogue-name">أنا</span>
-    لماذا أنا؟
+<span class="dialogue-name">أنا</span>
+لأنه المكان الذي أستطيع فيه رؤية العالمين؟
+</div>
+
+<div class="dialogue girl">
+<span class="dialogue-name">الفتاة ذات السيف</span>
+لأنه المكان الذي كنتِ فيه عندما اخترتِ أن تتركي هذا العالم.
 </div>
 
 <p>
-نظر إليّ طويلًا.
-</p>
-
-<div class="dialogue masked">
-    <span class="dialogue-name">الرجل المقنّع</span>
-    لأنكِ لم تكوني مجرد شخص يمر من هنا.
-</div>
-
-<div class="dialogue hero">
-    <span class="dialogue-name">أنا</span>
-    ماذا كنت؟
-</div>
-
-<div class="dialogue masked">
-    <span class="dialogue-name">الرجل المقنّع</span>
-    كنتِ الباب.
-</div>
-
-<p>
-سكتُّ.
-</p>
-
-<div class="dialogue masked">
-    <span class="dialogue-name">الرجل المقنّع</span>
-    نقطة الوصل بين عالمين.
-</div>
-
-<p>
-لم أكن مبارزة.
+وضعت يدي على المكتب.
 </p>
 
 <p>
-لم أكن بطلة معركة.
+كان الخشب يحمل خدوشًا صغيرة.
 </p>
 
 <p>
-ولم يكن المطلوب مني أن أقاتل أحدًا.
+تحتها وجدت جملة محفورة بخط يدي:
 </p>
 
 <p class="important center">
-كنت فقط الشخص الذي يستطيع العبور...
+إذا عدت يومًا، لا تعودي لتبقي.
 <br>
-لأنه يعرف العالمين.
+عودي فقط لتعرفي لماذا غادرتِ.
 </p>
 
 </div>
 
 <div class="next-wrap">
-    <button class="next-btn" onclick="goTo('chapter13')">
-        أتابع
-    </button>
+<button class="next-btn" onclick="goTo('chapter13')">
+أتابع
+</button>
 </div>
 
 </div>
@@ -3054,105 +3043,87 @@ body::before {
 <div class="story-container">
 
 <div class="chapter-header">
-    <div class="chapter-number">الفصل الثالث عشر</div>
-    <h2 class="chapter-title">الحكاية التي كانت تنتظرني</h2>
+<div class="chapter-number">الفصل الثالث عشر</div>
+<h2 class="chapter-title">لماذا أنا؟</h2>
 </div>
 
 <div class="story">
 
 <p>
-وجدت الفتاة ذات السيف مرة أخرى.
-</p>
-
-<p>
-لكنها كانت مختلفة.
-</p>
-
-<p>
-أكثر هدوءًا.
-</p>
-
-<p>
-وكأن الوقت الذي انتظرته انتهى.
+كان هذا السؤال الوحيد الذي بقي.
 </p>
 
 <div class="dialogue hero">
-    <span class="dialogue-name">أنا</span>
-    هل ستأتين معي؟
+<span class="dialogue-name">أنا</span>
+لماذا أنا؟
 </div>
 
 <p>
-ابتسمت.
+أجاب الرجل الذي كتب الإعلان:
+</p>
+
+<div class="dialogue watch">
+<span class="dialogue-name">صاحب الإعلان</span>
+لأنك الوحيدة التي تستطيع أن تعيش في العالمين دون أن تحتاج إلى أن تختار أحدهما.
+</div>
+
+<div class="dialogue hero">
+<span class="dialogue-name">أنا</span>
+لكنني لست مبارزة.
+</div>
+
+<div class="dialogue watch">
+<span class="dialogue-name">صاحب الإعلان</span>
+لم نطلب منك أن تكوني.
+</div>
+
+<div class="dialogue hero">
+<span class="dialogue-name">أنا</span>
+إذًا ماذا أكون؟
+</div>
+
+<p>
+نظرت إليّ الفتاة ذات السيف.
 </p>
 
 <div class="dialogue girl">
-    <span class="dialogue-name">الفتاة ذات السيف</span>
-    أنا أصلًا معكِ.
+<span class="dialogue-name">الفتاة ذات السيف</span>
+الباب.
 </div>
 
 <p>
 لم أفهم.
 </p>
 
-<div class="dialogue girl">
-    <span class="dialogue-name">الفتاة ذات السيف</span>
-    لن أختفي.
-</div>
-
-<div class="dialogue girl">
-    <span class="dialogue-name">الفتاة ذات السيف</span>
-    سأعود فقط إلى المكان الذي تركتِني فيه.
-</div>
-
 <p>
-بدأت ملامحها تصبح أخف.
+قال الفارس المقنّع:
 </p>
 
-<p>
-لم أشعر بالحزن.
-</p>
-
-<p>
-كنت أعرف أنها لا تموت.
-</p>
-
-<p>
-هي فقط...
-تعود إلى مكانها.
-</p>
-
-<p>
-إلى الذاكرة.
-</p>
-
-<div class="dialogue girl">
-    <span class="dialogue-name">الفتاة ذات السيف</span>
-    الحكايات لا تنتهي حين تغلقين الصفحة.
-</div>
-
-<div class="dialogue girl">
-    <span class="dialogue-name">الفتاة ذات السيف</span>
-    أحيانًا، هي فقط تنتظر أن تعيشي الصفحة التالية.
+<div class="dialogue masked">
+<span class="dialogue-name">الفارس المقنّع</span>
+هناك أشخاص يقاتلون بالسيوف، وأشخاص يحرسون الأبواب، وأشخاص يعبرونها. أنتِ كنتِ دائمًا بين هذه الأشياء.
 </div>
 
 <p>
-ثم اختفت.
+عندها أدركت أن كل ما ظننته عاديًا في عملي كان جزءًا من الحكاية.
 </p>
 
 <p>
-وبقيت وحدي.
+لم يكن الاستقبال مجرد مكان أقف فيه.
 </p>
 
 <p>
-لكنني لم أعد أشعر أنني وحدي فعلًا.
+كان المكان الذي تعلّمت فيه كيف أرى من يأتي،
+ومن يغادر،
+ومن يحتاج إلى طريق.
 </p>
 
 </div>
 
 <div class="next-wrap">
-    <button class="next-btn" onclick="goTo('chapter14')">
-        أتابع
-    </button>
+<button class="next-btn" onclick="goTo('chapter14')">
+أتابع
+</button>
 </div>
 
 </div>
@@ -3168,73 +3139,86 @@ body::before {
 <div class="story-container">
 
 <div class="chapter-header">
-    <div class="chapter-number">الفصل الرابع عشر</div>
-    <h2 class="chapter-title">حين بدأ العالمان بالاختلاط</h2>
+<div class="chapter-number">الفصل الرابع عشر</div>
+<h2 class="chapter-title">الحكاية التي كانت تنتظرني</h2>
 </div>
 
 <div class="story">
 
 <p>
-لم أعرف متى بدأ التغير.
+أعطاني الرجل ورقة الإعلان للمرة الأخيرة.
 </p>
 
 <p>
-لكن المدينة لم تعد تبدو بعيدة كما كانت.
+هذه المرة لم يكن عليها اسمي.
 </p>
 
 <p>
-كنت أرى أشياء من عالمي هنا.
+كان المكان فارغًا.
+</p>
+
+<div class="dialogue hero">
+<span class="dialogue-name">أنا</span>
+أين اسمي؟
+</div>
+
+<div class="dialogue watch">
+<span class="dialogue-name">صاحب الإعلان</span>
+لم يعد يحتاج إلى أن يكون مكتوبًا.
+</div>
+
+<div class="dialogue hero">
+<span class="dialogue-name">أنا</span>
+لماذا؟
+</div>
+
+<div class="dialogue watch">
+<span class="dialogue-name">صاحب الإعلان</span>
+لأنك تذكرتِ الطريق.
+</div>
+
+<p>
+نظرت إلى الفتاة.
 </p>
 
 <p>
-وأرى أشياء من هذا العالم في ذاكرتي.
+بدأت ملامحها تتلاشى ببطء.
 </p>
 
-<p>
-صوت السيوف أصبح يشبه أصواتًا أعرفها.
-</p>
+<div class="dialogue hero">
+<span class="dialogue-name">أنا</span>
+هل ستختفين؟
+</div>
+
+<div class="dialogue girl">
+<span class="dialogue-name">الفتاة ذات السيف</span>
+أنا لا أختفي. أنا أعود إلى المكان الذي تركتِني فيه.
+</div>
 
 <p>
-والشوارع بدأت تبدو أقل غرابة.
+ثم نظرت إلى مكتب الاستقبال.
 </p>
 
-<p>
-حتى الهواء...
-</p>
+<div class="dialogue girl">
+<span class="dialogue-name">الفتاة ذات السيف</span>
+حين تعودين إلى عالمك، ستظنين أن كل شيء انتهى.
+</div>
 
 <p>
-كان يحمل إحساس المكان الذي أعرفه.
+ابتسمت.
 </p>
 
-<p>
-فهمت عندها أن الحدود لم تكن بين عالمين فقط.
-</p>
-
-<p>
-كانت بين ما أعيشه الآن،
-وما تركته خلفي.
-</p>
-
-<p>
-وكان عليّ أن أقرر ماذا أفعل بالاثنين.
-</p>
+<div class="dialogue girl">
+<span class="dialogue-name">الفتاة ذات السيف</span>
+لكنه لن ينتهي. فقط سيتوقف عن الظهور بالطريقة نفسها.
+</div>
 
 </div>
 
-<div class="choice-area">
-
-<div class="choice-intro">
-    لم يكن المطلوب مني اختيار عالم على حساب الآخر.
-</div>
-
-<button class="choice-btn" onclick="choose(5,'chapter15')">
-    🤍 أتمسك بما أعرفه، وأعود إلى حياتي دون أن أنكر ما رأيته.
+<div class="next-wrap">
+<button class="next-btn" onclick="goTo('chapter15')">
+أتابع
 </button>
-
-<button class="choice-btn" onclick="choose(5,'chapter15')">
-    ⚔️ أواجه كل ما ظهر أمامي، وأعرف الحقيقة حتى نهايتها.
-</button>
-
 </div>
 
 </div>
@@ -3250,103 +3234,83 @@ body::before {
 <div class="story-container">
 
 <div class="chapter-header">
-    <div class="chapter-number">الفصل الخامس عشر</div>
-    <h2 class="chapter-title">آخر مواجهة</h2>
+<div class="chapter-number">الفصل الخامس عشر</div>
+<h2 class="chapter-title">حين بدأ العالمان بالاختلاط</h2>
 </div>
 
 <div class="story">
 
 <p>
-كنت أتوقع أن تكون المواجهة الأخيرة مع شخص.
+بدأت الأشياء تتغير.
 </p>
 
 <p>
-رجل.
+لم تعد المدينة منفصلة عن عالمي.
 </p>
 
 <p>
-مبارز.
+صوت السيوف صار يشبه أصواتًا أعرفها.
 </p>
 
 <p>
-شيء يجب أن أقاتله.
+الساعات أصبحت تدق في الوقت نفسه.
 </p>
 
 <p>
-لكن لم يحدث شيء من ذلك.
+حتى الأماكن التي لم أعرفها بدأت تشبه أماكن من حياتي.
 </p>
 
 <p>
-وجدت الساحة مرة أخرى.
+قال الفارس المقنّع:
 </p>
 
-<p>
-وكان السيف في المنتصف.
-</p>
-
-<p>
-هذه المرة لم أقترب منه.
-</p>
-
-<p>
-فقط وقفت أمامه.
-</p>
-
-<p>
-وفهمت.
-</p>
-
-<p>
-المواجهة لم تكن مع أحد.
-</p>
-
-<p>
-كانت مع السؤال الذي حملته معي طوال الوقت:
-</p>
-
-<p class="important center">
-هل أحتاج أن أعرف كل شيء؟
-</p>
-
-<p>
-الإجابة كانت لا.
-</p>
-
-<p>
-بعض الأشياء تحتاج أن تُفهم.
-</p>
-
-<p>
-وبعضها تحتاج فقط أن تُقبل.
-</p>
-
-<p>
-رفعت عيني عن السيف.
-</p>
-
-<p>
-لأول مرة منذ بدأت الحكاية،
-لم أبحث عن شيء خلفه.
-</p>
-
-<p>
-كنت أعرف أنني وجدت ما جئت لأجده.
-</p>
-
+<div class="dialogue masked">
+<span class="dialogue-name">الفارس المقنّع</span>
+الحدود بين العالمين بدأت تختفي.
 </div>
+
+<div class="dialogue hero">
+<span class="dialogue-name">أنا</span>
+وهل هذا سيئ؟
+</div>
+
+<div class="dialogue masked">
+<span class="dialogue-name">الفارس المقنّع</span>
+ليس بالضرورة.
+</div>
+
+<div class="dialogue hero">
+<span class="dialogue-name">أنا</span>
+إذًا لماذا يبدو الجميع خائفًا؟
+</div>
+
+<div class="dialogue masked">
+<span class="dialogue-name">الفارس المقنّع</span>
+لأن الناس يخافون من الأشياء التي تجعلهم يرون أنفسهم بوضوح.
+</div>
+
+<p>
+نظرت إلى المفتاح في يدي.
+</p>
+
+<p>
+ثم إلى المدينة.
+</p>
 
 <div class="choice-area">
 
 <div class="choice-intro">
-    وفي اللحظة الأخيرة، كان عليّ أن أختار ماذا أحمل معي.
+كان عليّ أن أقرر ما الذي أريد أن أحمله معي.
 </div>
 
-<button class="choice-btn" onclick="choose(6,'chapter16')">
-    🌙 أحمل معي ما فهمته، وأترك الخوف خلفي.
+<button class="choice-btn"
+onclick="choose(5,'chapter16Memory','أحتفظ بذاكرة هذا العالم.')">
+🌙 أحتفظ بذاكرة هذا العالم.
 </button>
 
-<button class="choice-btn" onclick="choose(6,'chapter16')">
-    ⚔️ أحمل معي كل ذكرى أستطيع، حتى لا أنسى مرة أخرى.
+<button class="choice-btn"
+onclick="choose(5,'chapter16Life','أتمسك بذاكرة حياتي وأترك الخوف هنا.')">
+✨ أتمسك بذاكرة حياتي وأترك الخوف هنا.
 </button>
 
 </div>
@@ -3356,106 +3320,99 @@ body::before {
 
 
 <!-- =====================================================
-     الفصل السادس عشر
+     الفصل السادس عشر - ذاكرة العالم
 ===================================================== -->
 
-<section id="chapter16" class="story-page">
+<section id="chapter16Memory" class="story-page">
 
 <div class="story-container">
 
 <div class="chapter-header">
-    <div class="chapter-number">الفصل السادس عشر</div>
-    <h2 class="chapter-title">الباب الذي لا يُفتح إلا مرة</h2>
+<div class="chapter-number">الفصل السادس عشر</div>
+<h2 class="chapter-title">ما سأحمله معي</h2>
 </div>
 
 <div class="story">
 
 <p>
-عدت إلى المكان الذي بدأت منه الحكاية.
+اخترت ألا أنكر ما رأيته.
 </p>
 
 <p>
-كان الباب هناك.
+لن أحمل كل التفاصيل.
 </p>
 
 <p>
-نفس الرمز.
+لكنني لن أتعامل مع هذه المدينة كأنها لم تكن موجودة.
 </p>
 
 <p>
-السيفان المتقاطعان.
+كانت جزءًا مني.
 </p>
 
 <p>
-وضعت المفتاح الذهبي في مكانه.
+وربما لهذا السبب كنت أشعر بها قبل أن أعرف اسمها.
 </p>
 
-<p>
-دار المفتاح بسهولة،
-كأنه كان ينتظر يدي منذ زمن.
-</p>
-
-<p>
-فتحت الباب.
-</p>
-
-<p>
-لم يكن خلفه عالم آخر هذه المرة.
-</p>
-
-<p>
-كان هناك ضوء أعرفه.
-</p>
-
-<p>
-وصوت مألوف.
-</p>
-
-<div class="dialogue masked">
-    <span class="dialogue-name">الرجل المقنّع</span>
-    لا تنسي.
-</div>
-
-<p>
-نظرت إلى الخلف.
-</p>
-
-<p>
-لم أر وجهه.
-</p>
-
-<p>
-لكنني ابتسمت.
-</p>
-
-<div class="dialogue hero">
-    <span class="dialogue-name">أنا</span>
-    لن أنسى.
-</div>
-
-<p>
-ثم عبرت.
-</p>
-
-<p>
-وأغلق الباب خلفي.
-</p>
-
-<p>
-هذه المرة...
-لم أشعر أنني أفقد شيئًا.
-</p>
-
-<p>
-شعرت أنني أعود.
+<p class="important center">
+بعض الذكريات لا تحتاج أن تعيش في الماضي.
+<br>
+يكفي أن تعرفي أنها كانت حقيقية.
 </p>
 
 </div>
 
 <div class="next-wrap">
-    <button class="next-btn" onclick="goTo('chapter17')">
-        أتابع
-    </button>
+<button class="next-btn" onclick="goTo('chapter17')">
+أتابع
+</button>
+</div>
+
+</div>
+</section>
+
+
+<!-- =====================================================
+     الفصل السادس عشر - الحياة
+===================================================== -->
+
+<section id="chapter16Life" class="story-page">
+
+<div class="story-container">
+
+<div class="chapter-header">
+<div class="chapter-number">الفصل السادس عشر</div>
+<h2 class="chapter-title">ما سأتركه خلفي</h2>
+</div>
+
+<div class="story">
+
+<p>
+اخترت ألا أحمل الخوف معي.
+</p>
+
+<p>
+يمكنني أن أعرف أن هذا العالم موجود،
+دون أن أعيش داخله إلى الأبد.
+</p>
+
+<p>
+يمكنني أن أتذكر،
+دون أن أعود إلى كل شيء.
+</p>
+
+<p class="important center">
+لم يكن المطلوب أن أختار عالمًا.
+<br>
+كان المطلوب أن أعرف أنني أستطيع العودة إلى نفسي.
+</p>
+
+</div>
+
+<div class="next-wrap">
+<button class="next-btn" onclick="goTo('chapter17')">
+أتابع
+</button>
 </div>
 
 </div>
@@ -3471,11 +3428,381 @@ body::before {
 <div class="story-container">
 
 <div class="chapter-header">
-    <div class="chapter-number">الفصل السابع عشر</div>
-    <h2 class="chapter-title">خلف مكتب الاستقبال</h2>
+<div class="chapter-number">الفصل السابع عشر</div>
+<h2 class="chapter-title">آخر مواجهة</h2>
 </div>
 
 <div class="story">
+
+<p>
+وقف الرجل الذي كتب الإعلان أمام الباب.
+</p>
+
+<p>
+هذه المرة لم يحمل ورقة.
+</p>
+
+<p>
+حمل سيفًا.
+</p>
+
+<div class="dialogue watch">
+<span class="dialogue-name">صاحب الإعلان</span>
+لن تستطيعين العودة حتى تختاري.
+</div>
+
+<div class="dialogue hero">
+<span class="dialogue-name">أنا</span>
+بين ماذا؟
+</div>
+
+<div class="dialogue watch">
+<span class="dialogue-name">صاحب الإعلان</span>
+بين أن تعرفي كل شيء، أو أن تتركي بعض الأشياء مجهولة.
+</div>
+
+<p>
+نظرت إلى الفارس المقنّع.
+</p>
+
+<p>
+ثم إلى الفتاة.
+</p>
+
+<p>
+ثم إلى الباب.
+</p>
+
+<div class="choice-area">
+
+<div class="choice-intro">
+لم تعد المسألة معرفة كل شيء... بل معرفة ما يكفيني.
+</div>
+
+<button class="choice-btn"
+onclick="choose(6,'chapter18Truth','أواجه الحقيقة الآن، مهما كانت.')">
+⚔️ أواجه الحقيقة الآن، مهما كانت.
+</button>
+
+<button class="choice-btn"
+onclick="choose(6,'chapter18Enough','أختار أن أعرف ما يكفيني فقط.')">
+🌙 أختار أن أعرف ما يكفيني فقط.
+</button>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- =====================================================
+     الفصل الثامن عشر - الحقيقة
+===================================================== -->
+
+<section id="chapter18Truth" class="story-page">
+
+<div class="story-container">
+
+<div class="chapter-header">
+<div class="chapter-number">الفصل الثامن عشر</div>
+<h2 class="chapter-title">الباب الذي لا يُفتح إلا مرة</h2>
+</div>
+
+<div class="story">
+
+<p>
+اخترت أن أعرف.
+</p>
+
+<p>
+نظر الرجل إلى الفارس المقنّع،
+ثم أعاد السيف إلى غمده.
+</p>
+
+<div class="dialogue watch">
+<span class="dialogue-name">صاحب الإعلان</span>
+الحقيقة ليست أن هذا العالم كان ينتظركِ.
+</div>
+
+<p>
+توقف.
+</p>
+
+<div class="dialogue watch">
+<span class="dialogue-name">صاحب الإعلان</span>
+الحقيقة أنكِ كنتِ تعرفين طريقه، ثم اخترتِ أن تنسيه.
+</div>
+
+<p>
+لم أشعر بالخوف.
+</p>
+
+<p>
+شعرت بشيء يشبه الراحة.
+</p>
+
+<p>
+وصلت إلى الباب الأخير.
+</p>
+
+<p>
+كان أصغر من الباب الأول.
+</p>
+
+<p>
+لكنني عرفته فورًا.
+</p>
+
+<p>
+مددت يدي.
+</p>
+
+<div class="dialogue masked">
+<span class="dialogue-name">الفارس المقنّع</span>
+إذا فتحته، ستعودين.
+</div>
+
+<div class="dialogue hero">
+<span class="dialogue-name">أنا</span>
+وهل أستطيع العودة مرة أخرى؟
+</div>
+
+<div class="dialogue masked">
+<span class="dialogue-name">الفارس المقنّع</span>
+ليس بالطريقة نفسها.
+</div>
+
+<p>
+نظرت إلى المدينة.
+</p>
+
+<p>
+إلى الفتاة التي بدأت تختفي.
+</p>
+
+<p>
+إلى الرجل الذي كتب الإعلان.
+</p>
+
+<p>
+ثم إلى المفتاح الذهبي.
+</p>
+
+<p>
+فتحت الباب.
+</p>
+
+<p>
+لم يكن خلفه ضباب.
+</p>
+
+<p>
+كان خلفه الاستقبال.
+</p>
+
+<p>
+مكاني الحقيقي.
+</p>
+
+<p>
+نفس المكتب.
+</p>
+
+<p>
+نفس الضوء.
+</p>
+
+<p>
+نفس الأصوات.
+</p>
+
+<p>
+لكن قبل أن أعبر،
+سمعت صوت الفتاة:
+</p>
+
+<div class="dialogue girl">
+<span class="dialogue-name">الفتاة ذات السيف</span>
+لا تنسي.
+</div>
+
+<div class="dialogue hero">
+<span class="dialogue-name">أنا</span>
+لن أنسى.
+</div>
+
+<p>
+ثم عبرت.
+</p>
+
+</div>
+
+<div class="next-wrap">
+<button class="next-btn" onclick="goTo('realEnding')">
+أكمل
+</button>
+</div>
+
+</div>
+</section>
+
+
+<!-- =====================================================
+     الفصل الثامن عشر - ما يكفيني
+===================================================== -->
+
+<section id="chapter18Enough" class="story-page">
+
+<div class="story-container">
+
+<div class="chapter-header">
+<div class="chapter-number">الفصل الثامن عشر</div>
+<h2 class="chapter-title">الباب الذي لا يُفتح إلا مرة</h2>
+</div>
+
+<div class="story">
+
+<p>
+لم أكن بحاجة إلى معرفة كل شيء.
+</p>
+
+<p>
+ربما كانت بعض الأبواب موجودة فقط لتخبرنا أننا نستطيع فتحها.
+</p>
+
+<p>
+وليس لكي نبقى خلفها.
+</p>
+
+<p>
+أنزل الرجل سيفه.
+</p>
+
+<div class="dialogue watch">
+<span class="dialogue-name">صاحب الإعلان</span>
+إذًا انتهت المبارزة.
+</div>
+
+<p>
+لم تكن هناك ضربة واحدة.
+</p>
+
+<p>
+لم يكن هناك فائز.
+</p>
+
+<p>
+لأن المواجهة الحقيقية لم تكن بيني وبينه.
+</p>
+
+<p>
+كانت بين الشخص الذي ظننته أنني يجب أن أكونه،
+والشخص الذي أصبحت عليه.
+</p>
+
+<p>
+وصلت إلى الباب الأخير.
+</p>
+
+<p>
+كان أصغر من الباب الأول.
+</p>
+
+<p>
+لكنني عرفته فورًا.
+</p>
+
+<p>
+مددت يدي.
+</p>
+
+<div class="dialogue masked">
+<span class="dialogue-name">الفارس المقنّع</span>
+إذا فتحته، ستعودين.
+</div>
+
+<div class="dialogue hero">
+<span class="dialogue-name">أنا</span>
+وهل أستطيع العودة مرة أخرى؟
+</div>
+
+<div class="dialogue masked">
+<span class="dialogue-name">الفارس المقنّع</span>
+ليس بالطريقة نفسها.
+</div>
+
+<p>
+فتحت الباب.
+</p>
+
+<p>
+لم يكن خلفه ضباب.
+</p>
+
+<p>
+كان خلفه الاستقبال.
+</p>
+
+<p>
+مكاني الحقيقي.
+</p>
+
+<p>
+نفس المكتب.
+</p>
+
+<p>
+نفس الضوء.
+</p>
+
+<p>
+نفس الأصوات.
+</p>
+
+<p>
+وقبل أن أعبر،
+سمعت صوت الفتاة:
+</p>
+
+<div class="dialogue girl">
+<span class="dialogue-name">الفتاة ذات السيف</span>
+لا تنسي.
+</div>
+
+<div class="dialogue hero">
+<span class="dialogue-name">أنا</span>
+لن أنسى.
+</div>
+
+<p>
+ثم عبرت.
+</p>
+
+</div>
+
+<div class="next-wrap">
+<button class="next-btn" onclick="goTo('realEnding')">
+أكمل
+</button>
+</div>
+
+</div>
+</section>
+
+
+<!-- =====================================================
+     النهاية الحقيقية
+===================================================== -->
+
+<section id="realEnding" class="ending">
+
+<div class="ending-container">
+
+<h2 class="ending-title">
+خلف مكتب الاستقبال
+</h2>
+
+<div class="real-ending">
 
 <p>
 فتحت عيني.
@@ -3486,87 +3813,59 @@ body::before {
 </p>
 
 <p>
-نفس المكان.
+كل شيء كان طبيعيًا.
 </p>
 
 <p>
-نفس الكرسي.
+صوت السيوف.
 </p>
 
 <p>
-نفس الساعة.
+خطوات الناس.
 </p>
 
 <p>
-نفس الأصوات القادمة من الصالة.
+الأبواب.
 </p>
 
 <p>
-كل شيء طبيعي.
+الضوء.
 </p>
 
 <p>
-كأن شيئًا لم يحدث.
+نظرت إلى الساعة.
 </p>
 
 <p>
-نظرت إلى يدي.
+لم يمر سوى بضع دقائق.
 </p>
 
 <p>
-كان المفتاح الذهبي موجودًا.
+وضعت يدي على المكتب.
 </p>
 
 <p>
-وضعته في درج المكتب.
+لا شيء.
 </p>
 
 <p>
-وأغلقته.
+لا مفتاح.
 </p>
 
 <p>
-لم أخبر أحدًا.
+لا ورقة.
 </p>
 
 <p>
-لم أكن بحاجة إلى ذلك.
+لا أثر للمدينة.
 </p>
 
 <p>
-لأن بعض الحكايات لا تحتاج إلى شاهد.
+ثم سمعت:
 </p>
 
-<p>
-يكفي أن تعرفي أنك عشتِها.
-</p>
-
-<p>
-عدت إلى عملي.
-</p>
-
-<p>
-دخل شخص.
-</p>
-
-<p>
-خرج آخر.
-</p>
-
-<p>
-وعادت الأصوات إلى الصالة.
-</p>
-
-<p>
-ثم...
-</p>
-
-<p class="important center">
-طق...
-<br>
-طق...
-<br>
-طق...
+<p class="gold-line">
+طق... طق... طق.
 </p>
 
 <p>
@@ -3574,281 +3873,87 @@ body::before {
 </p>
 
 <p>
-نظرت إلى الجدار.
-</p>
-
-<p>
-لم يكن هناك شيء.
-</p>
-
-<p>
 ابتسمت.
 </p>
 
 <p>
-هذه المرة...
-كنت أعرف أنني لم أتخيل شيئًا.
-</p>
-
-</div>
-
-<div class="next-wrap">
-    <button class="next-btn" onclick="goTo('chapter18')">
-        الصفحة الأخيرة
-    </button>
-</div>
-
-</div>
-</section>
-
-
-<!-- =====================================================
-     الفصل الثامن عشر
-===================================================== -->
-
-<section id="chapter18" class="story-page">
-
-<div class="story-container">
-
-<div class="chapter-header">
-    <div class="chapter-number">الفصل الثامن عشر</div>
-    <h2 class="chapter-title">الصفحة التي لم تُكتب بعد</h2>
-</div>
-
-<div class="story">
-
-<p>
-مرت الأيام بعد ذلك بشكل طبيعي.
+لم أفتح الباب.
 </p>
 
 <p>
-عدت إلى عملي.
+لم أكن بحاجة إلى ذلك.
 </p>
 
 <p>
-إلى نفس المكتب.
+لأول مرة،
+عرفت أن بعض الأبواب لا تحتاج إلى أن تُفتح حتى تعرف أنها موجودة.
 </p>
 
 <p>
-إلى نفس الباب.
+ومنذ ذلك اليوم،
+لم أعد أرى المكان بالطريقة نفسها.
 </p>
 
 <p>
-إلى نفس الأصوات.
+ما زلت أقف خلف مكتب الاستقبال.
 </p>
 
 <p>
-لكن شيئًا واحدًا تغيّر.
+ما زالت الأيام تمر.
 </p>
 
 <p>
-أنا.
+وما زالت السيوف تتلاقى في الصالة،
+وتعود الأصوات إلى الصمت بعد انتهاء كل جولة.
 </p>
 
 <p>
-لم يعد المكان بالنسبة لي مجرد مكان.
+لكنني أصبحت أعرف أن بين كل يوم عادي وحكاية كاملة،
+هناك لحظة صغيرة لا ينتبه لها أحد.
 </p>
 
 <p>
-صرت ألاحظ الأشياء الصغيرة.
+نظرة.
 </p>
 
 <p>
-اللحظات التي كنت أمر فوقها بسرعة.
+صوت.
 </p>
 
 <p>
-الأصوات التي لم أكن أصغي إليها.
+باب.
 </p>
 
 <p>
-الأيام التي كنت أظن أنها عادية.
+أو حتى سؤال لا نعرف لماذا خطر في أذهاننا.
 </p>
 
 <p>
-ربما لأنني فهمت أخيرًا أن الحكايات لا تبدأ دائمًا بالأشياء الكبيرة.
+وضعت المفتاح الذهبي في درج مكتبي.
 </p>
 
 <p>
-أحيانًا تبدأ من يوم عادي جدًا.
+لم يعد يفتح شيئًا.
 </p>
 
 <p>
-من مكان تعرفينه.
+لكنه بقي هناك.
 </p>
 
 <p>
-من لحظة لا تعتقدين أنها مهمة.
+كتذكير بأن بعض الحكايات لا تنتهي عندما نصل إلى آخر صفحة.
 </p>
 
-<p>
-ثم تكتشفين بعد وقت...
-</p>
-
-<p>
-أنها كانت الصفحة الأولى.
-</p>
-
-<p>
-فتحت درج المكتب.
-</p>
-
-<p>
-كان المفتاح الذهبي هناك.
-</p>
-
-<p>
-أخذته بين يدي للحظة.
-</p>
-
-<p>
-ثم أعدته مكانه.
-</p>
-
-<p>
-لم أعد بحاجة إلى فتح الباب.
-</p>
-
-<p>
-كنت قد فهمت لماذا كان موجودًا.
-</p>
-
-<p>
-الحكاية لم تكن عن عالم آخر.
-</p>
-
-<p>
-ولا عن السيوف.
-</p>
-
-<p>
-ولا عن رجل كتب اسمًا في إعلان.
-</p>
-
-<p>
-كانت عني.
-</p>
-
-<p>
-عن الأشياء التي أتركها خلفي،
-ثم أكتشف بعد وقت أنها كانت جزءًا مني.
-</p>
-
-<p>
-وعن الطريق الذي لا نعرف قيمته إلا بعد أن نمشيه.
-</p>
-
-<p class="important center">
+<p class="gold-line">
 أما هذه الحكاية...
-<br>
+</p>
+
+<p class="gold-line">
 فقد وصلت إلى الصفحة التي لم تُكتب بعد.
 </p>
 
-<p class="important center">
+<p class="gold-line">
 وربما كانت الصفحة التالية تنتظر منكِ أنتِ أن تكتبيها.
-</p>
-
-</div>
-
-<div class="next-wrap">
-    <button class="next-btn" onclick="showEnding()">
-        النهاية
-    </button>
-</div>
-
-</div>
-</section>
-
-
-<!-- =====================================================
-     الختامية الحقيقية للقارئة
-===================================================== -->
-
-<section id="ending" class="ending">
-
-<div class="ending-container">
-
-<div class="ending-title">
-    النهاية
-</div>
-
-<div class="real-ending">
-
-<p>
-وصلتِ إلى آخر صفحة من الحكاية.
-</p>
-
-<p>
-لكن ربما...
-هذه ليست آخر صفحة فعلًا.
-</p>
-
-<p>
-لأن كل ما قرأتِه كان يدور حول شيء واحد:
-أن بعض الأشياء التي نظن أننا تجاوزناها،
-قد تكون فقط تنتظر أن ننظر إليها بطريقة مختلفة.
-</p>
-
-<p>
-قد لا يكون خلف كل باب عالم آخر،
-وقد لا تحمل كل صدفة معنى خفيًا.
-</p>
-
-<p>
-لكن الحياة نفسها مليئة بأبواب صغيرة:
-لحظة قررتِ فيها أن تكملي،
-شخص ترك أثرًا دون أن يعرف،
-مكان اعتدتِ عليه ثم اكتشفتِ أنكِ تغيرتِ داخله،
-أو حتى يوم عادي جدًا...
-لم تعرفي وقتها أنه سيبقى في ذاكرتكِ.
-</p>
-
-<p>
-وهذا هو الشيء الذي أريدكِ أن تأخذيه معكِ من الحكاية:
-</p>
-
-<p class="gold-line">
-لا تستهيني بالصفحات العادية من حياتكِ.
-</p>
-
-<p>
-فربما الصفحة التي تبدو لكِ عادية الآن،
-هي الصفحة التي ستعودين إليها يومًا،
-وتكتشفين أنها كانت بداية شيء جميل.
-</p>
-
-<p>
-وإذا كان هناك شيء لم يحدث بعد،
-أو مكان لم تصليه بعد،
-أو حلم ما زال ينتظر وقته...
-</p>
-
-<p>
-فلا بأس.
-</p>
-
-<p>
-ليست كل الحكايات بحاجة إلى أن تعرف نهايتها من الصفحة الأولى.
-</p>
-
-<p class="gold-line">
-أحيانًا يكفي أن تكملي الطريق.
-</p>
-
-<p>
-وهكذا...
-أغلقتِ الحكاية.
-</p>
-
-<p>
-أما الحياة خارجها،
-فما زالت تكتب صفحاتها.
-</p>
-
-<p class="important center">
-وهذه المرة...
-<br>
-لا أحد يعرف ماذا ستكتبين في الصفحة القادمة.
 </p>
 
 </div>
@@ -3860,68 +3965,59 @@ body::before {
 
 <div class="response-box">
 
-    <div class="response-title">
-        قبل أن تغلقي الصفحة...
-    </div>
+<div class="response-title">
+إن كان هناك شيء واحد تريدين تركه بعد الحكاية...
+</div>
 
-    <div class="response-description">
-        إذا أردتِ، اكتبي شيئًا واحدًا فقط تركته الحكاية في بالك.
-    </div>
+<div class="response-description">
+كلمة، مكان، موقف، سؤال، أو حتى شيء لم تعرفي كيف تقولينه.
+</div>
 
-    <form
-        id="responseForm"
-        action="https://formspree.io/f/xvkgzqog"
-        method="POST"
-    >
+<form id="storyForm">
 
-        <textarea
-            id="readerMessage"
-            name="رسالة القارئة"
-            placeholder="اكتبي ما تريدين..."
-            required
-        ></textarea>
+<textarea
+id="storyResponse"
+name="message"
+placeholder="اكتبي ما تريدين..."
+required></textarea>
 
-        <input type="hidden" name="الاختيار_1" id="choice1">
-        <input type="hidden" name="الاختيار_2" id="choice2">
-        <input type="hidden" name="الاختيار_3" id="choice3">
-        <input type="hidden" name="الاختيار_4" id="choice4">
-        <input type="hidden" name="الاختيار_5" id="choice5">
-        <input type="hidden" name="الاختيار_6" id="choice6">
+<input
+type="hidden"
+name="_subject"
+value="أثر جديد من حكاية ما وراء باب الاستقبال">
 
-        <input
-            type="hidden"
-            name="الصفحة"
-            value="ما وراء باب الاستقبال"
-        >
+<div class="submit-wrap">
 
-        <div class="submit-wrap">
-            <button type="submit" class="submit-btn">
-                أترك أثرًا صغيرًا
-            </button>
-        </div>
+<button
+type="submit"
+id="submitButton"
+class="submit-btn">
+أترك أثرًا صغيرًا
+</button>
 
-    </form>
+</div>
 
-    <div id="finalMessage" class="final-message">
-        وصلت رسالتك.
-        <br>
-        شكرًا لأنكِ تركتِ شيئًا منكِ في الصفحة الأخيرة.
-    </div>
+<div id="finalMessage" class="final-message">
+وصل أثركِ.
+</div>
+
+</form>
 
 </div>
 
 
 <div class="restart-wrap">
 
-    <button class="restart-btn" onclick="restartStory()">
-        إعادة الحكاية من البداية
-    </button>
+<button
+class="restart-btn"
+onclick="restartStory()">
+إعادة الحكاية
+</button>
 
 </div>
 
 </div>
 </section>
-
 
 </div>
 
@@ -3929,158 +4025,98 @@ body::before {
 <script>
 
 /* =========================================
-   حالة القصة
+   الحالة
 ========================================= */
 
-let choices = {
-    1: "",
-    2: "",
-    3: "",
-    4: "",
-    5: "",
-    6: ""
-};
-
-
-/* =========================================
-   قراءة الاختيارات القديمة
-========================================= */
-
-function loadChoices() {
-
-    const saved = localStorage.getItem("mawara_choices");
-
-    if (saved) {
-
-        try {
-            choices = JSON.parse(saved);
-        } catch (e) {
-            choices = {
-                1: "",
-                2: "",
-                3: "",
-                4: "",
-                5: "",
-                6: ""
-            };
-        }
-
-    }
-
-}
-
-
-/* =========================================
-   حفظ الاختيارات
-========================================= */
-
-function saveChoices() {
-
-    localStorage.setItem(
-        "mawara_choices",
-        JSON.stringify(choices)
-    );
-
-}
+let choices = JSON.parse(
+    localStorage.getItem("mawara_choices") || "{}"
+);
 
 
 /* =========================================
    إظهار المقدمة
 ========================================= */
 
-function showIntro() {
+function showIntro(){
 
     document.getElementById("cover").style.display = "none";
 
-    document.getElementById("intro").classList.add("active");
+    document.getElementById("intro")
+        .classList.add("active");
 
-}
-
-
-/* =========================================
-   حركة الباب
-========================================= */
-
-let doorTimer = setTimeout(() => {
-
-    const door = document.getElementById("door");
-    const sound = document.getElementById("doorSound");
-    const startBtn = document.getElementById("startBtn");
-
-    if (!door) return;
-
-    sound.innerHTML = "طق...";
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 
     setTimeout(() => {
 
-        sound.innerHTML = "طق... طق...";
+        const door =
+            document.getElementById("door");
 
-    }, 700);
-
-    setTimeout(() => {
-
-        sound.innerHTML = "طق... طق... طق...";
-
-    }, 1400);
-
-    setTimeout(() => {
+        const sound =
+            document.getElementById("doorSound");
 
         door.classList.add("open");
 
-        sound.innerHTML = "ثم فُتح.";
+        sound.innerText =
+            "وأخيرًا... انفتح الباب.";
 
-    }, 2100);
+        setTimeout(() => {
 
-    setTimeout(() => {
+            document
+                .getElementById("startBtn")
+                .classList.add("show");
 
-        startBtn.classList.add("show");
+        },1200);
 
-    }, 3300);
-
-}, 1600);
-
-
-/* =========================================
-   بدء القصة
-========================================= */
-
-function startStory() {
-
-    document.getElementById("intro").classList.remove("active");
-
-    showPage("chapter1");
-
+    },500);
 }
 
 
 /* =========================================
-   إظهار صفحة
+   بداية الحكاية
 ========================================= */
 
-function showPage(id) {
+function startStory(){
 
-    document.querySelectorAll(".story-page").forEach(page => {
-        page.classList.remove("active");
-    });
+    document
+        .getElementById("intro")
+        .classList.remove("active");
 
-    document.getElementById(id).classList.add("active");
+    goTo("chapter1");
+}
+
+
+/* =========================================
+   الانتقال بين الصفحات
+========================================= */
+
+function goTo(id){
+
+    document
+        .querySelectorAll(".story-page")
+        .forEach(page => {
+
+            page.classList.remove("active");
+
+        });
+
+    document
+        .getElementById("realEnding")
+        .classList.remove("active");
+
+    const target =
+        document.getElementById(id);
+
+    if(!target) return;
+
+    target.classList.add("active");
 
     window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+        top:0,
+        behavior:"smooth"
     });
-
-}
-
-
-/* =========================================
-   الانتقال العادي
-========================================= */
-
-function goTo(id) {
-
-    showPage(id);
-
 }
 
 
@@ -4088,121 +4124,104 @@ function goTo(id) {
    الاختيارات
 ========================================= */
 
-function choose(number, nextPage) {
+function choose(choiceNumber,targetId,choiceText){
 
-    let selectedText = "";
+    choices[choiceNumber] = choiceText;
 
-    const buttons = event.currentTarget.parentElement.querySelectorAll(".choice-btn");
+    localStorage.setItem(
+        "mawara_choices",
+        JSON.stringify(choices)
+    );
 
-    const clickedButton = event.currentTarget;
-
-    selectedText = clickedButton.innerText.trim();
-
-    choices[number] = selectedText;
-
-    saveChoices();
-
-    showPage(nextPage);
-
+    goTo(targetId);
 }
 
 
 /* =========================================
-   عرض النهاية
+   إرسال الرد
 ========================================= */
 
-function showEnding() {
+const storyForm =
+    document.getElementById("storyForm");
 
-    document.querySelectorAll(".story-page").forEach(page => {
-        page.classList.remove("active");
-    });
+const submitButton =
+    document.getElementById("submitButton");
 
-    document.getElementById("ending").classList.add("active");
+const finalMessage =
+    document.getElementById("finalMessage");
 
-    updateFormChoices();
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-
-}
-
-
-/* =========================================
-   إرسال الاختيارات مع الرد
-========================================= */
-
-function updateFormChoices() {
-
-    document.getElementById("choice1").value = choices[1] || "لم يتم تسجيل اختيار";
-    document.getElementById("choice2").value = choices[2] || "لم يتم تسجيل اختيار";
-    document.getElementById("choice3").value = choices[3] || "لم يتم تسجيل اختيار";
-    document.getElementById("choice4").value = choices[4] || "لم يتم تسجيل اختيار";
-    document.getElementById("choice5").value = choices[5] || "لم يتم تسجيل اختيار";
-    document.getElementById("choice6").value = choices[6] || "لم يتم تسجيل اختيار";
-
-}
-
-
-/* =========================================
-   نموذج Formspree
-========================================= */
-
-const responseForm = document.getElementById("responseForm");
-
-responseForm.addEventListener("submit", async function(e) {
+storyForm.addEventListener("submit",async function(e){
 
     e.preventDefault();
 
-    updateFormChoices();
+    const message =
+        document
+        .getElementById("storyResponse")
+        .value
+        .trim();
 
-    const submitButton = responseForm.querySelector(".submit-btn");
+    if(!message){
+        return;
+    }
 
     submitButton.disabled = true;
 
-    submitButton.innerText = "جاري الإرسال...";
+    submitButton.innerText =
+        "يُترك الأثر...";
 
-    try {
+    try{
 
-        const formData = new FormData(responseForm);
-
-        const response = await fetch(
-            responseForm.action,
-            {
-                method: "POST",
-                body: formData,
-                headers: {
-                    "Accept": "application/json"
+        const response =
+            await fetch(
+                "https://formspree.io/f/xvkgzqog",
+                {
+                    method:"POST",
+                    headers:{
+                        "Accept":"application/json",
+                        "Content-Type":"application/json"
+                    },
+                    body:JSON.stringify({
+                        message:message,
+                        _subject:"أثر جديد من حكاية ما وراء باب الاستقبال",
+                        choices:JSON.stringify(choices)
+                    })
                 }
-            }
-        );
+            );
 
-        if (response.ok) {
+        if(response.ok){
 
-            responseForm.style.display = "none";
+            submitButton.innerText =
+                "تم ترك الأثر";
 
             document
-                .getElementById("finalMessage")
-                .classList.add("show");
+                .getElementById("storyResponse")
+                .value = "";
 
-        } else {
+            finalMessage.classList.add("show");
+
+        }else{
 
             submitButton.disabled = false;
 
-            submitButton.innerText = "أترك أثرًا صغيرًا";
+            submitButton.innerText =
+                "أترك أثرًا صغيرًا";
 
-            alert("تعذر إرسال الرسالة. حاولي مرة أخرى.");
+            alert(
+                "تعذر إرسال الرسالة. حاولي مرة أخرى."
+            );
 
         }
 
-    } catch (error) {
+    }catch(error){
 
         submitButton.disabled = false;
 
-        submitButton.innerText = "أترك أثرًا صغيرًا";
+        submitButton.innerText =
+            "أترك أثرًا صغيرًا";
 
-        alert("حدث خطأ أثناء الإرسال. تأكدي من اتصال الإنترنت.");
+        alert(
+            "حدث خطأ أثناء الإرسال. تأكدي من اتصال الإنترنت."
+        );
 
     }
 
@@ -4213,42 +4232,50 @@ responseForm.addEventListener("submit", async function(e) {
    إعادة القصة
 ========================================= */
 
-function restartStory() {
+function restartStory(){
 
     localStorage.removeItem("mawara_choices");
 
-    choices = {
-        1: "",
-        2: "",
-        3: "",
-        4: "",
-        5: "",
-        6: ""
-    };
+    choices = {};
 
-    document.getElementById("ending").classList.remove("active");
+    document
+        .getElementById("realEnding")
+        .classList.remove("active");
 
-    document.querySelectorAll(".story-page").forEach(page => {
-        page.classList.remove("active");
-    });
+    document
+        .querySelectorAll(".story-page")
+        .forEach(page => {
 
-    document.getElementById("intro").classList.remove("active");
+            page.classList.remove("active");
 
-    document.getElementById("cover").style.display = "flex";
+        });
+
+    document
+        .getElementById("intro")
+        .classList.remove("active");
+
+    document
+        .getElementById("door")
+        .classList.remove("open");
+
+    document
+        .getElementById("startBtn")
+        .classList.remove("show");
+
+    document
+        .getElementById("doorSound")
+        .innerText = "...";
+
+    document
+        .getElementById("cover")
+        .style.display = "flex";
 
     window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+        top:0,
+        behavior:"smooth"
     });
 
 }
-
-
-/* =========================================
-   تشغيل الحالة
-========================================= */
-
-loadChoices();
 
 </script>
 
